@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { foHttpService, EmitterService,  Toast } from '../shared';
+import { foHttpService, IResponse, EmitterService,  Toast } from '../shared';
 import { SearchResult } from '../models';
 
 import { Subject } from 'rxjs';
@@ -29,7 +29,7 @@ export class QueryResultService {
 
 
 
-    public searchText$(text: string): Subject<IResult<SearchResult>> {
+    public searchText$(text: string): Subject<IResponse<SearchResult>> {
 
         const urlOptions = this.TEXT_QUERY_URL_OPTIONS(text);
         const httpSubject = this.httpService.get$<SearchResult>(SearchResult, urlOptions);
