@@ -1,0 +1,6 @@
+<mat-card class="my-expansion-panel" [style.background-color]="backgroundColor()">
+    {{ test.op }}:: {{ test.title }}
+    <pre *ngIf="isFailure()">{{ test.expect | json }}</pre>
+    <pre>{{ test.given | json }}</pre>
+    <pre>{{ test.expect | json }}</pre>
+</mat-card>

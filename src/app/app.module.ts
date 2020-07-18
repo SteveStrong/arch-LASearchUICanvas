@@ -36,6 +36,7 @@ import { UsersComponent } from './teams/users.component';
 import { UserComponent } from './teams/user.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ScenesComponent } from './scenes/scenes.component';
+import { SearchAndRenderComponent } from './search-and-render/search-and-render.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ScenesComponent } from './scenes/scenes.component';
     UserComponent,
     DrawingComponent,
     AppComponent,
-    ScenesComponent
+    ScenesComponent,
+    SearchAndRenderComponent
   ],
   imports: [
     MatToolbarModule,

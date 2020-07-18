@@ -1,0 +1,23 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.success {
+    background-color: lightgreen;
+    margin-right:15px;
+}
+
+.failure {
+    background-color: lightsalmon;
+    margin-right:15px;
+}
+
+.total {
+    margin-right:15px;
+}

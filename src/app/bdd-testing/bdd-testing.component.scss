@@ -1,0 +1,14 @@
+@import '../../scss/variables';
+@import '../../scss/pages/signup_page';
+@import '../../scss/components/buttons';
+@import '../../scss/components/alerts';
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
