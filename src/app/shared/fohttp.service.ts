@@ -5,18 +5,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Subject, Observable, of } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 
-import { ModelBase } from '.';
+import { foModelBase, iPayloadWrapper } from '.';
 import { environment } from '../../environments/environment';
 import { Constructable, FuncAny } from '.';
-import { ServiceLocator, ServiceOptions } from './service-locator';
+import { ServiceLocator, ServiceOptions } from './foServiceLocator';
 
-export interface IResponse<T> {
-    dateTime: string;
-    hasError: boolean;
-    length: number;
-    message: string;
+export interface IResponse<T> extends   iPayloadWrapper {
     payload: Array<T>;
-    payloadType?: string;
     metadata?: any;
     error: string;
 }
@@ -27,7 +22,7 @@ export interface IResponse<T> {
 export class foHttpService {
     constructor(private http: HttpClient) {}
 
-    mapToModel<T extends ModelBase>(type: Constructable<T>, payload: Array<any>, func?: FuncAny): Array<T> {
+    mapToModel<T extends foModelBase>(type: Constructable<T>, payload: Array<any>, func?: FuncAny): Array<T> {
         const list = !payload
             ? []
             : payload.map<T>(item => {
@@ -37,16 +32,17 @@ export class foHttpService {
         return list;
     }
 
-    mapSuccessResponse<T extends ModelBase>(type: Constructable<T>, res: IResponse<T>, mapFunc?: FuncAny): Observable<IResponse<T>> {
+    mapSuccessResponse<T extends foModelBase>(type: Constructable<T>, res: IResponse<T>, mapFunc?: FuncAny): Observable<IResponse<T>> {
         res.payload = res.payload ? this.mapToModel<T>(type, res.payload, mapFunc) : [];
         return of<IResponse<T>>(res);
     }
 
     mapErrorResponse<T>(error: HttpErrorResponse): Observable<IResponse<T>> {
-        const formattedError = <IResponse<T>>{
-            dateTime: '',
+        const formattedError = <IResponse<T>><unknown>{
+            dateTime: Date.now(),
             hasError: true,
             length: 0,
+            payloadType: '',
             payload: [],
             message: error.message,
             error: error.error
@@ -68,7 +64,7 @@ export class foHttpService {
         return url;
     }
 
-    public get$<T extends ModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, header?: HttpHeaders, func?: FuncAny): Subject<IResponse<T>> {
+    public get$<T extends foModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, header?: HttpHeaders, func?: FuncAny): Subject<IResponse<T>> {
         const subject = new Subject<IResponse<T>>();
         const url = ServiceLocator.getUrl(serviceOptions);
 
@@ -89,7 +85,7 @@ export class foHttpService {
         return subject;
     }
 
-    public post$<T extends ModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, data: T, func?: FuncAny): Subject<IResponse<T>> {
+    public post$<T extends foModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, data: T, func?: FuncAny): Subject<IResponse<T>> {
         const subject = new Subject<IResponse<T>>();
         const url = ServiceLocator.getUrl(serviceOptions);
 

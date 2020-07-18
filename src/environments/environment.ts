@@ -3,12 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  predictURL: '',
-  libraryURL:'',
-  loginURL: '',
-  localDebug: false,
+  tag: 'development',
+  version: '0.0.0',
   production: false,
-  version: "9.0.0"
+  baseURL: '',
+  rootAPIPath: '',
+  APIVersion: '',
+  localMockPath: '',
+  featureflags: {
+    authenticationService: '',
+    displayBDDtestUI: true,
+    services: {}
+  } as any
 };
 
 /*

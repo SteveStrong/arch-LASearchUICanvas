@@ -1,12 +1,12 @@
 import { async, TestBed, getTestBed } from '@angular/core/testing';
-import { AppHttpService } from '../fohttp.service';
+import { AppHttpService } from '../foHttp.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 
 import { ModelBase } from '..';
 import { environment } from '../../../environments/environment';
-import { ServiceOptions } from '../service-locator';
+import { ServiceOptions } from '../foServiceLocator';
 
 describe('AppHttpService', () => {
     let injector: TestBed;

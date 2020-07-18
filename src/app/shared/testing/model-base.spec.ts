@@ -1,5 +1,5 @@
 import { ModelBase } from '..';
-import { BroadcastTopic } from '../model-base';
+import { BroadcastTopic } from '../foModelBase';
 
 describe('ModelBase', () => {
     it('should create an instance', () => {

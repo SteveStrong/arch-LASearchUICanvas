@@ -19,29 +19,30 @@ export class EmitterService {
   }
 
   static processCommands(target) {
-    let cmd = EmitterService.get('COMMAND');
+    const cmd = EmitterService.get('COMMAND');
 
-    cmd.subscribe(cmd => {
-      const { command, args, source } = cmd;
+    cmd.subscribe(obj => {
+      const { command, args, source } = obj;
       const name = `cmd${command}`;
 
       const funct = target[name];
       if (funct) {
         funct.call(target, args, source);
-        //Toast.success(name);
+        // Toast.success(name);
       } else {
-        //Toast.error(name, 'command not found');
+        // Toast.error(name, 'command not found');
       }
     });
     return cmd;
   }
 
-  static broadcastCommand(source, command: string, args:any=null, callback:any=null) {
+  static broadcastCommand(source, command: string, args: any= null, callback: any= null) {
     const cmd = {
       command,
-      args: args,
-      source: source
+      args,
+      source
     };
+    // tslint:disable-next-line: only-arrow-functions
     setTimeout(function() {
       EmitterService.get('COMMAND').emit(cmd);
       callback && callback();
@@ -79,28 +80,28 @@ class PopupToast {
   error(message: string, title?: string) {
     const toast = {
       title: title || '',
-      message: message
+      message
     };
     EmitterService.get('SHOWERROR').emit(toast);
   }
   warning(message: string, title?: string) {
     const toast = {
       title: title || '',
-      message: message
+      message
     };
     EmitterService.get('SHOWWARNING').emit(toast);
   }
   success(message: string, title?: string) {
     const toast = {
       title: title || '',
-      message: message
+      message
     };
     EmitterService.get('SHOWSUCCESS').emit(toast);
   }
   info(message: string, title?: string) {
     const toast = {
       title: title || '',
-      message: message
+      message
     };
     EmitterService.get('SHOWINFO').emit(toast);
   }

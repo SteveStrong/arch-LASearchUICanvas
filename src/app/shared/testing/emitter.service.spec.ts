@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { EmitterService, Toast } from '../emitter.service';
-import { BroadcastTopic } from '../model-base';
+import { BroadcastTopic } from '../foModelBase';
 
 class LocalTarget {
     doOpen() {

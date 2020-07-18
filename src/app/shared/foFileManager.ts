@@ -4,11 +4,12 @@ import { PubSub } from './foPubSub';
 import { saveAs } from 'file-saver';
 
 // Feature detect + local reference
-export let clientStorage = (function () {
-    let uid = (new Date()).toISOString();
+// tslint:disable-next-line: only-arrow-functions
+export let clientStorage = (function() {
+    const uid = (new Date()).toISOString();
     try {
         localStorage.setItem(uid, uid);
-        let result = localStorage.getItem(uid) === uid;
+        const result = localStorage.getItem(uid) === uid;
         localStorage.removeItem(uid);
         return result && localStorage;
     } catch (exception) { }
@@ -29,12 +30,12 @@ export class fileSpec {
         return `${this.name}${this.ext}`;
     }
 
-    static setFilenameExt(filenameExt: string, defaultExt?: string){
-        let list = filenameExt.split('.');
+    static setFilenameExt(filenameExt: string, defaultExt?: string) {
+        const list = filenameExt.split('.');
         let name: string;
         let ext: string;
 
-        if ( list.length === 1){
+        if ( list.length === 1) {
             name = filenameExt;
             ext = defaultExt;
         } else {
@@ -46,7 +47,7 @@ export class fileSpec {
 }
 
 export class foFileManager {
-    isTesting: boolean = false;
+    isTesting = false;
     files: any = {};
 
     constructor(test: boolean = false) {
@@ -63,9 +64,9 @@ export class foFileManager {
     }
 
     private readBlobFile(file, onComplete: (item: string) => void) {
-        let reader = new FileReader();
+        const reader = new FileReader();
         reader.onload = (evt) => {
-            let payload = evt.target['result'] as string;
+            const payload = evt.target.result as string;
             if (onComplete) {
                 onComplete(payload);
             }
@@ -79,13 +80,13 @@ export class foFileManager {
     }
 
     private readBlobLocal(filenameExt: string, onSuccess?: (item: string) => void, onFail?) {
-        let reader = new FileReader();
-        let blob = this.files[filenameExt];
+        const reader = new FileReader();
+        const blob = this.files[filenameExt];
 
         if (blob) {
             reader.readAsText(blob);
             reader.onload = (evt) => {
-                let result = evt.target['result'] as string;
+                const result = evt.target.result as string;
                 onSuccess && onSuccess(result);
             };
         } else {
@@ -94,9 +95,9 @@ export class foFileManager {
     }
 
     writeTextAsBlob(payload, name: string, ext: string = '.json', onSuccess?: (item: string) => void) {
-        let filenameExt = `${name}${ext}`;
-        let data = Tools.isString(payload) ? payload : JSON.stringify(payload, undefined, 3);
-        let blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+        const filenameExt = `${name}${ext}`;
+        const data = Tools.isString(payload) ? payload : JSON.stringify(payload, undefined, 3);
+        const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
         if (this.isTesting) {
             this.writeBlobLocal(blob, filenameExt, onSuccess);
         } else {
@@ -105,7 +106,7 @@ export class foFileManager {
     }
 
     readTextAsBlob(name: string | File, ext: string = '.json', onSuccess?) {
-        let filenameExt = `${name}${ext}`;
+        const filenameExt = `${name}${ext}`;
         if (this.isTesting) {
             this.readBlobLocal(filenameExt, onSuccess);
         } else {
@@ -145,7 +146,7 @@ export class foFileManager {
 
     writeTextFileAsync(payload, name, ext, onComplete: (item: fileSpec) => void) {
         this.writeTextAsBlob(payload, name, ext);
-        let result = new fileSpec(payload, name, ext);
+        const result = new fileSpec(payload, name, ext);
         onComplete && onComplete(result);
 
         PubSub.Pub('textFileSaved', [result]);
@@ -154,10 +155,10 @@ export class foFileManager {
     readTextFileAsync(file, ext, onComplete: (item: fileSpec) => void) {
         this.readTextAsBlob(file, ext, (payload) => {
 
-            let filename = file.name;
-            let name = filename.replace(ext, '');
+            const filename = file.name;
+            const name = filename.replace(ext, '');
 
-            let result = new fileSpec(payload, name, ext);
+            const result = new fileSpec(payload, name, ext);
 
             onComplete && onComplete(result);
             PubSub.Pub('textFileDropped', [result]);
@@ -165,12 +166,12 @@ export class foFileManager {
     }
 
     readImageFileAsync(file, ext, onComplete: (item: fileSpec) => void) {
-        let reader = new FileReader();
+        const reader = new FileReader();
         reader.onload = (evt) => {
-            let filename = file.name;
-            let name = filename.replace(ext, '');
-            let payload = evt.target['result'];
-            let result = new fileSpec(payload, name, ext);
+            const filename = file.name;
+            const name = filename.replace(ext, '');
+            const payload = evt.target.result;
+            const result = new fileSpec(payload, name, ext);
             onComplete && onComplete(result);
             PubSub.Pub('imageFileDropped', [result]);
         };
@@ -180,26 +181,26 @@ export class foFileManager {
 
     userOpenFileDialog(onComplete: (item: fileSpec) => void, defaultExt: string, defaultValue: string) {
 
-        //http://stackoverflow.com/questions/181214/file-input-accept-attribute-is-it-useful
-        //accept='image/*|audio/*|video/*'
-        let accept = defaultExt || '.knt,.csv';
+        // http://stackoverflow.com/questions/181214/file-input-accept-attribute-is-it-useful
+        // accept='image/*|audio/*|video/*'
+        const accept = defaultExt || '.knt,.csv';
 
-        let fileSelector = document.createElement('input');
+        const fileSelector = document.createElement('input');
         fileSelector.setAttribute('type', 'file');
         fileSelector.setAttribute('accept', accept);
         fileSelector.setAttribute('value', defaultValue);
         fileSelector.setAttribute('style', 'visibility: hidden; width: 0px; height: 0px');
-        //fileSelector.setAttribute('multiple', 'multiple');
+        // fileSelector.setAttribute('multiple', 'multiple');
         document.body.appendChild(fileSelector);
 
         fileSelector.onchange = (event) => {
-            let extensionExtract = /\.[0-9a-z]+$/i;
+            const extensionExtract = /\.[0-9a-z]+$/i;
 
-            let files = fileSelector.files;
-            let count = files.length;
-            let file = count > 0 && files[0];
-            let extension = file ? file.name.match(extensionExtract) : [''];
-            let ext = extension[0];
+            const files = fileSelector.files;
+            const count = files.length;
+            const file = count > 0 && files[0];
+            const extension = file ? file.name.match(extensionExtract) : [''];
+            const ext = extension[0];
             document.body.removeChild(fileSelector);
             if (!file) {
 

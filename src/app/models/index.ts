@@ -9,3 +9,5 @@ export * from './la-user';
 export * from './la-teams';
 export * from './la-caseDirectoryItem';
 
+export * from './search-result';
+

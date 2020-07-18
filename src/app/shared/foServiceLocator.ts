@@ -11,7 +11,8 @@ export interface ServiceOptions {
     forceMock?: boolean;
 }
 
-class ServiceLocatorClass {
+
+class foServiceLocatorClass {
     serviceOptions: ServiceOptions;
 
     protected replaceServicePathTokensWithValues(): string {
@@ -44,4 +45,4 @@ class ServiceLocatorClass {
     }
 }
 
-export const ServiceLocator = new ServiceLocatorClass();
+export const ServiceLocator = new foServiceLocatorClass();

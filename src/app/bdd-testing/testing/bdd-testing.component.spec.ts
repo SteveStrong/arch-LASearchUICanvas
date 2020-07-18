@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BddTestingComponent } from '../bdd-testing.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppHttpService } from '../../shared/fohttp.service';
+import { AppHttpService } from '../../shared/foHttp.service';
 
 import { Matcher, BDDTestResultGroup } from '../matchers';
 import { environment } from '../../../environments/environment';

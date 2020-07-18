@@ -1,6 +1,6 @@
 
 
-export class ModelBase {
+export class foModelBase {
     constructor(properties?: any) {
         if (properties) {
             this.override(properties);
@@ -20,11 +20,7 @@ export class ModelBase {
 
 
 
-export class Topic<T> {
-    
-}
-export class BroadcastTopic {
+export class foTopic<T> {}
 
-    constructor() {}
-}
+export class foBroadcastTopic {}
 

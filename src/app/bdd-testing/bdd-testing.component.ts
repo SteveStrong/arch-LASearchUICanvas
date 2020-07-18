@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppHttpService } from '../shared/fohttp.service';
+import { AppHttpService } from '../shared/foHttp.service';
 
 import { environment } from '../../environments/environment';
 import { RandomNames } from './generator';
