@@ -123,7 +123,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     EmitterService.displayToastUsing(this, this.openToast);
-    this.loadConfiguration();
+    this.loadConfiguration(_ => {
+      this.version = environment.version;
+    });
 
     setTimeout(_ => {
       this.aService.getIsUserAdmin$(this.currentUser).subscribe();
