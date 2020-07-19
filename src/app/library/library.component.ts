@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
-import { Toast, EmitterService } from "../shared/emitter.service";
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Toast, EmitterService } from '../shared/emitter.service';
 
-import { LibraryService } from "../models/library.service";
-import { TeamsService } from "../models/teams.service";
-import { AuthenticationService } from "../login/authentication.service";
+import { LibraryService } from '../models/library.service';
+import { TeamsService } from '../models/teams.service';
+import { AuthenticationService } from '../login/authentication.service';
 
-import { LaCaseDirectoryItem, LaTeam } from "../models";
+import { LaCaseDirectoryItem, LaTeam } from '../models';
 
 @Component({
   selector: 'app-library',
@@ -16,38 +16,38 @@ export class LibraryComponent implements OnInit {
   list: Array<LaCaseDirectoryItem>;
   listAllFiles: Array<LaCaseDirectoryItem>;
   teams: Array<LaTeam>;
-  currentWorkspace:string = "";
+  currentWorkspace = '';
 
   constructor(
-    private lService: LibraryService, 
+    private lService: LibraryService,
     private aService: AuthenticationService,
     private tService: TeamsService) {
 
-    EmitterService.registerCommand(this, "Saved", this.doRefreshWorkspaces);
+    // EmitterService.registerCommand(this, "Saved", this.doRefreshWorkspaces);
     EmitterService.processCommands(this);
   }
 
-  doSelectDefaultTeam(team:LaTeam){
+  doSelectDefaultTeam(team: LaTeam) {
     this.tService.setActiveTeam(team);
-    EmitterService.broadcastCommand(this, "SelectTeam", team);
+    // EmitterService.broadcastCommand(this, "SelectTeam", team);
   }
 
   public doRefreshWorkspaces() {
     const leader = this.aService.currentUserValue.email;
-    let s1 = this.tService.getTeamMembersFor$(leader).subscribe(data => {
+    const s1 = this.tService.getTeamMembersFor$(leader).subscribe(data => {
       this.teams = data;
 
-      s1.unsubscribe()
-    })
+      s1.unsubscribe();
+    });
   }
 
   public doRefreshAllFiles() {
     const admin = this.aService.currentUserValue.isAdmin();
-    if (admin == true) {
-      let s1 = this.lService.getAllCases$().subscribe(data => {
+    if (admin === true) {
+      const s1 = this.lService.getAllCases$().subscribe(data => {
         this.listAllFiles = data;
-        s1.unsubscribe()
-      })
+        s1.unsubscribe();
+      });
     }
   }
 
@@ -55,6 +55,5 @@ export class LibraryComponent implements OnInit {
     this.doRefreshWorkspaces();
     this.doRefreshAllFiles();
   }
-
 
 }

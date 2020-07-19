@@ -2,6 +2,16 @@
   "loginURL": "https://loginservice-dev-as.azurewebsites.net/api",
   "libraryURL": "https://loginservice-dev-as.azurewebsites.net/api",
   "predictURL": "https://legalsemanticapi.azurewebsites.net/teamknowtshare",
-  "localDebug": false
-  
+  "localDebug": false,
+  "rootAPIPath": "/api",
+  "APIVersion": "/v1",
+  "localMockPath": "assets/data",
+  "version": "1.0",
+  "featureflags": {
+    "authenticationService": "",
+    "displayBDDtestUI": true,
+    "services": {
+      "query$": { "localMockData": true }
+    }
+  }
 }

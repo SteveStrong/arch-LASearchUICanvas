@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { foHttpService, IResponse, EmitterService,  Toast } from '../shared';
+import { foHttpService, ServiceOptions, IResponse, EmitterService,  Toast } from '../shared';
 import { SearchResult } from '../models';
 
 import { Subject } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-
-
-
 
 
 @Injectable({
@@ -21,9 +18,11 @@ export class QueryResultService {
     constructor(private httpService: foHttpService, private http: HttpClient) {}
 
     TEXT_QUERY_URL_OPTIONS(text: string): any {
-        return {
-            mock: 'assets/data/sampleSearch.json',
-            api: `/query/${text}`
+        const serviceOptions: ServiceOptions = {
+            serviceKey: 'query$',
+            localDataPath: 'assets/data/sampleSearch.json',
+            servicePath: `/query/${text}`,
+            params: {}
         };
     }
 

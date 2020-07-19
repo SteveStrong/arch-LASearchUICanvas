@@ -38,7 +38,7 @@ export class foHttpService {
     }
 
     mapErrorResponse<T>(error: HttpErrorResponse): Observable<IResponse<T>> {
-        const formattedError = <IResponse<T>><unknown>{
+        const formattedError = {
             dateTime: Date.now(),
             hasError: true,
             length: 0,
@@ -46,8 +46,8 @@ export class foHttpService {
             payload: [],
             message: error.message,
             error: error.error
-        };
-        // return formattedError;
+        } as unknown as IResponse<T>;
+
         return of<IResponse<T>>(formattedError);
     }
 
@@ -55,11 +55,11 @@ export class foHttpService {
         return `${environment.baseURL}${environment.rootAPIPath}${environment.APIVersion}`;
     }
 
-    public rootURL(endpoint:string){
+    public rootURL(endpoint: string) {
         return `${environment.baseURL}${endpoint}`;
     }
 
-    public resolveURL(serviceOptions: ServiceOptions){
+    public resolveURL(serviceOptions: ServiceOptions) {
         const url = ServiceLocator.getUrl(serviceOptions);
         return url;
     }
