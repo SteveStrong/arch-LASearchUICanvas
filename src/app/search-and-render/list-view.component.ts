@@ -26,6 +26,7 @@ export class ListViewComponent implements OnInit {
     columnDefs = this.getColDefinitions(false);
 
     constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
+        
         breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait]).subscribe(result => {
             const isSmall = result.matches;
 

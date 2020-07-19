@@ -20,10 +20,11 @@ export class QueryResultService {
     TEXT_QUERY_URL_OPTIONS(text: string): any {
         const serviceOptions: ServiceOptions = {
             serviceKey: 'query$',
-            localDataPath: 'assets/data/sampleSearch.json',
+            localDataPath: '/sampleSearch.json',
             servicePath: `/query/${text}`,
             params: {}
         };
+        return serviceOptions;
     }
 
 
