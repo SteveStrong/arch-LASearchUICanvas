@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Toast, EmitterService, User, nameOf } from '../shared';
+import { Toast, EmitterService } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { QueryResultService } from '../home-page/query-result.service';
-import { ChangedPersona } from '../user.service';
+import { QueryResultService } from './query-result.service';
+
 
 @Component({
     selector: 'app-search',
@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
     filter: string;
     searchForm: FormGroup;
     submitted = false;
-    user: User;
+
 
     constructor(private formBuilder: FormBuilder, private service: QueryResultService) {}
 
@@ -23,9 +23,9 @@ export class SearchComponent implements OnInit {
         this.searchForm = this.formBuilder.group({
             textSearch: ['Vietnam of people  threatened ']
         });
-        EmitterService.registerTopic<ChangedPersona>(this, nameOf<ChangedPersona>(ChangedPersona), ({ user }) => {
-            this.user = user;
-        });
+        // EmitterService.registerTopic<ChangedPersona>(this, nameOf<ChangedPersona>(ChangedPersona), ({ user }) => {
+        //     this.user = user;
+        // });
 
         EmitterService.registerCommand(this, 'FILTER_VALUES_CHANGED', filter => {
             this.filter = filter;
@@ -67,7 +67,7 @@ export class SearchComponent implements OnInit {
             return;
         }
         else if ( text !== '') {
-            const s1 = this.service.searchText$(text,this.user).subscribe(payload => {
+            const s1 = this.service.searchText$(text).subscribe(payload => {
                 s1.unsubscribe();
             });
         }

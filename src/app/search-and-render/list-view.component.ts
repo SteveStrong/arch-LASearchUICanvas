@@ -3,7 +3,7 @@ import { GridOptions, GridApi } from 'ag-grid-community';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchResult } from '../models';
-import { User } from '../shared';
+
 
 @Component({
     selector: 'app-list-view',
@@ -12,7 +12,7 @@ import { User } from '../shared';
 })
 export class ListViewComponent implements OnInit {
     @Input() results: Array<SearchResult>;
-    @Input() user: User;
+
     private gridApi: GridApi;
     gridOptions: GridOptions = {};
     rowSelection = 'single';
@@ -59,7 +59,7 @@ export class ListViewComponent implements OnInit {
 
     onRowClick(rowInfo) {
         const dialogConfig = new MatDialogConfig();
-        dialogConfig.data = { result: rowInfo.data, user: this.user };
+        dialogConfig.data = { result: rowInfo.data };
     }
 
     @HostListener('window:resize', ['$event'])

@@ -1,10 +1,10 @@
 
 
 <div class="search-results" *ngIf="isListView">
-    <app-list-view [results]="displayResults" [user]="user"></app-list-view>
+    <app-list-view [results]="displayResults" ></app-list-view>
 </div>
 
-<div *ngIf="isCardView" class="infinite-scroll-container">
+<!-- <div *ngIf="isCardView" class="infinite-scroll-container">
     <div class="search-results"
         infinite-scroll
         [infiniteScrollDistance]="scrollDistance"
@@ -17,5 +17,5 @@
         </div>
 
     </div>
-</div>
+</div> -->
 

@@ -17,8 +17,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -37,6 +37,11 @@ import { UserComponent } from './teams/user.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ScenesComponent } from './scenes/scenes.component';
 import { SearchAndRenderComponent } from './search-and-render/search-and-render.component';
+
+import { SearchComponent } from './search-and-render/search.component';
+import { SearchResultsComponent } from './search-and-render/search-results.component';
+import { ListViewComponent } from './search-and-render/list-view.component';
+
 
 
 @NgModule({
@@ -60,14 +65,19 @@ import { SearchAndRenderComponent } from './search-and-render/search-and-render.
     DrawingComponent,
     AppComponent,
     ScenesComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    ListViewComponent,
     SearchAndRenderComponent
   ],
   imports: [
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
+    MatFormFieldModule,
     BrowserModule,
     FormsModule,
+    MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,

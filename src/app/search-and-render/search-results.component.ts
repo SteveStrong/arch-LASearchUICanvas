@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EmitterService, User, nameOf } from '../shared';
+import { EmitterService } from '../shared';
 
-import { SearchResult, ToolItem, BroadcastViewChanged } from '../models';
-import { QueryResultsLoaded, QueryResultService } from '../home-page/query-result.service';
-import { ChangedPersona } from '../user.service';
+import { SearchResult } from '../models';
+import { QueryResultService } from './query-result.service';
 
 
 @Component({
@@ -12,42 +11,41 @@ import { ChangedPersona } from '../user.service';
     styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-    searchTextList: Array<string>
+    searchTextList: Array<string>;
     throttle = 300;
     scrollDistance = 1;
-    user: User;
-    currentView: ToolItem;
+
 
     displayResults: Array<SearchResult> = [];
 
     constructor(private service: QueryResultService) {}
 
     ngOnInit(): void {
-        EmitterService.registerTopic<QueryResultsLoaded>(this, QueryResultsLoaded.QUERY_RESULT_LOADED, ({ payload, text }) => {
-            this.displayResults = payload;
-            const list = text.indexOf(' ') !== -1 ? text.split(' ') : [text];
-            this.searchTextList = list.filter( x => x !== '')
-        });
+        // EmitterService.registerTopic<QueryResultsLoaded>(this, QueryResultsLoaded.QUERY_RESULT_LOADED, ({ payload, text }) => {
+        //     this.displayResults = payload;
+        //     const list = text.indexOf(' ') !== -1 ? text.split(' ') : [text];
+        //     this.searchTextList = list.filter( x => x !== '')
+        // });
 
         
-        EmitterService.registerTopic<ChangedPersona>(this, nameOf<ChangedPersona>(ChangedPersona), ({ user }) => {
-            this.user = user;
-        });
+        // EmitterService.registerTopic<ChangedPersona>(this, nameOf<ChangedPersona>(ChangedPersona), ({ user }) => {
+        //     this.user = user;
+        // });
 
-        EmitterService.registerTopic<BroadcastViewChanged<ToolItem>>(this, nameOf<BroadcastViewChanged<ToolItem>>(BroadcastViewChanged), ({ toolItem }) => {
-            this.currentView = toolItem;
-        });
+        // EmitterService.registerTopic<BroadcastViewChanged<ToolItem>>(this, nameOf<BroadcastViewChanged<ToolItem>>(BroadcastViewChanged), ({ toolItem }) => {
+        //     this.currentView = toolItem;
+        // });
 
         EmitterService.processCommands(this);
     }
 
 
     get isListView(): boolean {
-        return this.currentView?.name === 'list';
+        return true; //this.currentView?.name === 'list';
     }
 
     get isCardView(): boolean {
-        return this.currentView == null || this.currentView?.name === 'card';
+        return true; //this.currentView == null || this.currentView?.name === 'card';
     }
 
 
