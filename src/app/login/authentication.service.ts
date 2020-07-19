@@ -138,7 +138,7 @@ export class AuthenticationService {
     const rest = '/Users/IsAdmin';
     const url = `${this.API_URL}${rest}`;
 
-    const data = user.asJson();
+    const data = user ? user.asJson() : {};
     return this.http.post<iPayloadWrapper>(url, data).pipe(
       map(res => {
         const answer = res.payload[0];

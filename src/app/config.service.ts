@@ -12,6 +12,7 @@ export class ConfigService {
 
   constructor(private http: HttpClient) {
     const host = window.location.hostname;
+    
     if (host === 'localhost' && !environment.production) {
       this.configUrl = 'assets/config-local.json';
     }

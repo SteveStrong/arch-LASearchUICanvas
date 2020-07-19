@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -75,6 +76,7 @@ import { ListViewComponent } from './search-and-render/list-view.component';
     MatSidenavModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
     BrowserModule,
     FormsModule,
     MatInputModule,
