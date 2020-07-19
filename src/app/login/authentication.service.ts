@@ -94,8 +94,8 @@ export class AuthenticationService {
           }
 
           // Toast.success("Registration successful");
-          const user = this.processUsers(result.payload)[0];
-          return user;
+          const found = this.processUsers(result.payload)[0];
+          return found;
         }),
         catchError(error => {
           done && done();
@@ -121,7 +121,7 @@ export class AuthenticationService {
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        let memberList = this.processUsers(res.payload);
+        const memberList = this.processUsers(res.payload);
 
         // Toast.success(`${res.length} items loaded!`, rest);
         return memberList;
@@ -162,7 +162,7 @@ export class AuthenticationService {
 
     return this.http.delete<iPayloadWrapper>(url).pipe(
       map(res => {
-        let memberList = this.processUsers(res.payload);
+        const memberList = this.processUsers(res.payload);
 
         Toast.success(`${res.length} items deleted!`, rest);
         return memberList;

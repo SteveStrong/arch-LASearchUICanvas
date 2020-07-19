@@ -89,6 +89,7 @@ export class LegalCaseService {
     this.saveCountdown = 30;
     const funct = this.checkStatus;
     const context = this;
+    // tslint:disable-next-line: only-arrow-functions
     this.saveInterval = setInterval(function() {
       funct(context);
     }, 1000);
@@ -128,7 +129,7 @@ export class LegalCaseService {
 
   nextAttributionType(type: string): string {
     let index = attributionRoles.indexOf(type);
-    if ((index++) == attributionRoles.length) {
+    if ((index++) === attributionRoles.length) {
       index = 0;
     }
     return attributionRoles[index];
@@ -136,7 +137,7 @@ export class LegalCaseService {
 
   nextSentenceType(type: string): string {
     let index = sentenceRoles.indexOf(type);
-    if ((index++) == sentenceRoles.length) {
+    if ((index++) === sentenceRoles.length) {
       index = 0;
     }
     return sentenceRoles[index];
@@ -279,7 +280,7 @@ export class LegalCaseService {
   }
 
   readAndRestoreFile(file: File) {
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onerror = event => {
       Toast.error('fail...', JSON.stringify(event.target));
     };
