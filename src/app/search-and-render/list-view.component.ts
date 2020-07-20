@@ -11,7 +11,7 @@ import { SearchResult } from '../models';
     styleUrls: ['./list-view.component.scss']
 })
 export class ListViewComponent implements OnInit {
-    @Input() results: Array<SearchResult>;
+    @Input() searchResults: Array<SearchResult>;
 
     private gridApi: GridApi;
     gridOptions: GridOptions = {};

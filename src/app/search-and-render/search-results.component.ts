@@ -16,7 +16,7 @@ export class SearchResultsComponent implements OnInit {
     scrollDistance = 1;
 
 
-    displayResults: Array<SearchResult> = [];
+    searchResults: Array<SearchResult> = [];
 
     constructor(private service: QueryResultService) {}
 

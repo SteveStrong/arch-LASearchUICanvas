@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryResultService } from './query-result.service';
+import { SearchResult } from '../models';
 import { Toast } from '../shared';
 
 @Component({
@@ -8,14 +9,14 @@ import { Toast } from '../shared';
   styleUrls: ['./search-and-render.component.scss']
 })
 export class SearchAndRenderComponent implements OnInit {
-  results: any;
+  searchResults: Array<SearchResult>;
 
   constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
     this.qService.searchText$('testing').subscribe(data => {
       if (!data.hasError) {
-        this.results = data.payload;
+        this.searchResults = data.payload;
       } else {
         Toast.error(data.message);
       }

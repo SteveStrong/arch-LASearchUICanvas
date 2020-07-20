@@ -1,5 +1,6 @@
 
 <app-search></app-search>
 
-<div>{{results | json}}</div>
-<app-search-results></app-search-results>
+<app-search-results [searchResults]="searchResults"></app-search-results>
+
+<div>{{searchResults | json}}</div>
