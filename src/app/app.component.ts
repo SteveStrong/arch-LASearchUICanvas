@@ -30,6 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   showFiller = false;
 
+
   constructor(
     private configService: ConfigService,
     private tService: TeamsService,

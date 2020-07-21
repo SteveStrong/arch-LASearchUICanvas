@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EmitterService } from '../shared';
 
 import { SearchResult } from '../models';
@@ -11,12 +11,12 @@ import { QueryResultService } from './query-result.service';
     styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
+    @Input() searchResults: Array<SearchResult> = [];
     searchTextList: Array<string>;
     throttle = 300;
     scrollDistance = 1;
 
 
-    searchResults: Array<SearchResult> = [];
 
     constructor(private service: QueryResultService) {}
 

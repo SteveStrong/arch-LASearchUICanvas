@@ -1,21 +1,23 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
 import { GridOptions, GridApi } from 'ag-grid-community';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchResult } from '../models';
 
+// https://www.ag-grid.com/example-angular-material-design/
 
 @Component({
     selector: 'app-list-view',
     templateUrl: './list-view.component.html',
     styleUrls: ['./list-view.component.scss']
 })
-export class ListViewComponent implements OnInit {
+export class ListViewComponent implements OnInit, OnChanges {
     @Input() searchResults: Array<SearchResult>;
 
     private gridApi: GridApi;
     gridOptions: GridOptions = {};
     rowSelection = 'single';
+
     defaultColumnDefs = {
         sortable: true,
         filter: true,
@@ -34,6 +36,16 @@ export class ListViewComponent implements OnInit {
                 this.columnDefs = this.getColDefinitions(isSmall);
             }
         });
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        // tslint:disable-next-line: forin
+        for (const propName in changes) {
+            const chng = changes[propName];
+            const cur = JSON.stringify(chng.currentValue);
+            const prev = JSON.stringify(chng.previousValue);
+            console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+        }
     }
 
     formatIsPinned(cell: any) {
@@ -55,7 +67,7 @@ export class ListViewComponent implements OnInit {
 
     onGridReady(params) {
         this.gridApi = params.api;
-        this.gridApi.sizeColumnsToFit();
+        // this.gridApi.sizeColumnsToFit();
     }
 
     onRowClick(rowInfo) {

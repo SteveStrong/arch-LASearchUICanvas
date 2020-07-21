@@ -37,8 +37,8 @@ import { UsersComponent } from './teams/users.component';
 import { UserComponent } from './teams/user.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ScenesComponent } from './scenes/scenes.component';
-import { SearchAndRenderComponent } from './search-and-render/search-and-render.component';
 
+import { SearchAndRenderComponent } from './search-and-render/search-and-render.component';
 import { SearchComponent } from './search-and-render/search.component';
 import { SearchResultsComponent } from './search-and-render/search-results.component';
 import { ListViewComponent } from './search-and-render/list-view.component';
