@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -83,6 +84,7 @@ import { CardSetComponent } from './search-and-render/card-set.component';
     MatFormFieldModule,
     MatDialogModule,
     MatCardModule,
+    MatGridListModule,
     BrowserModule,
     FormsModule,
     MatInputModule,
