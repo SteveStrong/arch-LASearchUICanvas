@@ -38,7 +38,8 @@ export class SearchResult extends foModelBase {
 
     get formatedScore() {
         const data = Math.round(100 * this._score) / 100;
-        return `${data}`;
+        // return `${data}`;
+        return data;
     }
 
     get CaseAndScore() {

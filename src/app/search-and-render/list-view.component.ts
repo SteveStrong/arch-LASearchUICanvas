@@ -40,12 +40,12 @@ export class ListViewComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         // tslint:disable-next-line: forin
-        for (const propName in changes) {
-            const chng = changes[propName];
-            const cur = JSON.stringify(chng.currentValue);
-            const prev = JSON.stringify(chng.previousValue);
-            console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-        }
+        // for (const propName in changes) {
+        //     const chng = changes[propName];
+        //     const cur = JSON.stringify(chng.currentValue);
+        //     const prev = JSON.stringify(chng.previousValue);
+        //     console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+        // }
     }
 
     formatIsPinned(cell: any) {
@@ -55,11 +55,37 @@ export class ListViewComponent implements OnInit, OnChanges {
 
     getColDefinitions(isSmall: boolean) {
         return [
-            { headerName: 'text', field: 'sentence.text', hide: false },
-            { headerName: 'class', width: 50, field: 'sentence.rhetClass', hide: false },
-            { headerName: 'id', width: 30, field: 'sentence.sentID', hide: false },
-            { headerName: 'case', width: 30, field: 'sentence.caseNumber', hide: false },
-            { headerName: 'score', width: 30, field: 'formatedScore', hide: false }
+            { headerName: 'Text', field: 'sentence.text', hide: false },
+            { headerName: 'Class', width: 30, field: 'sentence.rhetClass', hide: false },
+            {
+                headerName: 'Sentence Id', width: 30, field: 'sentence.sentID', cellStyle: { 'text-align': 'right' }, hide: false,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '<span ref="eText" class="ag-header-cell-text" role="columnheader"></span>' +
+                        '</div>'
+                }
+            },
+            {
+                headerName: 'Case Number', width: 30, field: 'sentence.caseNumber', cellStyle: { 'text-align': 'right' }, hide: false,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '<span ref="eText" class="ag-header-cell-text" role="columnheader"></span>' +
+                        '</div>'
+                }
+            },
+            {
+                headerName: 'Score', width: 10, field: 'formatedScore',
+                cellStyle: { 'text-align': 'right', 'padding-right': '10px' }, type: 'rightAligned', hide: false,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '<span ref="eText" class="ag-header-cell-text" role="columnheader"></span>' +
+                        '</div>'
+                }
+
+            }
         ];
     }
 
@@ -67,7 +93,7 @@ export class ListViewComponent implements OnInit, OnChanges {
 
     onGridReady(params) {
         this.gridApi = params.api;
-        // this.gridApi.sizeColumnsToFit();
+        this.gridApi.sizeColumnsToFit();
     }
 
     onRowClick(rowInfo) {
