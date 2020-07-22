@@ -9,7 +9,7 @@ import { SearchResult } from '../models';
   styleUrls: ['./card-view.component.scss']
 })
 export class CardViewComponent implements OnInit {
-  @Input() searchResults: Array<SearchResult> = [];
+  @Input() item: SearchResult;
   
   constructor() { }
 

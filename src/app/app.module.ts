@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -43,6 +44,7 @@ import { SearchComponent } from './search-and-render/search.component';
 import { SearchResultsComponent } from './search-and-render/search-results.component';
 import { ListViewComponent } from './search-and-render/list-view.component';
 import { CardViewComponent } from './search-and-render/card-view.component';
+import { CardSetComponent } from './search-and-render/card-set.component';
 
 
 
@@ -71,7 +73,8 @@ import { CardViewComponent } from './search-and-render/card-view.component';
     SearchResultsComponent,
     ListViewComponent,
     SearchAndRenderComponent,
-    CardViewComponent
+    CardViewComponent,
+    CardSetComponent
   ],
   imports: [
     MatToolbarModule,
@@ -79,6 +82,7 @@ import { CardViewComponent } from './search-and-render/card-view.component';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatCardModule,
     BrowserModule,
     FormsModule,
     MatInputModule,
