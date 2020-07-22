@@ -38,8 +38,11 @@ export class SearchResult extends foModelBase {
 
     get formatedScore() {
         const data = Math.round(100 * this._score) / 100;
-        // return `${data}`;
         return data;
+    }
+
+    get IDLabel() {
+        return `No: ${this.sentence.caseNumber}  P:${this.sentence.paragraphNumber}  S:${this.sentence.sentenceNumber}`;
     }
 
     get CaseAndScore() {

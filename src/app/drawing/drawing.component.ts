@@ -49,7 +49,7 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
     //   this.autoLayout(force);
     // });
 
-    this.backgroundImage.src = '/assets/world_map_image.png';
+
   }
 
   onResize(event) {
