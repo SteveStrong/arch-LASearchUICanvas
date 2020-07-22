@@ -2,22 +2,21 @@
 
 
 
-<div class="search-results" >
+<div *ngIf="isListView" class="search-results" >
     <app-list-view [searchResults]="searchResults" ></app-list-view>
 </div>
 
-<!-- <div *ngIf="isCardView" class="infinite-scroll-container">
-    <div class="search-results"
+<div *ngIf="isCardView" class="infinite-scroll-container">
+    <!-- <div class="search-results"
         infinite-scroll
         [infiniteScrollDistance]="scrollDistance"
         [infiniteScrollThrottle]="throttle"
         (scrolled)="onScrollDown()"
         [infiniteScrollContainer]="'.infinite-scroll-container'"
         >
-        <div *ngIf="isCardView">
-            <app-card-view [results]="displayResults" [searchTextList]="searchTextList" [user]="user"></app-card-view>
-        </div>
+    </div> -->
 
-    </div>
-</div> -->
+    <app-card-view [searchResults]="searchResults" ></app-card-view>
+
+</div>
 

@@ -41,7 +41,7 @@ export class SearchResultsComponent implements OnInit {
 
 
     get isListView(): boolean {
-        return true; //this.currentView?.name === 'list';
+        return false; //this.currentView?.name === 'list';
     }
 
     get isCardView(): boolean {

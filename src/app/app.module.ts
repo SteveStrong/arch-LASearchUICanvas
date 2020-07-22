@@ -42,6 +42,7 @@ import { SearchAndRenderComponent } from './search-and-render/search-and-render.
 import { SearchComponent } from './search-and-render/search.component';
 import { SearchResultsComponent } from './search-and-render/search-results.component';
 import { ListViewComponent } from './search-and-render/list-view.component';
+import { CardViewComponent } from './search-and-render/card-view.component';
 
 
 
@@ -69,7 +70,8 @@ import { ListViewComponent } from './search-and-render/list-view.component';
     SearchComponent,
     SearchResultsComponent,
     ListViewComponent,
-    SearchAndRenderComponent
+    SearchAndRenderComponent,
+    CardViewComponent
   ],
   imports: [
     MatToolbarModule,
