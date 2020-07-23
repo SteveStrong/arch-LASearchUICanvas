@@ -32,7 +32,10 @@ export class QueryResultService {
     public searchText$(text: string): Subject<IResponse<SearchResult>> {
         this.searchTextList = text.split(' ');
         const urlOptions = this.TEXT_QUERY_URL_OPTIONS(text);
-        const httpSubject = this.httpService.get$<SearchResult>(SearchResult, urlOptions);
+        const httpSubject = this.httpService.get$<SearchResult>(SearchResult, urlOptions, undefined, (item) => {
+            const data = item._source;
+            item.html = data.text;
+        });
 
         return httpSubject;
     }

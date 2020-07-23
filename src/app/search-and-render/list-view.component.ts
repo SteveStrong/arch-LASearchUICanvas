@@ -53,8 +53,18 @@ export class ListViewComponent implements OnInit, OnChanges {
 
     getColDefinitions(isSmall: boolean) {
         return [
-            { headerName: 'Text', field: 'sentence.text', hide: false },
-            { headerName: 'Sentence Type', width: 30, field: 'sentence.rhetLabel', cellStyle: { 'text-align': 'right' }, hide: false },
+            {
+                headerName: 'Text', field: 'sentence.text', hide: false,
+            },
+            {
+                headerName: 'Class', width: 10, field: 'sentence.rhetLabel', cellStyle: { 'text-align': 'right' }, hide: false,
+                headerComponentParams: {
+                    template:
+                        '<div class="ag-cell-label-container" role="presentation">' +
+                        '<span ref="eText" class="ag-header-cell-text" role="columnheader"></span>' +
+                        '</div>'
+                }
+            },
             {
                 headerName: 'Sentence Id', width: 30, field: 'sentence.sentID', cellStyle: { 'text-align': 'right' }, hide: false,
                 headerComponentParams: {
@@ -66,7 +76,7 @@ export class ListViewComponent implements OnInit, OnChanges {
             },
             {
                 headerName: 'Score', width: 10, field: 'formatedScore',
-                cellStyle: { 'text-align': 'right' }, type: 'rightaligned', hide: false,
+                cellStyle: { 'text-align': 'right' },  hide: false,
                 headerComponentParams: {
                     template:
                         '<div class="ag-cell-label-container" role="presentation">' +
@@ -76,7 +86,7 @@ export class ListViewComponent implements OnInit, OnChanges {
 
             },
             {
-                headerName: 'Case Number', width: 30, field: 'sentence.caseNumber', cellStyle: { 'text-align': 'center' }, hide: false,
+                headerName: '', width: 30, field: 'sentence.caseNumber', cellStyle: { 'text-align': 'center' }, hide: false,
                 headerComponentParams: {
                     template:
                         '<div class="ag-cell-label-container" role="presentation">' +
