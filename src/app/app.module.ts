@@ -13,6 +13,7 @@ import { RegisterComponent } from './login';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AgGridModule } from 'ag-grid-angular';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -85,6 +86,7 @@ import { CardSetComponent } from './search-and-render/card-set.component';
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
+    InfiniteScrollModule,
     BrowserModule,
     FormsModule,
     MatInputModule,

@@ -19,50 +19,23 @@ export interface Tile {
 export class CardSetComponent implements OnInit {
   @Input() searchResults: Array<SearchResult> = [];
 
-
-  tiles: Tile[] = [
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-  ];
-
-  pictures = [
-    {
-      id: 1,
-      title: 'A natural view',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg'
-    },
-    {
-      id: 2,
-      title: 'Newspaper',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg'
-    },
-    {
-      id: 3,
-      title: 'Favourite pizza',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg'
-    },
-    {
-      id: 4,
-      title: 'Abstract design',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg'
-    },
-    {
-      id: 5,
-      title: 'Tech',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/NO9CN3QYR3.jpg'
-    },
-    {
-      id: 6,
-      title: 'Nightlife',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg'
-    },
-  ];
+  throttle = 300;
+  scrollDistance = 1;
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onScrollDown() {
+    // if (!this.pinnedView && this.nextPageUrl) {
+    //     const s1 = this.service.searchNextPage$(this.nextPageUrl, this.currentPinContext, this.user).subscribe(({ payload, nextPageUrl }) => {
+    //         this.payload = this.payload.concat(payload);
+    //         this.displayResults = this.payload;
+    //         this.nextPageUrl = nextPageUrl;
+    //         s1.unsubscribe();
+    //     });
+    // }
   }
 
 }

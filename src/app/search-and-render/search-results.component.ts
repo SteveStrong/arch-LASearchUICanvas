@@ -12,10 +12,6 @@ import { QueryResultService } from './query-result.service';
 })
 export class SearchResultsComponent implements OnInit {
     @Input() searchResults: Array<SearchResult> = [];
-    searchTextList: Array<string>;
-    throttle = 300;
-    scrollDistance = 1;
-
 
 
     constructor(private service: QueryResultService) {}
@@ -48,15 +44,4 @@ export class SearchResultsComponent implements OnInit {
         return true; //this.currentView == null || this.currentView?.name === 'card';
     }
 
-
-    onScrollDown() {
-        // if (!this.pinnedView && this.nextPageUrl) {
-        //     const s1 = this.service.searchNextPage$(this.nextPageUrl, this.currentPinContext, this.user).subscribe(({ payload, nextPageUrl }) => {
-        //         this.payload = this.payload.concat(payload);
-        //         this.displayResults = this.payload;
-        //         this.nextPageUrl = nextPageUrl;
-        //         s1.unsubscribe();
-        //     });
-        // }
-    }
 }
