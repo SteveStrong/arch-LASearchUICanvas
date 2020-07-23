@@ -1,5 +1,10 @@
-export class LaAtom {
+import { foModelBase } from '../shared';
+
+
+export class LaAtom extends foModelBase {
+
   constructor(properties?: any) {
+    super();
     properties && this.override(properties);
   }
 
@@ -15,7 +20,6 @@ export class LaAtom {
   }
   set myType(ignore: string) {}
 
-  asJson(){
-    
+  asJson() {
   }
 }

@@ -1,0 +1,1492 @@
+{
+  "hasErrors": false,
+  "message": "",
+  "payloadCount": 64,
+  "payload": [
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "324",
+      "_score": 17.991425,
+      "_source": {
+        "sentID": "1316146P65S3",
+        "text": "He noted that while in Vietnam, he was stationed in an area that received mortar fire.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "65",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "noted that",
+            "object": "while in Vietnam, he was stationed in an area that received mortar fire"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "888",
+      "_score": 9.404052,
+      "_source": {
+        "sentID": "1400029P116S2",
+        "text": "Specifically, he has asserted that he experienced enemy attacks with gunfire close to his base immediately upon arriving in Vietnam with subsequent, occasional mortar attacks on the base.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "116",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "he",
+            "cue": "has asserted that",
+            "object": "he experienced enemy attacks with gunfire close to his base immediately upon arriving in Vietnam with subsequent, occasional mortar attacks on the base"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1769",
+      "_score": 7.7175446,
+      "_source": {
+        "sentID": "1514004P45S1",
+        "text": "After service, a December 1992 VA examination report reflecting a history of having come under small arms fire in a helicopter during service in Vietnam notes that the Veteran was transferred by helicopter on a weekly basis to psychiatric appointments.",
+        "caseNumber": "1514004",
+        "paragraphNumber": "45",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "a December 1992 VA examination report",
+            "object": "reflecting a history of having come under small arms fire in a helicopter during service in Vietnam notes that the Veteran was transferred by helicopter on a weekly basis to psychiatric appointments",
+            "cue": "notes that"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "306",
+      "_score": 7.6963706,
+      "_source": {
+        "sentID": "1316146P61S2",
+        "text": "For purposes of this paragraph, \"fear of hostile military or terrorist activity\" means that a veteran experienced, witnessed, or was confronted with an event or circumstance that involved actual or threatened death or serious injury, or a threat to the physical integrity of the veteran or others, such as from an actual or potential improvised explosive device; vehicle-imbedded explosive device; incoming artillery, rocket, or mortar fire; grenade; small arms fire, including suspected sniper fire; or attack upon friendly military aircraft, and the veteran's response to the event or circumstance involved a psychological or psycho-physiological state of fear, helplessness, or horror.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "61",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "LegalRuleSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2269",
+      "_score": 7.6963706,
+      "_source": {
+        "sentID": "1526599P42S2",
+        "text": "For purposes of this paragraph, \"fear of hostile military or terrorist activity\" means that a veteran experienced, witnessed, or was confronted with an event or circumstance that involved actual or threatened death or serious injury, or a threat to the physical integrity of the veteran or others, such as from an actual or potential improvised explosive device; vehicle-imbedded explosive device; incoming artillery, rocket, or mortar fire; grenade; small arms fire, including suspected sniper fire; or attack upon friendly military aircraft, and the veteran's response to the event or circumstance involved a psychological or psycho-physiological state of fear, helplessness, or horror.",
+        "caseNumber": "1526599",
+        "paragraphNumber": "42",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "LegalRuleSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2570",
+      "_score": 7.6963706,
+      "_source": {
+        "sentID": "1554166P45S2",
+        "text": "\"[F]ear of hostile military or terrorist activity\" means that a Veteran experienced, witnessed, or was confronted with an event or circumstance that involved actual or threatened death or serious injury, or a threat to the physical integrity of the Veteran or others, such as from an actual or potential improvised explosive device; vehicle-imbedded explosive device; incoming artillery, rocket, or mortar fire; grenade; small arms fire, including suspected sniper fire; or attack upon friendly military aircraft, and the Veteran's response to the event or circumstance involved a psychological or psycho-physiological state of fear, helplessness, or horror.",
+        "caseNumber": "1554166",
+        "paragraphNumber": "45",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "LegalRuleSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2641",
+      "_score": 7.6963706,
+      "_source": {
+        "sentID": "1554166P45S2",
+        "text": "\"[F]ear of hostile military or terrorist activity\" means that a Veteran experienced, witnessed, or was confronted with an event or circumstance that involved actual or threatened death or serious injury, or a threat to the physical integrity of the Veteran or others, such as from an actual or potential improvised explosive device; vehicle-imbedded explosive device; incoming artillery, rocket, or mortar fire; grenade; small arms fire, including suspected sniper fire; or attack upon friendly military aircraft, and the Veteran's response to the event or circumstance involved a psychological or psycho-physiological state of fear, helplessness, or horror.",
+        "caseNumber": "1554166",
+        "paragraphNumber": "45",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "LegalRuleSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1738",
+      "_score": 7.331664,
+      "_source": {
+        "sentID": "1514004P35S2",
+        "text": "For purposes of 38 C.F.R. Â§ 3.304(f)(3), \"fear of hostile military or terrorist activity\" means that a veteran experienced, witnessed, or was confronted with an event or circumstance that involved actual or threatened death or serious injury, or a threat to the physical integrity of the veteran or others, such as from an actual or potential improvised explosive device; vehicle-imbedded explosive device; incoming artillery, rocket, or mortar fire; grenade; small arms fire, including suspected sniper fire; or attack upon friendly military aircraft, and the veteran's response to the event or circumstance involved a psychological or psycho-physiological state of fear, helplessness or horror.",
+        "caseNumber": "1514004",
+        "paragraphNumber": "35",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "LegalRuleSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "883",
+      "_score": 7.101903,
+      "_source": {
+        "sentID": "1400029P34S1",
+        "text": "5. The Veteran's lay account of exposure to enemy mortar and gunfire attacks in Vietnam are credible and consistent with the places, types, and circumstances of the Veteran's service to include his military occupational specialty (MOS), unit, and assignment and duties, without clear and convincing evidence to the contrary.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "34",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "FindingSentence",
+        "rhetClassPredict": "FindingSentence",
+        "attributions": [
+          {
+            "type": "Finding",
+            "object": "The Veteran's lay account of exposure to enemy mortar and gunfire attacks in Vietnam are credible and consistent with the places, types, and circumstances of the Veteran's service to include his military occupational specialty (MOS), unit, and assignment and duties",
+            "cue": "are credible and consistent with without clear and convincing evidence to the contrary",
+            "polarity": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "318",
+      "_score": 6.9231873,
+      "_source": {
+        "sentID": "1316146P64S2",
+        "text": "His awards and decorations include the Vietnam Service Medal and the Vietnam Campaign Medal.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "64",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "Sentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "His awards and decorations",
+            "cue": "include",
+            "object": "the Vietnam Service Medal and the Vietnam Campaign Medal"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1771",
+      "_score": 6.7704163,
+      "_source": {
+        "sentID": "1514004P46S1",
+        "text": "With respect to diagnosis, and although a November 2011 VA examination report reflects a diagnosis of somatoform disorder, a November 2010 VA examination report noting a history of the Veteran's camp having regularly come under mortar attack during service in Vietnam reflects the Veteran meets the criteria for a diagnosis of PTSD.  ",
+        "caseNumber": "1514004",
+        "paragraphNumber": "46",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2315",
+      "_score": 5.944479,
+      "_source": {
+        "sentID": "1526599P54S6",
+        "text": "During July 2012 evaluation, the Veteran reported; (1) receiving fire and firing his weapon; (2) being shot down and trapped in a rice paddy with dead soldiers while under artillery fire; and (3) being shot down and trapped in a village while being separated from his unit.",
+        "caseNumber": "1526599",
+        "paragraphNumber": "54",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "During July 2012 evaluation, the Veteran",
+            "cue": "reported",
+            "object": " (1) receiving fire and firing his weapon; (2) being shot down and trapped in a rice paddy with dead soldiers while under artillery fire; and (3) being shot down and trapped in a village while being separated from his unit"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "344",
+      "_score": 5.831867,
+      "_source": {
+        "sentID": "1316146P68S9",
+        "text": "The Veteran said he had been \"nervous\" since leaving Vietnam.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "68",
+        "sentenceNumber": "9",
+        "id": 9,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The Veteran",
+            "cue": "said",
+            "object": "he had been \"nervous\" since leaving Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "569",
+      "_score": 5.440857,
+      "_source": {
+        "sentID": "1334312P97S7",
+        "text": "Finally, he reported that he was in a violent motor vehicle accident involving him rolling his car over two times and a resulting fire.",
+        "caseNumber": "1334312",
+        "paragraphNumber": "97",
+        "sentenceNumber": "7",
+        "id": 7,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "he",
+            "cue": "reported that",
+            "object": "he was in a violent motor vehicle accident involving him rolling his car over two times and a resulting fire"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3276",
+      "_score": 5.440857,
+      "_source": {
+        "sentID": "1607479P47S2",
+        "text": "He also contends that he suffers from PTSD as a result of a live fire training exercise in which ammunition exploded close to him.",
+        "caseNumber": "1607479",
+        "paragraphNumber": "47",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "contends that",
+            "object": "he suffers from PTSD as a result of a live fire training exercise in which ammunition exploded close to him"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3476",
+      "_score": 5.440857,
+      "_source": {
+        "sentID": "1607479P47S2",
+        "text": "He also contends that he suffers from PTSD as a result of a live fire training exercise in which ammunition exploded close to him.",
+        "caseNumber": "1607479",
+        "paragraphNumber": "47",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "contends that",
+            "object": "he suffers from PTSD as a result of a live fire training exercise in which ammunition exploded close to him"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "889",
+      "_score": 5.3604784,
+      "_source": {
+        "sentID": "1400029P116S3",
+        "text": "He has also claimed that, while he was riding in transportation convoys to deliver supplies, his unit sustained enemy mortar, artillery, and gunfire attacks on several occasions.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "116",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "claimed that",
+            "object": "while he was riding in transportation convoys to deliver supplies, his unit sustained enemy mortar, artillery, and gunfire attacks on several occasions"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1146",
+      "_score": 5.1277905,
+      "_source": {
+        "sentID": "1455570P25S1",
+        "text": "The Veteran served as a U.S. Army infantryman with combat service in the Republic of Vietnam.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "25",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "",
+            "cue": "",
+            "object": "The Veteran served as a U.S. Army infantryman with combat service in the Republic of Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1179",
+      "_score": 5.026647,
+      "_source": {
+        "sentID": "1455570P33S5",
+        "text": "In a September 2013 statement, the Veteran attributed his post-Vietnam behavior to the onset of PTSD.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "33",
+        "sentenceNumber": "5",
+        "id": 5,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "In a September 2013 statement, the Veteran",
+            "cue": "attributed",
+            "object": "his post-Vietnam behavior to the onset of PTSD"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2812",
+      "_score": 5.026647,
+      "_source": {
+        "sentID": "1554465P56S3",
+        "text": "She described having command auditory hallucinations and visual hallucinations regarding people she knew in the Vietnam War.",
+        "caseNumber": "1554465",
+        "paragraphNumber": "56",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "She",
+            "cue": "described",
+            "object": "having command auditory hallucinations and visual hallucinations regarding people she knew in the Vietnam War"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3081",
+      "_score": 5.026647,
+      "_source": {
+        "sentID": "1554465P56S3",
+        "text": "She described having command auditory hallucinations and visual hallucinations regarding people she knew in the Vietnam War.",
+        "caseNumber": "1554465",
+        "paragraphNumber": "56",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "She",
+            "cue": "described",
+            "object": "having command auditory hallucinations and visual hallucinations regarding people she knew in the Vietnam War"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3306",
+      "_score": 5.006963,
+      "_source": {
+        "sentID": "1607479P58S2",
+        "text": "He also recounted being exposed to live fire exercises during his training, during which he found himself too close to explosives and had ammunition exploding very close to him.",
+        "caseNumber": "1607479",
+        "paragraphNumber": "58",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "recounted",
+            "object": "being exposed to live fire exercises during his training, during which he found himself too close to explosives and had ammunition exploding very close to him"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3506",
+      "_score": 5.006963,
+      "_source": {
+        "sentID": "1607479P58S2",
+        "text": "He also recounted being exposed to live fire exercises during his training, during which he found himself too close to explosives and had ammunition exploding very close to him.",
+        "caseNumber": "1607479",
+        "paragraphNumber": "58",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "recounted",
+            "object": "being exposed to live fire exercises during his training, during which he found himself too close to explosives and had ammunition exploding very close to him"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "897",
+      "_score": 4.9187813,
+      "_source": {
+        "sentID": "1400029P118S2",
+        "text": "His service personnel records and DD Form 214 do document that he received medals and awards, such as the Vietnam Service Medal, Vietnam Campaign Medal, and the National Defense Service Medal among others, but there is no award that establishes that he engaged in combat.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "118",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "His service personnel records",
+            "cue": "do document that",
+            "object": "he received medals and awards, such as the Vietnam Service Medal, Vietnam Campaign Medal, and the National Defense Service Medal among others, but there is no award that establishes that he engaged in combat"
+          },
+          {
+            "type": "Evidence",
+            "subject": "DD Form 214",
+            "cue": "do document that",
+            "object": "he received medals and awards, such as the Vietnam Service Medal, Vietnam Campaign Medal, and the National Defense Service Medal among others, but there is no award that establishes that he engaged in combat"
+          },
+          {
+            "type": "Evidence",
+            "subject": "no award",
+            "cue": "that establishes that",
+            "object": "he engaged in combat"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "317",
+      "_score": 4.745818,
+      "_source": {
+        "sentID": "1316146P64S1",
+        "text": "In this case, service records show that the Veteran served in the Republic of Vietnam as an aircraft instrument repairman.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "64",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "service records",
+            "cue": "show that",
+            "object": "the Veteran served in the Republic of Vietnam as an aircraft instrument repairman"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "950",
+      "_score": 4.745818,
+      "_source": {
+        "sentID": "1400029P129S6",
+        "text": "This examination provides strong evidence against the existence of a current PTSD diagnosis attributable to in-service stressors from Vietnam.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "129",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "887",
+      "_score": 4.6590543,
+      "_source": {
+        "sentID": "1400029P116S1",
+        "text": "In this case, the Veteran has contended that he has PTSD attributable to several combat and noncombat-related stressors in Vietnam.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "116",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the Veteran",
+            "cue": "has contended that",
+            "object": "he has PTSD attributable to several combat and noncombat-related stressors in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "961",
+      "_score": 4.6590543,
+      "_source": {
+        "sentID": "1400029P131S7",
+        "text": "This examination also provides strong evidence against the existence of a current PTSD diagnosis attributable to in-service stressors from Vietnam.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "131",
+        "sentenceNumber": "7",
+        "id": 7,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2288",
+      "_score": 4.6590543,
+      "_source": {
+        "sentID": "1526599P47S2",
+        "text": "Said records also show that the Veteran served in the 336th AVN Company (Assault Helicopter Squadron) in the Republic of Vietnam.",
+        "caseNumber": "1526599",
+        "paragraphNumber": "47",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "records",
+            "cue": "show that",
+            "object": "the Veteran served in the 336th AVN Company (Assault Helicopter Squadron) in the Republic of Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "347",
+      "_score": 4.5754056,
+      "_source": {
+        "sentID": "1316146P69S1",
+        "text": "In a December 1999 statement, the Veteran said he was treated with sleeping pills for a nerve problem while serving in Vietnam.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "69",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "In a December 1999 statement, the Veteran",
+            "cue": "said",
+            "object": "he was treated with sleeping pills for a nerve problem while serving in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1774",
+      "_score": 4.5754056,
+      "_source": {
+        "sentID": "1514004P48S1",
+        "text": "The private report states that the Veteran felt terrified and feared for his life the entire time he was serving in Vietnam.",
+        "caseNumber": "1514004",
+        "paragraphNumber": "48",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The private report",
+            "cue": "states that",
+            "object": "the Veteran felt terrified and feared for his life the entire time he was serving in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "952",
+      "_score": 4.4947076,
+      "_source": {
+        "sentID": "1400029P130S2",
+        "text": "It was noted that the Veteran warranted further evaluation in the future due to his traumatic stressors as a firefighter and in Vietnam.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "130",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "cue": "It was noted that",
+            "object": "the Veteran warranted further evaluation in the future due to his traumatic stressors as a firefighter and in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1187",
+      "_score": 4.4947076,
+      "_source": {
+        "sentID": "1455570P35S2",
+        "text": "The Veteran again reported experiencing suicidal and homicidal ideations in the past and olfactory hallucinations of rifle smoke that reminded him of Vietnam.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "35",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The Veteran",
+            "cue": "reported",
+            "object": "experiencing suicidal and homicidal ideations in the past and olfactory hallucinations of rifle smoke that reminded him of Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "911",
+      "_score": 4.414914,
+      "_source": {
+        "sentID": "1400029P119S9",
+        "text": "Thus, under the amended PTSD regulation, the Veteran's lay testimony and statements alone establish the occurrence of the claimed in-service stressors of enemy mortar, artillery, and gunfire attacks while travelling in supply convoys and while assigned to his base.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "119",
+        "sentenceNumber": "9",
+        "id": 9,
+        "rhetClass": "FindingSentence",
+        "rhetClassPredict": "FindingSentence",
+        "attributions": [
+          {
+            "type": "Finding",
+            "cue": "establish the occurrence",
+            "object": "under the amended PTSD regulation, the Veteran's lay testimony and statements alone establish the occurrence of the claimed in-service stressors of enemy mortar, artillery, and gunfire attacks while travelling in supply convoys and while assigned to his base",
+            "polarity": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1148",
+      "_score": 4.414914,
+      "_source": {
+        "sentID": "1455570P25S3",
+        "text": "He contended in an April 2012 statement and in testimony at the September 2013 Board hearing that he experienced PTSD arising from traumatic events in combat including firefights, mortar and rocket attacks, and observing the deaths of several fellow soldiers.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "25",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "in an April 2012 statement and in testimony at the September 2013 Board hearing",
+            "cue": "He contended",
+            "object": "he experienced PTSD arising from traumatic events in combat including firefights, mortar and rocket attacks, and observing the deaths of several fellow soldiers"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1088",
+      "_score": 4.341561,
+      "_source": {
+        "sentID": "1455333P27S1",
+        "text": "The Veteran's claim is based, in part, on his contention that his PTSD resulted from his combat experiences while serving in the Republic of Vietnam.",
+        "caseNumber": "1455333",
+        "paragraphNumber": "27",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The Veteran",
+            "cue": "his contention that",
+            "object": "his PTSD resulted from his combat experiences while serving in the Republic of Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1197",
+      "_score": 4.341561,
+      "_source": {
+        "sentID": "1455570P37S2",
+        "text": "A primary care physician noted the Veteran's reports of irritable mood, flashbacks, and nightmares about his experiences in Vietnam triggered while driving and smelling smoke.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "37",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "A primary care physician",
+            "cue": "noted",
+            "object": "the Veteran's reports of irritable mood, flashbacks, and nightmares about his experiences in Vietnam triggered while driving and smelling smoke"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "273",
+      "_score": 4.2688355,
+      "_source": {
+        "sentID": "1316146P50S3",
+        "text": "He has also said he was treated for his condition with sleeping pills while serving in Vietnam; however, service treatment records do not support his contention.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "50",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "has also said",
+            "object": "he was treated for his condition with sleeping pills while serving in Vietnam"
+          },
+          {
+            "type": "Evidence",
+            "subject": "service treatment records",
+            "cue": "do not support ",
+            "object": "his contention"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "924",
+      "_score": 4.2688355,
+      "_source": {
+        "sentID": "1400029P122S1",
+        "text": "With regard to a diagnosis of PTSD based on his in-service stressors from Vietnam, the record reflects several favorable and unfavorable medical opinions of record.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "122",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "936",
+      "_score": 4.2688355,
+      "_source": {
+        "sentID": "1400029P127S1",
+        "text": "With regard to the positive evidence, in 2010 and 2011, a private psychologist, Dr. A.G., PhD., diagnosed the Veteran with PTSD due to his Vietnam experiences.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "127",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "a private psychologist, Dr. A.G., PhD.",
+            "object": "the Veteran with PTSD due to his Vietnam experiences",
+            "cue": "diagnosed"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "382",
+      "_score": 4.198507,
+      "_source": {
+        "sentID": "1316146P75S5",
+        "text": "Specifically, he said his condition had its onset prior to service, during his first physical for basic training, upon leaving Vietnam, and after service in the 1970s.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "75",
+        "sentenceNumber": "5",
+        "id": 5,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "he",
+            "cue": "said",
+            "object": "his condition had its onset prior to service, during his first physical for basic training, upon leaving Vietnam, and after service in the 1970s"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "905",
+      "_score": 4.187627,
+      "_source": {
+        "sentID": "1400029P119S3",
+        "text": "In this regard, the September 2011 VA psychological examiner indicated that the Veteran's alleged stressors of enemy mortar, artillery, and gunfire attacks while travelling in supply convoys and while assigned to his base are related to the \"fear of hostile military or terrorist activity.\"",
+        "caseNumber": "1400029",
+        "paragraphNumber": "119",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the September 2011 VA psychological examiner",
+            "cue": "indicated that",
+            "object": "the Veteran's alleged stressors of enemy mortar, artillery, and gunfire attacks while travelling in supply convoys and while assigned to his base are related to the \"fear of hostile military or terrorist activity.\""
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "272",
+      "_score": 4.130457,
+      "_source": {
+        "sentID": "1316146P50S2",
+        "text": "He has stated that his condition had its onset prior to service, during his first physical for basic training, upon leaving Vietnam, and after service in the 1970s.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "50",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "He",
+            "cue": "has stated that",
+            "object": "his condition had its onset prior to service, during his first physical for basic training, upon leaving Vietnam, and after service in the 1970s"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "954",
+      "_score": 4.064578,
+      "_source": {
+        "sentID": "1400029P130S4",
+        "text": "In fact, at a December 2010 VA mental health assessment, the Veteran \"was unable to identify a specific stressor that may account for his 'nervousness' following time in Vietnam.\"",
+        "caseNumber": "1400029",
+        "paragraphNumber": "130",
+        "sentenceNumber": "4",
+        "id": 4,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "a December 2010 VA mental health assessment",
+            "object": "the Veteran \"was unable to identify a specific stressor that may account for his 'nervousness' following time in Vietnam",
+            "cue": "was unable to identify"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1767",
+      "_score": 4.064578,
+      "_source": {
+        "sentID": "1514004P44S2",
+        "text": "Following his deployment to Vietnam in September 1968, he was accompanied by a recommendation for limited duty and deployment only to a location where psychiatric outpatient treatment was available.",
+        "caseNumber": "1514004",
+        "paragraphNumber": "44",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "a recommendation",
+            "cue": "he was accompanied by",
+            "object": "Following his deployment to Vietnam in September 1968, he was accompanied by a recommendation for limited duty and deployment only to a location where psychiatric outpatient treatment was available"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "908",
+      "_score": 4.000768,
+      "_source": {
+        "sentID": "1400029P119S6",
+        "text": "The Veteran's DD Form 214 and service personnel records confirm that he served in Vietnam from September 1970 to May 1971 with the 597th Transportation Company in the U.S. Army.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "119",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The Veteran's DD Form 214",
+            "cue": "confirm that",
+            "object": "he served in Vietnam from September 1970 to May 1971 with the 597th Transportation Company in the U.S. Army"
+          },
+          {
+            "type": "Evidence",
+            "subject": "service personnel records",
+            "cue": "confirm that",
+            "object": "he served in Vietnam from September 1970 to May 1971 with the 597th Transportation Company in the U.S. Army"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "360",
+      "_score": 3.8789759,
+      "_source": {
+        "sentID": "1316146P71S2",
+        "text": "In this letter, which is dated December 2003, R.D.C. said the Veteran had been treated at MCC Center since July 2003 for PTSD, which was due to the Veteran's tour in Vietnam.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "71",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "this letter, which is dated December 2003, R.D.C.",
+            "cue": "said",
+            "object": "the Veteran had been treated at MCC Center since July 2003 for PTSD, which was due to the Veteran's tour in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1143",
+      "_score": 3.8789759,
+      "_source": {
+        "sentID": "1455570P20S1",
+        "text": "Resolving all doubt in his favor, the Veteran's current acquired psychiatric disorder, diagnosed as PTSD and major depressive disorder, is, at least in part, due to traumatic events during combat in Vietnam.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "20",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "FindingSentence",
+        "attributions": [
+          {
+            "type": "Finding",
+            "cue": "Resolving all doubt in his favor",
+            "object": "the Veteran's current acquired psychiatric disorder, diagnosed as PTSD and major depressive disorder, is, at least in part, due to traumatic events during combat in Vietnam",
+            "polarity": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2901",
+      "_score": 3.820818,
+      "_source": {
+        "sentID": "1554465P77S6",
+        "text": "Notably, prior to August 2002, the Veteran specifically alleged other stressors, to include the helicopter crash, seeing dead bodies, and generalized nightmares about people she knew who may have died serving in Vietnam.",
+        "caseNumber": "1554465",
+        "paragraphNumber": "77",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the Veteran",
+            "cue": "alleged",
+            "object": "other stressors, to include the helicopter crash, seeing dead bodies, and generalized nightmares about people she knew who may have died serving in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "3170",
+      "_score": 3.820818,
+      "_source": {
+        "sentID": "1554465P77S6",
+        "text": "Notably, prior to August 2002, the Veteran specifically alleged other stressors, to include the helicopter crash, seeing dead bodies, and generalized nightmares about people she knew who may have died serving in Vietnam.",
+        "caseNumber": "1554465",
+        "paragraphNumber": "77",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the Veteran",
+            "cue": "alleged",
+            "object": "other stressors, to include the helicopter crash, seeing dead bodies, and generalized nightmares about people she knew who may have died serving in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "909",
+      "_score": 3.7643795,
+      "_source": {
+        "sentID": "1400029P119S7",
+        "text": "His MOS as an armorer/unit supplier is also supportive of his assertions that he travelled in supply convoys in Vietnam on occasion, with the possibility of being subject to enemy attack on occasion.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "119",
+        "sentenceNumber": "7",
+        "id": 7,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "His MOS as an armorer/unit supplier",
+            "cue": "is also supportive of his assertions that",
+            "object": "he travelled in supply convoys in Vietnam on occasion, with the possibility of being subject to enemy attack on occasion"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1130",
+      "_score": 3.7095833,
+      "_source": {
+        "sentID": "1455333P35S9",
+        "text": "In addition, his combat related stressor, that he was on a destroyer in Vietnam that was hit three or four times by shells, is consistent with the circumstances, conditions, or hardships of the Veteran's service.",
+        "caseNumber": "1455333",
+        "paragraphNumber": "35",
+        "sentenceNumber": "9",
+        "id": 9,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1177",
+      "_score": 3.7095833,
+      "_source": {
+        "sentID": "1455570P33S3",
+        "text": "Following his tour of duty in Vietnam, the Veteran received military discipline on many occasions for periods of absence without leave and striking an officer and was under consideration for a discharge for unsatisfactory performance.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "33",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "",
+            "cue": "",
+            "object": "Following his tour of duty in Vietnam, the Veteran received military discipline on many occasions for periods of absence without leave and striking an officer and was under consideration for a discharge for unsatisfactory performance"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "906",
+      "_score": 3.6563597,
+      "_source": {
+        "sentID": "1400029P119S4",
+        "text": "In addition, the Board finds that the Veteran's descriptions of the claimed enemy attack stressors are consistent with the places, types, and circumstances of the Veteran's service in the U.S. Army in Vietnam at that time.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "119",
+        "sentenceNumber": "4",
+        "id": 4,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "4044",
+      "_score": 3.499817,
+      "_source": {
+        "sentID": "1630402P30S3",
+        "text": "Diver's psychological defenses are adaptively hardened from years of unexpected exposures to traumatic experiences; however, many years later, they can develop PTSD replaying and reliving in dramatic fashion those situations which caused physical injury intense fear and anxiety of being ambushed or coming under fire and grief over seeing and swimming among bodies and body parts of fellow divers.",
+        "caseNumber": "1630402",
+        "paragraphNumber": "30",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "",
+            "object": "Diver's psychological defenses are adaptively hardened from years of unexpected exposures to traumatic experiences; however, many years later, they can develop PTSD replaying and reliving in dramatic fashion those situations which caused physical injury intense fear and anxiety of being ambushed or coming under fire and grief over seeing and swimming among bodies and body parts of fellow divers"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1773",
+      "_score": 3.457909,
+      "_source": {
+        "sentID": "1514004P47S2",
+        "text": " Both the July 2011 private report and the December 1992 VA examination report conclude that the most traumatic circumstance of the Veteran's Vietnam service was related to the Veteran not being permitted to carry a gun due to his psychiatric disorder.",
+        "caseNumber": "1514004",
+        "paragraphNumber": "47",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the July 2011 private report",
+            "cue": "conclude that",
+            "object": "the most traumatic circumstance of the Veteran's Vietnam service was related to the Veteran not being permitted to carry a gun due to his psychiatric disorder"
+          },
+          {
+            "type": "Evidence",
+            "subject": "the December 1992 VA examination report",
+            "cue": "conclude that",
+            "object": "the most traumatic circumstance of the Veteran's Vietnam service was related to the Veteran not being permitted to carry a gun due to his psychiatric disorder"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "959",
+      "_score": 3.1193047,
+      "_source": {
+        "sentID": "1400029P131S5",
+        "text": "In particular, the Veteran did not persistently reexperience his traumatic events from Vietnam; there was no persistent avoidance of stimuli associated with the trauma or numbing of general responsiveness; there were no persistent symptoms of increased arousal; and the Veteran did not meet the full criteria for PTSD.",
+        "caseNumber": "1400029",
+        "paragraphNumber": "131",
+        "sentenceNumber": "5",
+        "id": 5,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "",
+            "cue": "",
+            "object": "the Veteran did not persistently reexperience his traumatic events from Vietnam; there was no persistent avoidance of stimuli associated with the trauma or numbing of general responsiveness; there were no persistent symptoms of increased arousal; and the Veteran did not meet the full criteria for PTSD"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "374",
+      "_score": 3.0447674,
+      "_source": {
+        "sentID": "1316146P74S2",
+        "text": "Specifically, while MCC Center diagnosed PTSD based on the Veteran's experiences in Vietnam, a VA or VA contracted provider did not confirm prior to the Veteran's death that his stressor was related to fear of hostile military or terrorist activity and that it was adequate to support a diagnosis of PTSD.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "74",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "MCC Center",
+            "cue": "diagnosed",
+            "object": "MCC Center diagnosed PTSD based on the Veteran's experiences in Vietnam"
+          },
+          {
+            "type": "Evidence",
+            "subject": "a VA or VA contracted provider",
+            "cue": "did not confirm prior to the Veteran's death that",
+            "object": " his stressor was related to fear of hostile military or terrorist activity"
+          },
+          {
+            "type": "Evidence",
+            "subject": "a VA or VA contracted provider",
+            "cue": "did not confirm prior to the Veteran's death that",
+            "object": "it was adequate to support a diagnosis of PTSD"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "335",
+      "_score": 2.973709,
+      "_source": {
+        "sentID": "1316146P67S6",
+        "text": "The examiner said testing and past history showed a chronic state of anxiousness and that while the Veteran said his tension and anxiety began when he attended his first physical for basic training, the examiner had no way to know whether the condition was a direct result of his involvement in Vietnam.",
+        "caseNumber": "1316146",
+        "paragraphNumber": "67",
+        "sentenceNumber": "6",
+        "id": 6,
+        "rhetClass": "EvidenceSentence",
+        "rhetClassPredict": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "The examiner",
+            "cue": "said",
+            "object": "testing and past history showed a chronic state of anxiousness and that while the Veteran said his tension and anxiety began when he attended his first physical for basic training, the examiner had no way to know whether the condition was a direct result of his involvement in Vietnam"
+          },
+          {
+            "type": "Evidence",
+            "subject": "testing and past history",
+            "cue": "showed",
+            "object": "a chronic state of anxiousness"
+          },
+          {
+            "type": "Evidence",
+            "subject": "the Veteran",
+            "cue": "said",
+            "object": "his tension and anxiety began when he attended his first physical for basic training"
+          },
+          {
+            "type": "Evidence",
+            "subject": "the examiner",
+            "cue": "had no way to know",
+            "object": "whether the condition was a direct result of his involvement in Vietnam"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1210",
+      "_score": 2.973709,
+      "_source": {
+        "sentID": "1455570P40S2",
+        "text": "As an initial matter, the Board finds that the Veteran's reports of his traumatic events during combat in Vietnam and current symptoms are competent because they are observable by lay persons and have been accepted without challenge by all clinicians and the January 2011 examiner and are consistent with his service records.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "40",
+        "sentenceNumber": "2",
+        "id": 2,
+        "rhetClass": "ReasoningSentence"
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1220",
+      "_score": 2.973709,
+      "_source": {
+        "sentID": "1455570P43S1",
+        "text": "Therefore, resolving all doubt in favor of the Veteran, the Board finds that the competent and credible evidence shows that diagnoses of PTSD and major depressive disorder were rendered during portions of the pendency of the Veteran's claim and such were, at least in part, related to traumatic events during combat in Vietnam.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "43",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "FindingSentence",
+        "rhetClassPredict": "FindingSentence",
+        "attributions": [
+          {
+            "type": "Finding",
+            "subject": "the Board",
+            "cue": "finds that",
+            "object": "diagnoses of PTSD and major depressive disorder were rendered during portions of the pendency of the Veteran's claim and such were, at least in part, related to traumatic events during combat in Vietnam",
+            "polarity": "positive"
+          },
+          {
+            "type": "Finding",
+            "cue": "the competent and credible evidence shows that",
+            "object": "diagnoses of PTSD and major depressive disorder were rendered during portions of the pendency of the Veteran's claim and such were, at least in part, related to traumatic events during combat in Vietnam",
+            "polarity": "positive"
+          },
+          {
+            "type": "Finding",
+            "object": "diagnoses of PTSD and major depressive disorder were rendered during portions of the pendency of the Veteran's claim and such were, at least in part, related to traumatic events during combat in Vietnam",
+            "cue": "resolving all doubt in favor of the Veteran",
+            "polarity": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "1205",
+      "_score": 2.8410997,
+      "_source": {
+        "sentID": "1455570P38S3",
+        "text": "In October 2012, the VA social worker noted some improvement in isolative behaviors, anger issues, and disturbed sleep with the use of medication, but that the Veteran continued to display a depressed mood caused by thoughts of his fellow soldiers killed in Vietnam, how he was treated during service, his physical disabilities, and the death of his first wife.",
+        "caseNumber": "1455570",
+        "paragraphNumber": "38",
+        "sentenceNumber": "3",
+        "id": 3,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the VA social worker",
+            "cue": "noted some improvement in",
+            "object": "isolative behaviors, anger issues, and disturbed sleep with the use of medication"
+          },
+          {
+            "type": "Evidence",
+            "subject": "the VA social worker",
+            "cue": "noted that",
+            "object": "the Veteran continued to display a depressed mood caused by thoughts of his fellow soldiers killed in Vietnam, how he was treated during service, his physical disabilities, and the death of his first wife"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2325",
+      "_score": 2.4204426,
+      "_source": {
+        "sentID": "1526599P57S1",
+        "text": "During his December 2012 videoconference hearing, the Veteran testified that he experienced the stressors of: (1) while serving as a door gunner for the very first time, his gun jammed, and he had to switch and allow the other gunner to fire; (2) also while serving as a door gunner, the Veteran witnessed a helicopter pilot get killed while teaching the \"RNs\" how to fly, said pilot crashing into a building; and (3) the Veteran and another boy were separated from the patrol while in a tanker when they had to go to a village and help put out fires.",
+        "caseNumber": "1526599",
+        "paragraphNumber": "57",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "During his December 2012 videoconference hearing, the Veteran",
+            "cue": "testified that",
+            "object": "he experienced the stressors of: (1) while serving as a door gunner for the very first time, his gun jammed, and he had to switch and allow the other gunner to fire; (2) also while serving as a door gunner, the Veteran witnessed a helicopter pilot get killed while teaching the \"RNs\" how to fly, said pilot crashing into a building; and (3) the Veteran and another boy were separated from the patrol while in a tanker when they had to go to a village and help put out fires"
+          }
+        ]
+      }
+    },
+    {
+      "_index": "la-vern-cases",
+      "_type": "_doc",
+      "_id": "2316",
+      "_score": 1.3432999,
+      "_source": {
+        "sentID": "1526599P55S1",
+        "text": "While the JSRRC found in January 2010 that the Veteran engaged in combat and experienced stressors while assigned to the 336th Assault Helicopter Squadron, in a subsequent May 2010 memorandum, the JSRRC determined that while the following claimed stressors occurred, there was no evidence that the Veteran witnessed them: (1) the Veteran's friend, D.P., sustaining a compound fracture of the back after being shot down on a mission; (2) L.M.S. being killed after being accidentally shot through the chest after disarming a mini gun; (3) G.L. being killed while at a re-fueling point, when he was struck in the head by a rotor; (4) shortly after returning home, learning of O.B. dying after receiving a head shot during a gun run; (5) J.W. being killed in a crash due to maintenance problems; (6) the Veteran's fire truck being separated from a convoy after they had traveled to a village outside of the compound to help put fires out; and (7) while on a convoy and driving through the village outside the Veteran's compound, the Vietnamese directing traffic got too close to the Veteran's truck and was run over by accident, and Viet Cong chopping off the heads of South Vietnamese soldiers they had killed.",
+        "caseNumber": "1526599",
+        "paragraphNumber": "55",
+        "sentenceNumber": "1",
+        "id": 1,
+        "rhetClass": "EvidenceSentence",
+        "attributions": [
+          {
+            "type": "Evidence",
+            "subject": "the JSRRC",
+            "cue": "found that",
+            "object": "the Veteran engaged in combat and experienced stressors while assigned to the 336th Assault Helicopter Squadron"
+          },
+          {
+            "type": "Evidence",
+            "subject": "in a subsequent May 2010 memorandum, the JSRRC",
+            "cue": "determined that",
+            "object": "while the following claimed stressors occurred, there was no evidence that the Veteran witnessed them: (1) the Veteran's friend, D.P., sustaining a compound fracture of the back after being shot down on a mission; (2) L.M.S. being killed after being accidentally shot through the chest after disarming a mini gun; (3) G.L. being killed while at a re-fueling point, when he was struck in the head by a rotor; (4) shortly after returning home, learning of O.B. dying after receiving a head shot during a gun run; (5) J.W. being killed in a crash due to maintenance problems; (6) the Veteran's fire truck being separated from a convoy after they had traveled to a village outside of the compound to help put fires out; and (7) while on a convoy and driving through the village outside the Veteran's compound, the Vietnamese directing traffic got too close to the Veteran's truck and was run over by accident, and Viet Cong chopping off the heads of South Vietnamese soldiers they had killed"
+          }
+        ]
+      }
+    }
+  ]
+}

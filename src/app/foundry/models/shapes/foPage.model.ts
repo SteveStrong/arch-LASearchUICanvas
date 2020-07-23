@@ -626,8 +626,8 @@ export class foPage extends foShape2D {
       }
     };
 
-    const debounceMouseMove = debounce(mousemove, 10);
-    PubSub.Sub('mousemove', debounceMouseMove);
+    // do not user this const debounceMouseMove = debounce(mousemove, 10);
+    PubSub.Sub('mousemove', mousemove);
 
     const mouseup = (loc: cPoint2D, e: MouseEvent, keys) => {
       grab = null;

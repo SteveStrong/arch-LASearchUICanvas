@@ -1,14 +1,14 @@
-import { LaAtom } from "./la-atom";
-import { LaAttributionRelation } from "./la-attributionRelation";
+import { LaAtom } from './la-atom';
+import { LaAttributionRelation } from './la-attributionRelation';
 
-import { LaDecisionNode } from "./la-decisionNode";
+import { LaDecisionNode } from './la-decisionNode';
 
 
 export class LaSentence extends LaAtom {
   sentID: string;
   text: string;
   rhetClass: string;
-  labeler:string;
+  labeler: string;
   isSection: boolean;
 
   id: number;
@@ -20,65 +20,66 @@ export class LaSentence extends LaAtom {
   predictions: any;
 
   attributions: Array<LaAttributionRelation>;
-  private ruleConditions: Array<String>;
+  private ruleConditions: Array<string>;
 
   constructor(properties?: any) {
-    let attributions = properties.attributions;
+    const attributions = properties.attributions;
     delete properties.attributions;
 
     super(properties);
 
-    if (!this.rhetClass) {
-      let role = this['rhetRole'];
-      if (!role || role.length == 0) {
-        role = ["Sentence"];
-      }
-      this.rhetClass = role[0];
-    }
-    delete this['rhetRole'];
-    delete this['ruleCondition'];
-    delete this['nlpOutput'];
+    // if (!this.rhetClass) {
+    //   let role = this.rhetRole;
+    //   if (!role || role.length === 0) {
+    //     role = ['Sentence'];
+    //   }
+    //   this.rhetClass = role[0];
+    // }
+    // delete this.rhetRole;
+    // delete this.ruleCondition;
+    // delete this.nlpOutput;
 
     this.sentID && this.decomposeID(this.sentID);
     if (this.sentenceNumber) {
+      // tslint:disable-next-line: radix
       this.id = parseInt(this.sentenceNumber);
     }
 
     attributions && attributions.forEach(item => {
-      let obj = new LaAttributionRelation();
+      const obj = new LaAttributionRelation();
       this.addAttributionRelation(obj);
       obj.override(item);
-    })
+    });
 
     this.deleteEmptyAttributions();
   }
 
   decomposeID(sentID: string): LaSentence {
-    let data = sentID.split('P')
+    let data = sentID.split('P');
     this.caseNumber = data[0];
 
-    data = data[1].split('S')
+    data = data[1].split('S');
     this.paragraphNumber = data[0];
     this.sentenceNumber = data[1];
     return this;
   }
 
   computeID(): LaSentence {
-    this.sentID = `${this.caseNumber}P${this.paragraphNumber}S${this.sentenceNumber}`
+    this.sentID = `${this.caseNumber}P${this.paragraphNumber}S${this.sentenceNumber}`;
     return this;
   }
 
   sentTag(): string {
-    return `P:${this.paragraphNumber} S:${this.sentenceNumber}`
+    return `P:${this.paragraphNumber} S:${this.sentenceNumber}`;
   }
   renumberTo(num: number): LaSentence {
     this.id = num;
     this.sentenceNumber = num.toString();
-    return this.computeID()
+    return this.computeID();
   }
 
   deleteEmptyAttributions() {
-    let list = this.attributions && this.attributions.splice(0)
+    const list = this.attributions && this.attributions.splice(0);
     this.attributions = list && list.filter(item => {
       return item.isSaveWorthy();
     });
@@ -89,11 +90,11 @@ export class LaSentence extends LaAtom {
   cleanAttributions() {
     let found = false;
     this.attributions && this.attributions.forEach(item => {
-      if (item.type.indexOf("Sentence") > 0) {
+      if (item.type.indexOf('Sentence') > 0) {
         found = true;
-        item.type = item.type.replace("Sentence", "")
+        item.type = item.type.replace('Sentence', '');
       }
-    })
+    });
     return found;
   }
 
@@ -106,7 +107,7 @@ export class LaSentence extends LaAtom {
   }
 
   bold(name: string) {
-    return `<b>${name}</b>`
+    return `<b>${name}</b>`;
   }
 
   replaceBold(text: string, name: string) {
@@ -114,26 +115,26 @@ export class LaSentence extends LaAtom {
   }
 
   textMarkup(): string {
-    let text = "&nbsp; &nbsp;" + this.text;
+    let text = '&nbsp; &nbsp;' + this.text;
     if (this.hasAttributionRelation()) {
       this.attributions.forEach(attribute => {
         text = this.replaceBold(text, attribute.cue);
         text = this.replaceBold(text, attribute.object);
         text = this.replaceBold(text, attribute.subject);
-      })
+      });
     }
     return text;
   }
 
   getRhetClass(): string {
     if (this.isSection) {
-      return 'section'
+      return 'section';
     }
-    return this.rhetClass || "Sentence";
+    return this.rhetClass || 'Sentence';
   }
 
   getRhetClassPrediction(): string {
-    return this.rhetClassPredict || "Sentence";
+    return this.rhetClassPredict || 'Sentence';
   }
 
   clearPrediction() {
@@ -142,7 +143,7 @@ export class LaSentence extends LaAtom {
   }
 
   hasPredictions() {
-    return this.predictions !== undefined
+    return this.predictions !== undefined;
   }
 
   getPredictions() {
@@ -158,7 +159,7 @@ export class LaSentence extends LaAtom {
   }
 
   get predictedValue() {
-    let value = this.predictions[0].value
+    const value = this.predictions[0].value;
     return value;
   }
 
@@ -166,49 +167,49 @@ export class LaSentence extends LaAtom {
     this.rhetClassPredict = item.classification;
     const keys = Object.keys(item.predictions);
 
-    let list = []
+    const list = [];
     keys.forEach(key => {
-      let data = 10000 * parseFloat(item.predictions[key]);
-      let obj = {
+      const data = 10000 * parseFloat(item.predictions[key]);
+      const obj = {
         name: key,
         value: Math.round(data) / 100
-      }
-      list.push(obj)
-    })
+      };
+      list.push(obj);
+    });
 
     this.predictions = list.sort((a, b) => b.value - a.value);
     return this.predictions;
   }
 
-  applyForcedPrediction(rhetClass:string, labeler:string) {
+  applyForcedPrediction(rhetClass: string, labeler: string) {
       this.rhetClass = rhetClass;
       this.labeler = labeler;
     }
 
-  applyPredictionIfUnclassified(threshold: number, labeler:string) {
+  applyPredictionIfUnclassified(threshold: number, labeler: string) {
     if (this.isUnclassified() && this.hasPredictions()) {
-      let best = this.predictions[0];
+      const best = this.predictions[0];
       if (best.value >= threshold) {
-        this.applyForcedPrediction(best.name,labeler);
+        this.applyForcedPrediction(best.name, labeler);
       }
     }
   }
 
-  applyPredictionOfTypeIfUnclassified(threshold: number, name:string, labeler:string) {
+  applyPredictionOfTypeIfUnclassified(threshold: number, name: string, labeler: string) {
     if (this.isUnclassified() && this.hasPredictions()) {
-      let best = this.predictions[0];
-      if (best.name == name && best.value >= threshold) {
-        this.applyForcedPrediction(best.name,labeler);
+      const best = this.predictions[0];
+      if (best.name === name && best.value >= threshold) {
+        this.applyForcedPrediction(best.name, labeler);
       }
     }
   }
 
   isFindingSentence() {
-    return this.getRhetClass().includes("Finding");
+    return this.getRhetClass().includes('Finding');
   }
 
   polarityColor() {
-    let result = this.getFindingAttribution();
+    const result = this.getFindingAttribution();
     if (result) {
       return result.polarityColor;
     }
@@ -217,7 +218,7 @@ export class LaSentence extends LaAtom {
 
   getFindingAttribution() {
     if (this.hasAttributionRelation()) {
-      let result = this.attributions.filter(x => x.type.includes("Finding"));
+      const result = this.attributions.filter(x => x.type.includes('Finding'));
       return result && result[0];
     }
   }
@@ -242,7 +243,7 @@ export class LaSentence extends LaAtom {
     if (!this.hasAttributionRelation()) {
       return;
     }
-    let index = this.attributions.indexOf(obj);
+    const index = this.attributions.indexOf(obj);
     if (index > -1) {
       this.attributions.splice(index, 1);
     }
@@ -250,50 +251,51 @@ export class LaSentence extends LaAtom {
   }
 
   isLikelyCitation() {
-    if (this.getRhetClass().includes("Citation")) {
+    if (this.getRhetClass().includes('Citation')) {
       return true;
     }
   }
 
   mergeTextFrom(sentence: LaSentence, extra: string = ' ') {
-    this.text += `${extra}${sentence.text}`
+    this.text += `${extra}${sentence.text}`;
     return this;
   }
 
 
   hasDecision(decision: LaDecisionNode): boolean {
     if (this.ruleConditions) {
-      let key = decision.ruleID;
-      let index = this.ruleConditions.indexOf(key);
+      const key = decision.ruleID;
+      const index = this.ruleConditions.indexOf(key);
       return index >= 0;
     }
     return false;
   }
 
-  getDecisionKeys(): Array<String> {
+
+  getDecisionKeys(): Array<string> {
     if (!this.ruleConditions) {
-      return new Array<String>()
+      return new Array<string>();
     }
     return this.ruleConditions;
   }
 
   addDecision(decision: LaDecisionNode): LaSentence {
     if (!this.ruleConditions) {
-      this.ruleConditions = new Array<String>()
+      this.ruleConditions = new Array<string>();
     }
 
-    let key = decision.ruleID;
-    let index = this.ruleConditions.indexOf(key);
+    const key = decision.ruleID;
+    const index = this.ruleConditions.indexOf(key);
     if (index === -1) {
-      this.ruleConditions.push(key)
+      this.ruleConditions.push(key);
     }
     return this;
   }
 
   removeDecision(decision: LaDecisionNode): LaSentence {
     if (this.ruleConditions) {
-      let key = decision.ruleID;
-      let index = this.ruleConditions.indexOf(key);
+      const key = decision.ruleID;
+      const index = this.ruleConditions.indexOf(key);
       if (index > -1) {
         this.ruleConditions.splice(index, 1);
       }

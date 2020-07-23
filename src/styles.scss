@@ -3,5 +3,61 @@
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '../node_modules/ngx-toastr/toastr.css';
+
+
+.EvidenceSentence {
+  background-color: rgba(0,0,255,0.3);
+}
+
+.FindingSentence  {
+  background-color:rgba(255,204,0,0.3);
+}
+
+.LegalRuleSentence  {
+  background-color:rgba(255,0,0,0.3);
+}
+
+.CitationSentence {
+  background-color: rgba(255,153,51,0.5);
+}
+
+.ReasoningSentence {
+  background-color: rgba(0,204,0,0.3);
+}
+
+.Evidence {
+  background-color: rgba(0,0,255,0.3);
+}
+
+.Finding {
+  background-color:rgba(255,204,0,0.3);
+}
+
+.LegalRule {
+  background-color:rgba(255,0,0,0.3);
+}
+
+.Citation {
+  background-color: rgba(255,153,51,0.5);
+}
+
+.Reasoning {
+  background-color: rgba(0,204,0,0.3);
+}
+
+.positive {
+  background-color: rgba(0,204,0,0.3);
+}
+
+.negative {
+  background-color:rgba(255,0,0,0.3);
+}
+
+.undecided {
+  background-color:rgba(255,204,0,0.3);
+}

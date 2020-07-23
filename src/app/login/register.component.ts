@@ -1,12 +1,12 @@
-﻿import { Component, OnInit } from "@angular/core";
-import { Toast, EmitterService } from "../shared/emitter.service";
-import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { first } from "rxjs/operators";
+﻿import { Component, OnInit } from '@angular/core';
+import { Toast, EmitterService } from '../shared/emitter.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from "./authentication.service";
+import { AuthenticationService } from './authentication.service';
 
-@Component({ templateUrl: "register.component.html" })
+@Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
@@ -19,18 +19,18 @@ export class RegisterComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.aService.currentUserValue) {
-      this.router.navigate(["/"]);
+      this.router.navigate(['/']);
     }
   }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      username: ["", Validators.required],
-      email: ["", Validators.required],
-      leader: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      leader: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -52,8 +52,8 @@ export class RegisterComponent implements OnInit {
     this.aService.register(this.registerForm.value, () => this.loading = false).subscribe(
         data => {
           if ( data ) {
-            Toast.success(`Hello, ${data.fullName()}`, "you are registered");
-            this.router.navigate(["/login"]);
+            Toast.success(`Hello, ${data.fullName()}`, 'you are registered');
+            this.router.navigate(['/login']);
           }
         });
   }

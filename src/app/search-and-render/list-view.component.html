@@ -1,0 +1,12 @@
+<!-- <pre>{{searchResults | json}}</pre> -->
+
+<ag-grid-angular
+  class="ag-theme-balham"
+  style="width: 100%; height: 800px;"
+  [rowData]="searchResults"
+  [columnDefs]="columnDefs"
+  [rowSelection]="rowSelection"
+  [defaultColDef]="defaultColumnDefs"
+  (gridReady)="onGridReady($event)"
+  (rowClicked)="onRowClick($event)"
+></ag-grid-angular>

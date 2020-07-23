@@ -1,8 +1,18 @@
 export const environment = {
-  predictURL: '',
-  libraryURL:'',
-  loginURL: '',
-  localDebug: false,
+  tag: 'production',
+  version: '0.0.0',
   production: true,
-  version: "9.0.0"
+  baseURL: '',
+  predictURL: '',
+  libraryURL: '',
+  loginURL: '',
+  rootAPIPath: '',
+  APIVersion: '',
+  localMockPath: '',
+  localDebug: false,
+  featureflags: {
+    authenticationService: '',
+    displayBDDtestUI: true,
+    services: {}
+  } as any
 };

@@ -1,0 +1,13 @@
+<div class="sign-up-page">
+    <div class="sign-up-container">
+        <button (click)="doRunScenario()">
+            <h2>business process testing</h2>
+        </button>
+
+        <div *ngFor="let group of results">
+            <mat-accordian class="example-headers-align">
+                <app-group [group]="group"></app-group>
+            </mat-accordian>
+        </div>
+    </div>
+</div>

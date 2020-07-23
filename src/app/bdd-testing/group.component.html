@@ -1,0 +1,16 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ group.heading }}
+        </mat-panel-title>
+        <span *ngIf="successes > 0" class="success">Success: {{ successes }}</span>
+        <span *ngIf="failures > 0" class="failure">Failure: {{ failures }}</span>
+        <span class="total">Total: {{ total }}</span>
+    </mat-expansion-panel-header>
+
+    <app-note *ngFor="let note of group.notes" [note]="note">
+    </app-note>
+
+    <app-test *ngFor="let test of group.tests" [test]="test">
+    </app-test>
+</mat-expansion-panel>

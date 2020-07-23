@@ -1,17 +1,17 @@
-﻿import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Toast, EmitterService } from "../shared/emitter.service";
+﻿import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Toast, EmitterService } from '../shared/emitter.service';
 
-import { BehaviorSubject, Observable, of } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
-import { environment } from "../../environments/environment";
-import { LaUser, Login } from "../models";
+import { environment } from '../../environments/environment';
+import { LaUser, Login } from '../models';
 import { iPayloadWrapper } from '../shared';
 
-const CURRENTUSER = "currentUser";
+const CURRENTUSER = 'currentUser';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   get API_URL(): string {
     return environment.loginURL;
@@ -35,21 +35,21 @@ export class AuthenticationService {
     return this.currentUserValue ? this.currentUserValue.isAdmin() : false;
   }
 
-  public processUsers(payload:Array<any>):Array<LaUser> {
+  public processUsers(payload: Array<any>): Array<LaUser> {
     const list = new Array<LaUser>();
 
     payload.forEach( item => {
       const obj = new LaUser(item);
-      list.push(obj)
-    })
+      list.push(obj);
+    });
 
-    //presort by leader and then name
+    // presort by leader and then name
     // memberList.sort((a,b) => b.memberCompare(a))
     return list;
   }
 
 
-  login(login: Login, done:()=>void): Observable<LaUser> {
+  login(login: Login, done: () => void): Observable<LaUser> {
     const url = `${this.API_URL}/Users/Authenticate`;
     return this.http.post<iPayloadWrapper>(url, login).pipe(
         map(result => {
@@ -58,7 +58,7 @@ export class AuthenticationService {
           if ( result.hasError ) {
             Toast.error(result.message);
             return of<any>();
-          } 
+          }
 
           // login successful if there's a jwt token in the response
           const user = this.processUsers(result.payload)[0];
@@ -82,7 +82,7 @@ export class AuthenticationService {
       );
   }
 
-  register(user: LaUser, done:()=>void): Observable<LaUser>{
+  register(user: LaUser, done: () => void): Observable<LaUser> {
     const url = `${this.API_URL}/Users/Register`;
     return this.http.post<iPayloadWrapper>(url, user).pipe(
         map(result => {
@@ -91,11 +91,11 @@ export class AuthenticationService {
           if ( result.hasError ) {
             Toast.error(result.message);
             return of<any>();
-          } 
+          }
 
-          //Toast.success("Registration successful");
-          const user = this.processUsers(result.payload)[0];
-          return user;
+          // Toast.success("Registration successful");
+          const found = this.processUsers(result.payload)[0];
+          return found;
         }),
         catchError(error => {
           done && done();
@@ -116,14 +116,14 @@ export class AuthenticationService {
   }
 
   public getAllUsers$(): Observable<Array<LaUser>> {
-    const rest = "/Users/AllUsers";
+    const rest = '/Users/AllUsers';
     const url = `${this.API_URL}${rest}`;
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        var memberList = this.processUsers(res.payload)
+        const memberList = this.processUsers(res.payload);
 
-        //Toast.success(`${res.length} items loaded!`, rest);
+        // Toast.success(`${res.length} items loaded!`, rest);
         return memberList;
       }),
       catchError(error => {
@@ -134,16 +134,16 @@ export class AuthenticationService {
     );
   }
 
-  public getIsUserAdmin$(user:LaUser): Observable<boolean> {
-    const rest = "/Users/IsAdmin";
+  public getIsUserAdmin$(user: LaUser): Observable<boolean> {
+    const rest = '/Users/IsAdmin';
     const url = `${this.API_URL}${rest}`;
 
-    const data = user.asJson();
+    const data = user ? user.asJson() : {};
     return this.http.post<iPayloadWrapper>(url, data).pipe(
       map(res => {
-        let answer = res.payload[0];
+        const answer = res.payload[0];
         if ( answer.status) {
-          user.markAsAdmin()
+          user.markAsAdmin();
         }
         return answer.status;
       }),
@@ -155,14 +155,14 @@ export class AuthenticationService {
     );
   }
 
-  public getDeleteUser$(user:LaUser): Observable<LaUser> {
-    const rest = "/Users/Delete/";
+  public getDeleteUser$(user: LaUser): Observable<LaUser> {
+    const rest = '/Users/Delete/';
     const name = encodeURIComponent(user.email);
     const url = `${this.API_URL}${rest}${name}`;
 
     return this.http.delete<iPayloadWrapper>(url).pipe(
       map(res => {
-        var memberList = this.processUsers(res.payload)
+        const memberList = this.processUsers(res.payload);
 
         Toast.success(`${res.length} items deleted!`, rest);
         return memberList;

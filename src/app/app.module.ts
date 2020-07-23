@@ -13,12 +13,16 @@ import { RegisterComponent } from './login';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AgGridModule } from 'ag-grid-angular';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -36,6 +40,14 @@ import { UsersComponent } from './teams/users.component';
 import { UserComponent } from './teams/user.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ScenesComponent } from './scenes/scenes.component';
+
+import { SearchAndRenderComponent } from './search-and-render/search-and-render.component';
+import { SearchComponent } from './search-and-render/search.component';
+import { SearchResultsComponent } from './search-and-render/search-results.component';
+import { ListViewComponent } from './search-and-render/list-view.component';
+import { CardViewComponent } from './search-and-render/card-view.component';
+import { CardSetComponent } from './search-and-render/card-set.component';
+
 
 
 @NgModule({
@@ -58,14 +70,26 @@ import { ScenesComponent } from './scenes/scenes.component';
     UserComponent,
     DrawingComponent,
     AppComponent,
-    ScenesComponent
+    ScenesComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    ListViewComponent,
+    SearchAndRenderComponent,
+    CardViewComponent,
+    CardSetComponent
   ],
   imports: [
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatCardModule,
+    MatGridListModule,
+    InfiniteScrollModule,
     BrowserModule,
     FormsModule,
+    MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
