@@ -16,7 +16,12 @@ export class CardViewComponent implements OnInit {
   constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
-    this.highlightOn = this.qService.searchTextList;
+    this.highlightOn = this.qService.searchTextList || [];
+  }
+
+  get formatedText() {
+    const result = this.item.textMarkup(this.highlightOn);
+    return result;
   }
 
 }

@@ -82,10 +82,14 @@ export class SearchResult extends foModelBase {
     }
 
     textMarkup(listOfWords: Array<string>): string {
-        let text = `&nbsp; &nbsp; ${this.sentence.text}`;
-        listOfWords.forEach(word => {
-            text = this.replaceBold(text, word);
-        });
+        let text = '';
+        if (this.sentence.text) {
+            text = this.sentence.text;
+            listOfWords.forEach(word => {
+                text = this.replaceBold(text, word);
+            });
+            text = `&nbsp; &nbsp; ${text}`;
+        }
 
         return text;
     }

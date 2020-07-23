@@ -10,14 +10,13 @@ import { Toast, EmitterService } from '../shared';
 })
 export class SearchAndRenderComponent implements OnInit {
   searchResults: Array<SearchResult>;
-  searchTextList: Array<string>;
+
 
   constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
 
     EmitterService.registerCommand(this, TOPIC_TextSearch, (data) => {
-      this.searchTextList = data.split(' ');
       this.doTextSearch(data);
     });
 
@@ -26,9 +25,7 @@ export class SearchAndRenderComponent implements OnInit {
 
   doTextSearch(text: string) {
     this.qService.searchText$(text).subscribe(data => {
-      if (!data.hasError) {
-        this.searchTextList = text.split(' ');
-        
+      if (!data.hasError) {        
         this.searchResults = data.payload;
       } else {
         Toast.error(data.message);
