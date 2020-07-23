@@ -1,5 +1,5 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { QueryResultService } from './query-result.service';
 
 
 import { SearchResult } from '../models';
@@ -9,25 +9,14 @@ import { SearchResult } from '../models';
   templateUrl: './card-view.component.html',
   styleUrls: ['./card-view.component.scss']
 })
-export class CardViewComponent implements OnInit, OnChanges {
+export class CardViewComponent implements OnInit {
   @Input() item: SearchResult;
-  @Input() searchTextList: Array<string>;
   highlightOn: Array<string>;
 
-  constructor() { }
+  constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
-    this.highlightOn = this.searchTextList ? this.searchTextList : [];
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      if (changes.hasOwnProperty(propName)) {
-        if (propName === 'searchTextList') {
-          this.highlightOn = this.searchTextList ? this.searchTextList : [];
-        }
-      }
-    }
+    this.highlightOn = this.qService.searchTextList;
   }
 
 }

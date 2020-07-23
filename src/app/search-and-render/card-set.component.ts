@@ -13,7 +13,7 @@ import { SearchResult } from '../models';
 })
 export class CardSetComponent implements OnInit {
   @Input() searchResults: Array<SearchResult> = [];
-  @Input() searchTextList: Array<string>;
+
 
   throttle = 300;
   scrollDistance = 1;

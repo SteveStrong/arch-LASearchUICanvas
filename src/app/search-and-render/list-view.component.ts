@@ -13,7 +13,7 @@ import { SearchResult } from '../models';
 })
 export class ListViewComponent implements OnInit, OnChanges {
     @Input() searchResults: Array<SearchResult>;
-    @Input() searchTextList: Array<string>;
+
 
     private gridApi: GridApi;
     gridOptions: GridOptions = {};

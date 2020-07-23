@@ -1,20 +1,18 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="List View">
+    <div class="search-results">
+      <app-list-view [searchResults]="searchResults"></app-list-view>
+    </div>
+  </mat-tab>
+  <mat-tab label="Card View">
+    <div class="search-results">
+      <app-card-set [searchResults]="searchResults"></app-card-set>
+    </div>
+  </mat-tab>
 
-    <mat-tab-group mat-align-tabs="center">
-      <mat-tab label="List View">
-        <div class="search-results">
-          <app-list-view [searchResults]="searchResults" [searchTextList]="searchTextList"></app-list-view>
-        </div>
-      </mat-tab>
-      <mat-tab label="Card View">
-        <div class="search-results">
-          <app-card-set [searchResults]="searchResults" [searchTextList]="searchTextList"></app-card-set>
-        </div>
-      </mat-tab>
-
-    <mat-tab label="Thumb View">
-        <div class="search-results">
-          <app-thumb-set [searchResults]="searchResults" [searchTextList]="searchTextList"></app-thumb-set>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-
+  <mat-tab label="Thumb View">
+    <div class="search-results">
+      <app-thumb-set [searchResults]="searchResults"></app-thumb-set>
+    </div>
+  </mat-tab>
+</mat-tab-group>

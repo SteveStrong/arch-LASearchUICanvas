@@ -1,19 +1,20 @@
 <div class="infinite-scroll-container">
-  <div class="search-results"
-        infinite-scroll
-        [infiniteScrollDistance]="scrollDistance"
-        [infiniteScrollThrottle]="throttle"
-        (scrolled)="onScrollDown()"
-        [infiniteScrollContainer]="'.infinite-scroll-container'"
-        >
-        <mat-grid-list cols="4" >
-          <mat-grid-tile
-            *ngFor="let card of searchResults"
-            [colspan]="1"
-            [rowspan]="1"
-          >
-            <app-card-view [item]="card" [searchTextList]="searchTextList"></app-card-view>
-          </mat-grid-tile>
-        </mat-grid-list>
-    </div>
+  <div
+    class="search-results"
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown()"
+    [infiniteScrollContainer]="'.infinite-scroll-container'"
+  >
+    <mat-grid-list cols="4">
+      <mat-grid-tile
+        *ngFor="let card of searchResults"
+        [colspan]="1"
+        [rowspan]="1"
+      >
+        <app-card-view [item]="card"></app-card-view>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>

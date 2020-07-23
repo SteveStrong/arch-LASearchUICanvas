@@ -27,6 +27,8 @@ export class SearchAndRenderComponent implements OnInit {
   doTextSearch(text: string) {
     this.qService.searchText$(text).subscribe(data => {
       if (!data.hasError) {
+        this.searchTextList = text.split(' ');
+        
         this.searchResults = data.payload;
       } else {
         Toast.error(data.message);
