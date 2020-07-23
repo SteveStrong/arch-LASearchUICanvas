@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -47,6 +49,8 @@ import { SearchResultsComponent } from './search-and-render/search-results.compo
 import { ListViewComponent } from './search-and-render/list-view.component';
 import { CardViewComponent } from './search-and-render/card-view.component';
 import { CardSetComponent } from './search-and-render/card-set.component';
+import { NotebookComponent } from './search-and-render/notebook.component';
+import { ThumbSetComponent } from './search-and-render/thumb-set.component';
 
 
 
@@ -76,7 +80,9 @@ import { CardSetComponent } from './search-and-render/card-set.component';
     ListViewComponent,
     SearchAndRenderComponent,
     CardViewComponent,
-    CardSetComponent
+    CardSetComponent,
+    NotebookComponent,
+    ThumbSetComponent
   ],
   imports: [
     MatToolbarModule,
@@ -86,6 +92,8 @@ import { CardSetComponent } from './search-and-render/card-set.component';
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
+    MatTabsModule,
+    MatStepperModule,
     InfiniteScrollModule,
     BrowserModule,
     FormsModule,

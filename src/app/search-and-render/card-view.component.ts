@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { QueryResultService } from './query-result.service';
 
 
 import { SearchResult } from '../models';
@@ -10,10 +11,17 @@ import { SearchResult } from '../models';
 })
 export class CardViewComponent implements OnInit {
   @Input() item: SearchResult;
-  
-  constructor() { }
+  highlightOn: Array<string>;
+
+  constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
+    this.highlightOn = this.qService.searchTextList || [];
+  }
+
+  get formatedText() {
+    const result = this.item.textMarkup(this.highlightOn);
+    return result;
   }
 
 }

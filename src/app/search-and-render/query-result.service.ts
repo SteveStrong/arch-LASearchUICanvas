@@ -13,7 +13,7 @@ import { map, catchError } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class QueryResultService {
-    public queryImageURL: string;
+    public searchTextList: Array<string>;
 
     constructor(private httpService: foHttpService, private http: HttpClient) {}
 
@@ -30,14 +30,10 @@ export class QueryResultService {
 
 
     public searchText$(text: string): Subject<IResponse<SearchResult>> {
-
+        this.searchTextList = text.split(' ');
         const urlOptions = this.TEXT_QUERY_URL_OPTIONS(text);
         const httpSubject = this.httpService.get$<SearchResult>(SearchResult, urlOptions);
 
-        httpSubject.subscribe(result => {
-           // const broadcastTopic = new QueryResultsLoaded(result, text, result.payload?.length);
-           // EmitterService.broadcastTopic<QueryResultsLoaded>(this, QueryResultsLoaded.QUERY_RESULT_LOADED, broadcastTopic);
-        });
         return httpSubject;
     }
 

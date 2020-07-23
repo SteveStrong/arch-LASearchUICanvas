@@ -1,22 +1,22 @@
-import { Injectable } from "@angular/core";
-import { Toast, EmitterService, iPayloadWrapper } from "../shared";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Toast, EmitterService, iPayloadWrapper } from '../shared';
+import { HttpClient } from '@angular/common/http';
 
-import { AuthenticationService } from "../login/authentication.service";
+import { AuthenticationService } from '../login/authentication.service';
 
 
-import { LaCaseDirectoryItem, LaDownloadedCase, LaUploadedCase, LaLegalCase } from ".";
-import { environment } from "../../environments/environment";
+import { LaCaseDirectoryItem, LaDownloadedCase, LaUploadedCase, LaLegalCase } from '.';
+import { environment } from '../../environments/environment';
 
-import { Observable, of } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class LibraryService {
-  get API_URL():string {
+  get API_URL(): string {
     return environment.libraryURL;
   }
 
@@ -27,13 +27,13 @@ export class LibraryService {
 
 
 
-  public uploadCase$(caseModel:LaUploadedCase): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/UploadCase";
+  public uploadCase$(caseModel: LaUploadedCase): Observable<Array<LaCaseDirectoryItem>> {
+    const rest = '/Cases/UploadCase';
     const url = `${this.API_URL}${rest}`;
 
-    return this.http.post<iPayloadWrapper>(url,caseModel).pipe(
+    return this.http.post<iPayloadWrapper>(url, caseModel).pipe(
       map(res => {
-        //Toast.success(`${res.length} case saved to server`, rest);
+        // Toast.success(`${res.length} case saved to server`, rest);
         return [new LaCaseDirectoryItem(res.payload[0])];
       }),
       catchError(error => {
@@ -45,13 +45,13 @@ export class LibraryService {
   }
 
 
-  public downloadCase$(workspace:string, fileName:string): Observable<Array<LaDownloadedCase>> {
-    const rest = "/Cases/DownloadCase";
+  public downloadCase$(workspace: string, fileName: string): Observable<Array<LaDownloadedCase>> {
+    const rest = '/Cases/DownloadCase';
     const url = `${this.API_URL}${rest}`;
 
     return this.http.post<iPayloadWrapper>(url, {workspace, fileName}).pipe(
       map(res => {
-        const caseData:any= res.payload[0];
+        const caseData: any = res.payload[0];
         // Toast.success(`${res.length} case opened from server`, rest);
         return [new LaDownloadedCase(caseData)];
       }),
@@ -64,26 +64,26 @@ export class LibraryService {
   }
 
 
-  public consumeDataModel(list:Array<any>):Array<LaCaseDirectoryItem> {
+  public consumeDataModel(list: Array<any>): Array<LaCaseDirectoryItem> {
     const caseList = new Array<LaCaseDirectoryItem>();
 
     list.forEach( item => {
       const obj = new LaCaseDirectoryItem(item);
-      caseList.push(obj)
-    })
+      caseList.push(obj);
+    });
     
-    //presort by leader and then name
-    caseList.sort((a,b) => b.caseCompare(a))
+    // presort by leader and then name
+    caseList.sort((a, b) => b.caseCompare(a));
     return caseList;
   }
 
   public getCaseDirectory$(): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/ActiveCases";
+    const rest = '/Cases/ActiveCases';
     const url = `${this.API_URL}${rest}`;
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        var caseList = this.consumeDataModel(res.payload);
+        let caseList = this.consumeDataModel(res.payload);
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
       }),
@@ -95,11 +95,11 @@ export class LibraryService {
     );
   }
 
-  public caseHistory$(workspace:string, fileName:string): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/CaseHistory/";
+  public caseHistory$(workspace: string, fileName: string): Observable<Array<LaCaseDirectoryItem>> {
+    const rest = '/Cases/CaseHistory/';
     const url = `${this.API_URL}${rest}`;
 
-    return this.http.post<iPayloadWrapper>(url, {workspace,fileName}).pipe(
+    return this.http.post<iPayloadWrapper>(url, {workspace, fileName}).pipe(
       map(res => {
         const caseList = this.consumeDataModel(res.payload);
       //  Toast.success(`${res.length} items loaded!`, rest);
@@ -113,13 +113,13 @@ export class LibraryService {
     );
   }
 
-  public getCasesInWorkspace$(workspace:string): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/ActiveCasesInWorkspace";
+  public getCasesInWorkspace$(workspace: string): Observable<Array<LaCaseDirectoryItem>> {
+    const rest = '/Cases/ActiveCasesInWorkspace';
     const url = `${this.API_URL}${rest}/${workspace}`;
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        var caseList = this.consumeDataModel(res.payload);
+        let caseList = this.consumeDataModel(res.payload);
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
       }),
@@ -132,14 +132,14 @@ export class LibraryService {
   }
 
   public getAllActiveCases$(): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/ActiveCases";
+    const rest = '/Cases/ActiveCases';
     const url = `${this.API_URL}${rest}`;
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        var caseList = this.consumeDataModel(res.payload);
+        let caseList = this.consumeDataModel(res.payload);
 
-        //Toast.success(`${res.length} items loaded!`, rest);
+        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
       }),
       catchError(error => {
@@ -151,12 +151,12 @@ export class LibraryService {
   }
 
   public getAllCases$(): Observable<Array<LaCaseDirectoryItem>> {
-    const rest = "/Cases/AllCases";
+    const rest = '/Cases/AllCases';
     const url = `${this.API_URL}${rest}`;
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        var caseList = this.consumeDataModel(res.payload);
+        let caseList = this.consumeDataModel(res.payload);
 
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;

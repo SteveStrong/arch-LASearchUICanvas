@@ -1,5 +1,8 @@
-import { foModelBase } from '../shared';
-import { LaSentence } from './la-sentence';
+import { foModelBase, foBroadcastTopic } from '../shared';
+
+export const  TOPIC_TextSearch = 'TextSearch';
+
+
 
 export class LaShortSentence extends foModelBase {
     sentID: string;
@@ -17,6 +20,12 @@ export class LaShortSentence extends foModelBase {
         this.override(properties);
     }
 
+    get rhetLabel(): string {
+        let value = this.rhetClass || '';
+        if (value === 'Sentence') { return 'Other'; }
+        value = value.replace('Sentence', '');
+        return value;
+    }
 
 }
 
@@ -73,10 +82,14 @@ export class SearchResult extends foModelBase {
     }
 
     textMarkup(listOfWords: Array<string>): string {
-        let text = `&nbsp; &nbsp; ${this.sentence.text}`;
-        listOfWords.forEach(word => {
-            text = this.replaceBold(text, word);
-        });
+        let text = '';
+        if (this.sentence.text) {
+            text = this.sentence.text;
+            listOfWords.forEach(word => {
+                text = this.replaceBold(text, word);
+            });
+            text = `&nbsp; &nbsp; ${text}`;
+        }
 
         return text;
     }

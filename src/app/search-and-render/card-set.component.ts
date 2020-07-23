@@ -4,12 +4,7 @@ import { SearchResult } from '../models';
 // https://github.com/flavens/material-flexlayout/tree/master/src/app
 // https://material.angular.io/components/grid-list/examples
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+
 
 @Component({
   selector: 'app-card-set',
@@ -18,6 +13,7 @@ export interface Tile {
 })
 export class CardSetComponent implements OnInit {
   @Input() searchResults: Array<SearchResult> = [];
+
 
   throttle = 300;
   scrollDistance = 1;
