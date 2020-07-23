@@ -1,5 +1,8 @@
-import { foModelBase } from '../shared';
-import { LaSentence } from './la-sentence';
+import { foModelBase, foBroadcastTopic } from '../shared';
+
+export const  TOPIC_TextSearch = 'TextSearch';
+
+
 
 export class LaShortSentence extends foModelBase {
     sentID: string;

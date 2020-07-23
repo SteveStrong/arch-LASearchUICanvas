@@ -55,23 +55,23 @@ export class EmitterService {
     return name;
   }
 
-  static broadcastTopic<T extends foBroadcastTopic>(source: any, topic: string, args?: T) {
-    const cmd = {
-      command: topic,
-      args,
-      source
-    };
-    setTimeout(() => {
-      EmitterService.get('COMMAND').emit(cmd);
-    }, 10);
-    return cmd;
-  }
+  // static broadcastTopic<T extends foBroadcastTopic>(source: any, topic: string, args?: T) {
+  //   const cmd = {
+  //     command: topic,
+  //     args,
+  //     source
+  //   };
+  //   setTimeout(() => {
+  //     EmitterService.get('COMMAND').emit(cmd);
+  //   }, 10);
+  //   return cmd;
+  // }
 
-  static registerTopic<T extends foBroadcastTopic>(source: any, topic: string, func: FuncT<T>) {
-    const name = `cmd${topic}`;
-    source[name] = func;
-    return name;
-  }
+  // static registerTopic<T extends foBroadcastTopic>(source: any, topic: string, func: FuncT<T>) {
+  //   const name = `cmd${topic}`;
+  //   source[name] = func;
+  //   return name;
+  // }
 
   static displayToastUsing(source: any, func: FuncAny, done?: FuncAny) {
     EmitterService.get('SHOWERROR').subscribe(item => {

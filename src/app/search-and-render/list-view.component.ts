@@ -13,6 +13,7 @@ import { SearchResult } from '../models';
 })
 export class ListViewComponent implements OnInit, OnChanges {
     @Input() searchResults: Array<SearchResult>;
+    @Input() searchTextList: Array<string>;
 
     private gridApi: GridApi;
     gridOptions: GridOptions = {};
@@ -48,10 +49,7 @@ export class ListViewComponent implements OnInit, OnChanges {
         // }
     }
 
-    formatIsPinned(cell: any) {
-        const { value: isPinned } = cell;
-        return isPinned ? 'PINNED' : '';
-    }
+
 
     getColDefinitions(isSmall: boolean) {
         return [
@@ -68,7 +66,7 @@ export class ListViewComponent implements OnInit, OnChanges {
             },
             {
                 headerName: 'Score', width: 10, field: 'formatedScore',
-                cellStyle: { 'text-align': 'right' }, type: 'rightAligned', hide: false,
+                cellStyle: { 'text-align': 'right' }, type: 'rightaligned', hide: false,
                 headerComponentParams: {
                     template:
                         '<div class="ag-cell-label-container" role="presentation">' +
