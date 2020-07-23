@@ -14,7 +14,7 @@
     <span class="spacer">|</span>
 
     <input type="file" style="display: none" (change)="onFileOpen($event)" #hiddenfileinput />
-    <button mat-stroked-button class="push-right" (click)="hiddenfileinput.click()">Open File</button>
+    <button mat-stroked-button class="push-right" (click)="hiddenfileinput.click()"><h4>Open File</h4></button>
     <button mat-stroked-button class="push-right" (click)="onFileSave($event)">Save File</button>
     <button mat-stroked-button class="push-right" *ngIf="isDirty()" (click)="applyAutoSave($event)">AutoSave ({{autoSaveCountdown()}})</button>
     <button mat-stroked-button *ngIf="!currentUser" [routerLink]="['/login']">Login</button>
