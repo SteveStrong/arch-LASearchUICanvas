@@ -17,6 +17,12 @@ export class LaShortSentence extends foModelBase {
         this.override(properties);
     }
 
+    get rhetLabel(): string {
+        let value = this.rhetClass || '';
+        if (value === 'Sentence') { return 'Other'; }
+        value = value.replace('Sentence', '');
+        return value;
+    }
 
 }
 

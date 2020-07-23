@@ -1,27 +1,16 @@
 <app-search></app-search>
 
 <mat-horizontal-stepper linear>
-  <mat-step >
-      <ng-template matStepLabel>Search for relevent arguments</ng-template>
+  <mat-step>
+    <ng-template matStepLabel><h2>Search for relevent arguments</h2></ng-template>
     <app-search-results [searchResults]="searchResults"></app-search-results>
   </mat-step>
-  <mat-step >
-      <ng-template matStepLabel>Capture details in a notebook</ng-template>
-<app-notebook></app-notebook>
+  <mat-step>
+    <ng-template matStepLabel ><h2>Capture details in a notebook</h2></ng-template>
+    <app-notebook></app-notebook>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Publish and share research</ng-template>
-<pre>{{ searchResults | json }}</pre>
+    <ng-template matStepLabel><h2>Publish and share research</h2></ng-template>
+    <pre>{{ searchResults | json }}</pre>
   </mat-step>
 </mat-horizontal-stepper>
-
-<!-- <mat-tab-group>
-  <mat-tab label="Results">
-
-  </mat-tab>
-  <mat-tab label="Notebook"> </mat-tab>
-    
-  <mat-tab label="Raw">
-    
-  </mat-tab>
-</mat-tab-group> -->
