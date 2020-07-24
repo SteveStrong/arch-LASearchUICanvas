@@ -1,0 +1,7 @@
+<div style="margin-left: 10px;">
+  <!-- <button style="margin-right: 20px;" class="btn btn-warning" (click)="doJoinWithNext()">Append</button> -->
+  <button style="margin-right: 20px;" class="btn btn-success" (click)="doPrediction()">Predict</button>
+  <button style="margin-right: 5px;" (click)="doSplit(item.name)" [class]="item.name"
+    *ngFor="let item of sentence.predictions"> {{item.name | Short}}&nbsp;{{item.value}}%</button>
+</div>
+<br />

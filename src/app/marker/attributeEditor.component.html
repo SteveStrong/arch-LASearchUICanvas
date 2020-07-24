@@ -1,0 +1,148 @@
+<div class="row"  >
+  <div class="col-sm-6" *ngFor="let item of sentence.attributions">
+    <div class="card " [ngClass]="{'border-primary': isCurrentAttribution(item)}" (click)="setCurrentAttribution(item)">
+      <div class="card-header">
+        
+        <h4 class="btn-group" dropdown>
+          <button id="button-sentence" dropdownToggle type="button" class="brn-sm btn-outline-default" aria-controls="dropdown-sentence" >
+            <span>Sentence Type Label:</span>
+          </button> &nbsp;<span  [class]="sentence.rhetClass">{{ sentence.rhetClass }}</span>
+          <ul id="dropdown-sentence" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sentence" >
+            <li *ngFor="let choice of getSentenceRoles()">
+              <h4 class="dropdown-item"  (click)=" selectSentenceType(sentence, choice)" >
+                {{ choice }}
+              </h4>
+            </li>
+          </ul>
+        </h4>
+        
+           <!-- <h5>
+            <span class="btn-group">
+              <button (click)="doPredictSentence(sentence)" class="brn-sm btn-outline-default">predict:</button>
+              &nbsp;<span [class]="sentence.rhetClassPredict">{{ sentence.rhetClassPredict }}</span>
+            </span>
+          </h5> -->
+      </div>
+
+      <div class="card-body" *ngIf="canEditAttribution()">
+
+          <h5 class="card-title" [class]="item.type">
+            <span class="btn-group" dropdown>
+              <button id="button-attribute" dropdownToggle   class="brn-sm btn-outline-default" aria-controls="dropdown-attribute">
+              Attribution Type Label:</button>
+              &nbsp;<span >{{ item.type }}</span>
+              <ul id="dropdown-attribute" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-attribute" >
+                <li *ngFor="let choice of getAttributionRoles()">
+                  <h3 class="dropdown-item"  (click)="selectAttributionType(item, choice)" >
+                    {{ choice }}
+                  </h3>
+                </li>
+              </ul>
+            </span>
+            <p *ngIf="canShowPolarity(item)" class="float-right" [class]="item.polarity">
+              <span class="btn-group" dropdown>
+                <button id="button-attribute" dropdownToggle   class="brn-sm btn-outline-default" aria-controls="dropdown-attribute">
+                Polarity:</button>
+                &nbsp;<span [class]="item.polarityValue" >{{ item.polarityValue }}</span>
+                <ul id="dropdown-attribute" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-attribute" >
+                  <li *ngFor="let choice of getPolarityValues()">
+                    <h3 class="dropdown-item"  (click)="selectPolarityValue(item, choice)" >
+                      {{ choice }}
+                    </h3>
+                  </li>
+                </ul>
+              </span>
+            </p>
+          </h5>
+          <br/>
+
+          <p *ngIf="readonlyCueText(item)" class="card-text">
+            <button (click)="editCue(item)" class="brn-sm btn-outline-default">
+              Cue:</button
+            >&nbsp; {{ item.cue }}
+          </p>
+          <p *ngIf="editCueText(item)" class="card-text">
+            <button (click)="readCue(item)" class="brn-sm btn-success">
+              Cue:</button
+            >&nbsp; <input type="text" size="52" [(ngModel)]="item.cue" />
+          </p>
+
+          <p *ngIf="readonlySubjectText(item)" class="card-text">
+            <button
+              (click)="editSubject(item)"
+              class="brn-sm btn-outline-default"
+            >
+              Subject:</button
+            >&nbsp; {{ item.subject }}
+          </p>
+          <p *ngIf="editSubjectText(item)" class="card-text">
+            <button (click)="readSubject(item)" class="brn-sm btn-success">
+              Subject:</button
+            >&nbsp; <input type="text" size="48" [(ngModel)]="item.subject" />
+          </p>
+
+          <p *ngIf="readonlyObjectText(item)" class="card-text">
+            <button
+              (click)="editObject(item)"
+              class="brn-sm btn-outline-default"
+            >
+              Object:</button
+            >&nbsp; {{ item.object }}
+          </p>
+          <p *ngIf="editObjectText(item)" class="card-text">
+            <button (click)="readObject(item)" class="brn-sm btn-success">
+              Object:</button
+            >&nbsp; <input type="text" size="48" [(ngModel)]="item.object" />
+          </p>
+
+          <button
+            class="btn-sm btn-info"
+            style="margin-right:10px"
+            (click)="itemCue(item)"
+          >
+            Cue
+          </button>
+          <button
+            class="btn-sm btn-success"
+            style="margin-right:10px"
+            (click)="itemSubject(item)"
+          >
+            Subject
+          </button>
+          <button
+            class="btn-sm btn-warning"
+            style="margin-right:10px"
+            (click)="itemObject(item)"
+          >
+            Object
+          </button>
+          <button
+            class="btn-sm btn-danger"
+            style="margin-right:10px"
+            (click)="itemClear(item)"
+          >
+            Clear
+          </button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<p>
+  <button
+    class="btn btn-outline-default"
+    style="margin-right:10px"
+    (click)="attributionAdd()"
+  >
+    Add
+  </button>
+  <button
+    class="btn btn-outline-default"
+    style="margin-right:10px"
+    (click)="attributionDone()"
+  >
+    Completed
+  </button>
+
+</p>

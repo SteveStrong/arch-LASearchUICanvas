@@ -1,0 +1,19 @@
+<div class="navbar navbar-expand-md navbar-light bg-light"  >
+    <div class="container">
+        <button (click)="applyFilter($event)" [id]="item.name" [class]="item.name" *ngFor="let item of sentenceStats"> {{item.markerLabel()}}&nbsp; &nbsp;</button>
+    </div>
+</div>
+
+<div class="container" *ngIf="legalCase">
+  <app-case-title [caseInfo]="legalCase.caseInfo"></app-case-title>
+
+    <div *ngIf="filter == 'All'">
+        <app-paragraph *ngFor="let item of getFilteredParagraphs()" [userCanEdit]="userCanEdit" [filter]="filter" [paragraph]="item"> </app-paragraph>
+    </div>
+    <div *ngIf="filter != 'All'">
+        <app-sentence *ngFor="let item of getFilteredSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="false"> </app-sentence>
+        <app-sentence *ngFor="let item of getPredictedSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="false"> </app-sentence>
+    </div>
+</div>
+
+

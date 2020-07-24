@@ -52,10 +52,34 @@ import { CardSetComponent } from './search-and-render/card-set.component';
 import { NotebookComponent } from './search-and-render/notebook.component';
 import { ThumbSetComponent } from './search-and-render/thumb-set.component';
 
-
+import { MarkerComponent } from './marker/marker.component';
+import { SentenceComponent } from './marker/sentence.component';
+import { AttributeEditorComponent } from './marker/attributeEditorcomponent';
+import { ParagraphComponent } from './marker/paragraph.component';
+import { PredictionComponent } from './marker/prediction.component';
+import { SelectionComponent } from './marker/selection.component';
+import { SplitterComponent } from './marker/splitter.component';
+import { SentencetypePipe } from './marker/sentencetype.pipe';
+import { JoinerComponent } from './marker/joiner.component';
+import { ReaderComponent } from './reader/reader.component';
+import { CaseTitleComponent } from './marker/case-title.component';
+import { SectionBadgeComponent } from './marker/section-badge.component';
 
 @NgModule({
   declarations: [
+    MarkerComponent,
+    SentenceComponent,
+    AttributeEditorComponent,
+    ParagraphComponent,
+    PredictionComponent,
+    SelectionComponent,
+    SplitterComponent,
+    SentencetypePipe,
+    JoinerComponent,
+    ReaderComponent,
+    CaseTitleComponent,
+    SectionBadgeComponent,
+    
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,

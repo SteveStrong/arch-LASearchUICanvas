@@ -1,0 +1,27 @@
+
+<svg *ngIf="renderSpans && sentence.isFindingSentence()" height="20" width="20">
+  <circle cx="12" cy="10" r="6" stroke="black" stroke-width="1" [attr.fill]="sentence.polarityColor()" [style.fill]="sentence.polarityColor()"/>
+</svg>
+
+
+<div *ngIf="!renderSpans">
+  <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
+  <app-section-badge *ngIf="userCanEdit" [sentence]="sentence"></app-section-badge>
+  <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge>
+</div>
+
+<span *ngIf="!sentence.isSection">
+  <app-prediction *ngIf="!renderSpans" [userCanEdit] = "userCanEdit" [sentence]="sentence"></app-prediction>
+</span >
+
+<ng-container *ngIf="renderSpans">
+  <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
+  <app-section-badge *ngIf="userCanEdit" [sentence]="sentence"></app-section-badge>
+  <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge>
+</ng-container>
+
+
+<ng-container  *ngIf="isSelected() && userCanEdit" >
+  <app-selection *ngIf="isSentenceOrAllFilter()" [sentence]="sentence"></app-selection>
+  <app-attributeEditor *ngIf="isNotSentenceOrAllFilter()" [sentence]="sentence"></app-attributeEditor>
+</ng-container >
