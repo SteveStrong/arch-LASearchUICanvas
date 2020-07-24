@@ -18,8 +18,8 @@ export class SectionBadgeComponent implements OnInit {
   }
 
   getSectionBadges() {
-    const keys = this.sentence ? this.sentence.getSectionBadges() : [];
-    return keys;
+    // const keys = this.sentence ? this.sentence.getSectionBadges() : [];
+    // return keys;
   }
 
 }

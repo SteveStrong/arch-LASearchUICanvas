@@ -31,9 +31,9 @@ export class ParagraphComponent implements OnInit {
   }
 
   doOpen() {
-    EmitterService.broadcastCommand(this, 'CloseAll', null, _ => {
-      this.selected = true;
-    });
+    // EmitterService.broadcastCommand(this, 'CloseAll', null, _ => {
+    //   this.selected = true;
+    // });
   }
   isSelected() {
     return this.selected;

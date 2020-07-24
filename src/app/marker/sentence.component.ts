@@ -49,9 +49,9 @@ export class SentenceComponent implements OnInit {
     } else if ( this.selected) {
       // skip for now this.doClose()
     } else {
-      EmitterService.broadcastCommand(this, 'CloseAll', null, _ => {
-        this.selected = true;
-      });
+      // EmitterService.broadcastCommand(this, 'CloseAll', null, _ => {
+      //   this.selected = true;
+      // });
 
       // EmitterService.broadcastCommand(this, "RefreshSelected");
     }
