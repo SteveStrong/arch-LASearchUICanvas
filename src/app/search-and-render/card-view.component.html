@@ -7,8 +7,8 @@
   </mat-card-header>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <mat-card-content>
-    <p [ngClass]="item.sentence.rhetClass"  >
-      {{item.sentence.text}}
+    <p class="body-text" [ngClass]="item.sentence.rhetClass" [innerHTML]="item.innerHTML" >
+     
     </p>
   </mat-card-content>
   <mat-card-actions>
