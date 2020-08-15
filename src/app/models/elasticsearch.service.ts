@@ -39,7 +39,8 @@ export class ElasticSearchService {
 
   public searchText$(text: string): Observable<Array<SearchResult>> {
     const rest = '/text/';
-    const url = `${this.API_URL}${rest}${text}`;
+    const preEncode = `${this.API_URL}${rest}${text}`;
+    const url = encodeURI(preEncode)
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {

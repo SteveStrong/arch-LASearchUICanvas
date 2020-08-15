@@ -13,6 +13,6 @@
     <button (click)="doAssertThis(item)" style="margin-right: 5px;"  [class]="item.name" *ngFor="let item of restPredictions()">&nbsp;{{item.name | Short}}&nbsp;{{item.value}}%&nbsp;</button>
   </div>
   <br/>
-  <app-peekcontext *ngIf="showContext" [userCanEdit] = "userCanEdit" [sentence]="sentence"></app-peekcontext>
+  <!-- <app-peekcontext *ngIf="showContext" [userCanEdit] = "userCanEdit" [sentence]="sentence"></app-peekcontext> -->
   <br />
 </div>

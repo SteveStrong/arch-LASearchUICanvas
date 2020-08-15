@@ -7,7 +7,7 @@
 <div *ngIf="!renderSpans">
   <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
   <app-section-badge *ngIf="userCanEdit" [sentence]="sentence"></app-section-badge>
-  <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge>
+  <!-- <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge> -->
 </div>
 
 <span *ngIf="!sentence.isSection">
@@ -17,7 +17,7 @@
 <ng-container *ngIf="renderSpans">
   <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
   <app-section-badge *ngIf="userCanEdit" [sentence]="sentence"></app-section-badge>
-  <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge>
+  <!-- <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge> -->
 </ng-container>
 
 
