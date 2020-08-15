@@ -1,6 +1,7 @@
 {
   "loginURL": "https://loginservice-dev-as.azurewebsites.net/api",
   "libraryURL": "https://loginservice-dev-as.azurewebsites.net/api",
+  "searchURL": "http://lasearchapi.azurewebsites.net/lasearch/api/v1",
   "predictURL": "https://legalsemanticapi.azurewebsites.net/teamknowtshare",
   "localDebug": false,
   "rootAPIPath": "/api",
