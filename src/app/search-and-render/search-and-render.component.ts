@@ -20,11 +20,12 @@ export class SearchAndRenderComponent implements OnInit {
     EmitterService.registerCommand(this, TOPIC_TextSearch, (data) => {
       this.doTextSearch(data);
     });
-
+    
     EmitterService.processCommands(this);
   }
-
+  
   doTextSearch(text: string) {
+    Toast.success('captured searching for', text);
     this.qService.searchText$(text).subscribe(data => {
       this.searchResults = data;
     });

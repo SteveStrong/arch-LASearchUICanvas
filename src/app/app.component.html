@@ -10,6 +10,7 @@
     <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
     <a mat-stroked-button  [routerLink]="['/teams']" >Teams</a>
     <button mat-stroked-button  [routerLink]="['/library']" >Library</button>
+
     <span class="spacer" style="width:250px" ><em>{{currentFileName}}</em></span>
     <span class="spacer">|</span>
 
@@ -42,7 +43,7 @@
 </mat-drawer-container> -->
 
 
-
+<a href="{{ swaggerLink }}" target="_blank">Link to Services Swagger</a>
 <router-outlet *ngIf="hasConfig"></router-outlet>
 
 

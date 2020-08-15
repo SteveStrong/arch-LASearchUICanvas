@@ -122,6 +122,11 @@ export class AppComponent implements OnInit, OnDestroy {
     // $(".toast-bottom-right").attr("role", "dialog");
   }
 
+
+  get swaggerLink(): string {
+    return environment.searchURL;
+  }
+
   ngOnInit() {
     EmitterService.displayToastUsing(this, this.openToast);
     this.loadConfiguration(_ => {
