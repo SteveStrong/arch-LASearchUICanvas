@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
             return;
         } else if (text !== '') {
             Toast.info('searching for', text);
-            EmitterService.broadcastCommand(this, TOPIC_TextSearch, text);
+            EmitterService.broadcastCommand(this, TOPIC_TextSearch, [text]);
         }
     }
 }
