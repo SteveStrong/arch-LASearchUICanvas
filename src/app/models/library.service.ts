@@ -83,7 +83,7 @@ export class LibraryService {
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        let caseList = this.consumeDataModel(res.payload);
+        const caseList = this.consumeDataModel(res.payload);
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
       }),
@@ -119,7 +119,7 @@ export class LibraryService {
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        let caseList = this.consumeDataModel(res.payload);
+        const caseList = this.consumeDataModel(res.payload);
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
       }),
@@ -137,7 +137,7 @@ export class LibraryService {
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        let caseList = this.consumeDataModel(res.payload);
+        const caseList = this.consumeDataModel(res.payload);
 
         // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;
@@ -156,7 +156,7 @@ export class LibraryService {
 
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
-        let caseList = this.consumeDataModel(res.payload);
+        const caseList = this.consumeDataModel(res.payload);
 
        // Toast.success(`${res.length} items loaded!`, rest);
         return caseList;

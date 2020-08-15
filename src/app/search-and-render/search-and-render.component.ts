@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QueryResultService } from './query-result.service';
+// import { QueryResultService } from './query-result.service';
+import { ElasticSearchService } from '../models/elasticsearch.service';
 import { SearchResult, TOPIC_TextSearch } from '../models';
 import { Toast, EmitterService } from '../shared';
 
@@ -12,7 +13,7 @@ export class SearchAndRenderComponent implements OnInit {
   searchResults: Array<SearchResult>;
 
 
-  constructor(private qService: QueryResultService) { }
+  constructor(private qService: ElasticSearchService) { }
 
   ngOnInit(): void {
 
