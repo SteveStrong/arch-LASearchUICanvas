@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
     ngOnInit(): void {
         this.searchForm = this.formBuilder.group({
-            textSearch: ['Vietnam of people  threatened ']
+            textSearch: ['people']
         });
 
         EmitterService.processCommands(this);
@@ -38,7 +38,8 @@ export class SearchComponent implements OnInit {
         if (this.searchForm.invalid) {
             return;
         } else if (text !== '') {
-            EmitterService.broadcastCommand(this, TOPIC_TextSearch, text);
+            Toast.info('searching for', text);
+            EmitterService.broadcastCommand(this, TOPIC_TextSearch, [text]);
         }
     }
 }

@@ -11,17 +11,11 @@ import { SearchResult } from '../models';
 })
 export class CardViewComponent implements OnInit {
   @Input() item: SearchResult;
-  highlightOn: Array<string>;
+
 
   constructor(private qService: QueryResultService) { }
 
   ngOnInit(): void {
-    this.highlightOn = this.qService.searchTextList || [];
-  }
-
-  get formatedText() {
-    const result = this.item.textMarkup(this.highlightOn);
-    return result;
   }
 
 }

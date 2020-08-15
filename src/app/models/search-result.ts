@@ -35,6 +35,7 @@ export class SearchResult extends foModelBase {
     _id: any;
     _score: any;
 
+    innerHTML: string;
     sentence: LaShortSentence;
 
     constructor(properties?: any) {
@@ -65,32 +66,5 @@ export class SearchResult extends foModelBase {
         return `Search Score ${this.formatedScore}`;
     }
 
-    bold(name: string) {
-        return `<b class="boldhighlight">${name}</b>`;
-    }
-
-
-
-    replaceSplitJoin(text: string, x: string, y: string) {
-        const temp = text.split(x);
-        const result = temp.join(y);
-        return result;
-    }
-
-    replaceBold(text: string, name: string) {
-        return this.replaceSplitJoin(text, name, this.bold(name));
-    }
-
-    textMarkup(listOfWords: Array<string>): string {
-        let text = '';
-        if (this.sentence.text) {
-            text = this.sentence.text;
-            listOfWords.forEach(word => {
-                text = this.replaceBold(text, word);
-            });
-            text = `&nbsp; &nbsp; ${text}`;
-        }
-
-        return text;
-    }
+ 
 }

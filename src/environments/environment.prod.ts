@@ -3,6 +3,7 @@ export const environment = {
   version: '0.0.0',
   production: true,
   baseURL: '',
+  searchURL: '',
   predictURL: '',
   libraryURL: '',
   loginURL: '',

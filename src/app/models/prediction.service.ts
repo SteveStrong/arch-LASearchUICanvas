@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Toast, EmitterService } from "../shared/emitter.service";
-import { environment } from "../../environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Toast, EmitterService } from '../shared/emitter.service';
+import { environment } from '../../environments/environment';
 
-import { Observable,  of } from "rxjs";
+import { Observable,  of } from 'rxjs';
 import {
   map,
   catchError
-} from "rxjs/operators";
+} from 'rxjs/operators';
 
 export interface iPrediction {
   name: string;
@@ -15,13 +15,13 @@ export interface iPrediction {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class PredictionService {
-  get API_URL():string {
+  get API_URL(): string {
     return environment.predictURL;
   }
-  get defaultThreshold():number {
+  get defaultThreshold(): number {
     return 80.0;
   }
 
@@ -40,13 +40,13 @@ export class PredictionService {
   // };
 
   predictSentenceRhetClass(text: string): Observable<any> {
-    const simpleText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+    const simpleText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'');
     const data = encodeURIComponent(simpleText);
     const url = `${this.API_URL}/Classify/${data}`;
     return this.http.get(url).pipe(
       map(res => {
-        const item = res["payload"][0];
-        Toast.success("predicted", item.classification);
+        const item = res['payload'][0];
+        Toast.success('predicted', item.classification);
         return item;
       }),
       catchError(error => {
@@ -57,7 +57,7 @@ export class PredictionService {
     );
   }
 
-  //data1 = {
+  // data1 = {
   //   hasErrors: false,
   //   errorMessage: "",
   //   payloadCount: 1,
@@ -77,15 +77,15 @@ export class PredictionService {
   //   ]
   // };
 
-  predictSentenceDetails(text: string, toast=true): Observable<any> {
-    const simpleText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\t\r\n]/g,"")
+  predictSentenceDetails(text: string, toast= true): Observable<any> {
+    const simpleText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\t\r\n]/g,'');
     const data = encodeURIComponent(simpleText);
     const url = `${this.API_URL}/Predict/${data}`;
     return this.http.get(url).pipe(
       map(res => {
-        const item = res["payload"][0];
+        const item = res['payload'][0];
         if ( toast ) {
-          Toast.success("predicted", item.classification);
+          Toast.success('predicted', item.classification);
         }
         return item;
       }),
