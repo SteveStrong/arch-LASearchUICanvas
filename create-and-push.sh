@@ -13,9 +13,9 @@
 # docker push eslacontainer.azurecr.io/elasticsearch
 
 
-# docker login lacontainers.azurecr.io
-# username lacontainers
-# pasword  (get it from azure access keys to azurecr)
+# docker login eslacontainer.azurecr.io
+# username eslacontainer
+# password  (get it from azure access keys to azurecr)
 
 #  https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli
 #  to put into azurecr.io 
@@ -24,7 +24,7 @@
 
 docker build -t lasearchui -f Dockerfile  .
 echo "build done"
-docker tag lasearchui lasearchuiui.azurecr.io/lasearchui 
+docker tag lasearchui eslacontainer.azurecr.io/lasearchui 
 echo "tag done"
-docker push lasearchuiui.azurecr.io/lasearchui 
+docker push eslacontainer.azurecr.io/lasearchui 
 echo "push done"

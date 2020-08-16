@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
     ngOnInit(): void {
         this.searchForm = this.formBuilder.group({
-            textSearch: ['people']
+            textSearch: ['vietnam']
         });
 
         EmitterService.processCommands(this);

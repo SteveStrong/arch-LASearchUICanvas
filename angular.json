@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LegalApprenticeSearch": {
+    "LASearchUICanvas": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/LegalApprenticeSearch",
+            "outputPath": "dist/LASearchUICanvas",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LegalApprenticeSearch:build"
+            "browserTarget": "LASearchUICanvas:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LegalApprenticeSearch:build:production"
+              "browserTarget": "LASearchUICanvas:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LegalApprenticeSearch:build"
+            "browserTarget": "LASearchUICanvas:build"
           }
         },
         "test": {
@@ -105,18 +105,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LegalApprenticeSearch:serve"
+            "devServerTarget": "LASearchUICanvas:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "LegalApprenticeSearch:serve:production"
+              "devServerTarget": "LASearchUICanvas:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "LegalApprenticeSearch",
+  "defaultProject": "LASearchUICanvas",
   "cli": {
     "analytics": "1a0f180b-f917-4154-ae2c-976a536e6cf7"
   }
