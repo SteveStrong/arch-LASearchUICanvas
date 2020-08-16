@@ -5,9 +5,19 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build-prod": "ng build --prod --output-path ./dist/angUI",
+    "serve-prod": "lite-server --baseDir=dist/angui ",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test-forever": "ng test --watch=true --browsers=ChromeHeadless",
+    "test": "ng test --code-coverage",
+    "test-prod": "http-server .\\dist\\angUI\\index.html",
+    "lint": "ng lint --fix=true",
+    "coverage": "ng test --code-coverage",
+    "report": "start coverage/legalapprentice/index.html",
+    "e2e": "ng e2e",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.html,.ts,.js,.json,.css,.scss}\"",
+    "dev": "lite-server --baseDir ./dist/angUI"
+
   },
   "private": true,
   "dependencies": {

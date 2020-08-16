@@ -22,7 +22,7 @@ WORKDIR /usr/share/nginx/html
 
 # https://stackoverflow.com/questions/56213079/404-error-on-page-refresh-with-angular-7-nginx-and-docker
 # now there is a folder in dist
-COPY --from=builder ${APP}/dist/LASearchUICanvas .
+COPY --from=builder ${APP}/dist/angUI .
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80 443
