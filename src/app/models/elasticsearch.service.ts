@@ -16,6 +16,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ElasticSearchService {
+  public searchTextList: Array<string>;
 
   get API_URL(): string {
     return environment.searchURL;
@@ -37,7 +38,34 @@ export class ElasticSearchService {
     return list;
   }
 
+  private bold(name: string) {
+    return `<b class="boldhighlight">${name}</b>`;
+  }
+
+  private replaceSplitJoin(text: string, x: string, y: string) {
+    const temp = text.split(x);
+    const result = temp.join(y);
+    return result;
+  }
+
+  private replaceBold(text: string, name: string) {
+    return this.replaceSplitJoin(text, name, this.bold(name));
+  }
+
+  private textMarkup(rawText: string, listOfWords: Array<string>): string {
+    let text = rawText;
+    listOfWords.forEach(word => {
+      text = this.replaceBold(text, word);
+    });
+    text = `&nbsp; &nbsp; ${text}`;
+    console.log(text);
+    return text;
+  }
+
   public searchText$(text: string): Observable<Array<SearchResult>> {
+    const list = text.split(' ').filter(item => item.length > 0);
+    this.searchTextList = list;
+
     const rest = '/lasearch/api/v1/text/';
     const preEncode = `${this.API_URL}${rest}${text}`;
     const url = encodeURI(preEncode);
@@ -45,6 +73,11 @@ export class ElasticSearchService {
     return this.http.get<iPayloadWrapper>(url).pipe(
       map(res => {
         const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+  
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, list);
+        });
+
         Toast.success(`${res.length} items loaded!`, rest);
         return results;
       }),

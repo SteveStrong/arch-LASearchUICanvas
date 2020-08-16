@@ -46,6 +46,10 @@ export class SearchResult extends foModelBase {
         delete this['_source'];
     }
 
+    get rawText() {
+        return this.sentence.text;
+    }
+
     get formatedScore() {
         const data = Math.round(100 * this._score) / 100;
         return data;
