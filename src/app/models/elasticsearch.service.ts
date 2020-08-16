@@ -55,7 +55,7 @@ export class ElasticSearchService {
   private textMarkup(rawText: string, listOfWords: Array<string>): string {
     let text = rawText;
     listOfWords.forEach(word => {
-      text = this.replaceBold(text, word);
+      text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
     });
     text = `&nbsp; &nbsp; ${text}`;
     console.log(text);
@@ -63,7 +63,6 @@ export class ElasticSearchService {
   }
 
   public searchText$(text: string): Observable<Array<SearchResult>> {
-    console.log(text);
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
@@ -77,6 +76,7 @@ export class ElasticSearchService {
   
         results.map(item => {
           item.innerHTML = this.textMarkup(item.rawText, list);
+          console.log(item.innerHTML);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);
