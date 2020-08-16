@@ -18,7 +18,7 @@ export class SearchAndRenderComponent implements OnInit {
   ngOnInit(): void {
 
     EmitterService.registerCommand(this, TOPIC_TextSearch, (data) => {
-      this.doTextSearch(data);
+      this.doTextSearch(data[0]);
     });
     
     EmitterService.processCommands(this);

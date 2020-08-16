@@ -63,6 +63,7 @@ export class ElasticSearchService {
   }
 
   public searchText$(text: string): Observable<Array<SearchResult>> {
+    console.log(text);
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
