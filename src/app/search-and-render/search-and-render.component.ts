@@ -25,7 +25,7 @@ export class SearchAndRenderComponent implements OnInit {
   }
   
   doTextSearch(text: string) {
-    this.qService.searchText$(text).subscribe(data => {
+    this.qService.searchFilter$(text).subscribe(data => {
       Toast.success('captured searching for', text);
       this.searchResults = data;
     });

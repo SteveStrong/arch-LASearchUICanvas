@@ -90,4 +90,35 @@ export class ElasticSearchService {
     );
   }
 
+  public searchFilter$(text: string): Observable<Array<SearchResult>> {
+    const list = text.split(' ').filter(item => item.length > 0);
+    this.searchTextList = list;
+
+    const rest = '/lasearch/api/v1/filter/';
+    const url = `${this.API_URL}${rest}`;
+    const data = {
+      filter: '',
+      rule: '',
+      text
+    };
+    return this.http.post<iPayloadWrapper>(url, data).pipe(
+      map(res => {
+        const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, list);
+          console.log(item.innerHTML);
+        });
+
+        Toast.success(`${res.length} items loaded!`, rest);
+        return results;
+      }),
+      catchError(error => {
+        const msg = JSON.stringify(error, undefined, 3);
+        Toast.error(msg, url);
+        return of<any>();
+      })
+    );
+  }
+
 }
