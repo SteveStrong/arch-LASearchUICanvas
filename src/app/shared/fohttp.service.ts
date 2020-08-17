@@ -85,12 +85,13 @@ export class foHttpService {
         return subject;
     }
 
-    public post$<T extends foModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, data: T, func?: FuncAny): Subject<IResponse<T>> {
+    public post$<T extends foModelBase>(type: Constructable<T>, serviceOptions: ServiceOptions, data: T, header?: HttpHeaders, func?: FuncAny): Subject<IResponse<T>> {
         const subject = new Subject<IResponse<T>>();
         const url = ServiceLocator.getUrl(serviceOptions);
-
+        const headers = { headers: header };
+        
         this.http
-            .post(url, data)
+            .post(url, data, headers)
             .pipe(
                 switchMap((response: any) => {
                     return this.mapSuccessResponse<T>(type, response, func);
