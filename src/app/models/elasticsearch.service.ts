@@ -94,7 +94,7 @@ export class ElasticSearchService {
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
-    const rest = '/lasearch/api/v1/filter/';
+    const rest = '/lasearch/api/v1/filter';
     const url = `${this.API_URL}${rest}`;
     const data = {
       filter: '',

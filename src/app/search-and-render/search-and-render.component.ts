@@ -18,13 +18,22 @@ export class SearchAndRenderComponent implements OnInit {
   ngOnInit(): void {
 
     EmitterService.registerCommand(this, TOPIC_TextSearch, (data) => {
-      this.doTextSearch(data[0]);
+      const text = data[0];
+      this.doFilterSearch(text);
+      // this.doTextSearch(text);
     });
     
     EmitterService.processCommands(this);
   }
   
   doTextSearch(text: string) {
+    this.qService.searchText$(text).subscribe(data => {
+      Toast.success('captured searching for', text);
+      this.searchResults = data;
+    });
+  }
+
+  doFilterSearch(text: string) {
     this.qService.searchFilter$(text).subscribe(data => {
       Toast.success('captured searching for', text);
       this.searchResults = data;
