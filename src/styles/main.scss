@@ -7,20 +7,18 @@
   * project imports
   *****************************************************/
  @import 'variables';
- @import 'mixins';
+//  @import 'mixins';
  
  /*****************************************************
   * styles
   *****************************************************/
- html, body, app-root {
+app-root {
    overflow: hidden;
    width   : 100%;
    height  : 100%;
    margin  : 0;
    padding : 0;
- }
- 
- body {
+
    background-color: $mainBgColor;
    color: $mainTextColor;
  }
