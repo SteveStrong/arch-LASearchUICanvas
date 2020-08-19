@@ -1,14 +1,18 @@
 <div class="container">
     <form class="search-form" [formGroup]="searchForm">
         <div class="col col-1">
-            <!-- <h3>Enter Text to Search</h3> -->
-            <mat-form-field appearance="outline" class="text-input">
+             <mat-form-field appearance="outline" class="text-input">
                 <input matInput placeholder="Text Search" formControlName="textSearch" />
             </mat-form-field>
         </div>
 
-        <div class="col col-2">
+        <div class="col col-1">
             <button mat-flat-button color="primary" class="search-button" (click)="doSearch()">Search</button>
         </div>
+        <div class="col col-1">
+            <input type="checkbox"  name="findingsOnly">
+            <label for="findingsOnly">Findings Only</label>
+        </div>
+
     </form>
 </div>

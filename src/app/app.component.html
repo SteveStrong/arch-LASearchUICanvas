@@ -7,7 +7,7 @@
   <div class="button-row">
     <a mat-stroked-button  [routerLink]="['/search']" ><h4>Search</h4></a>
     <a mat-stroked-button  [routerLink]="['/drawing']" ><h4>Drawings</h4></a>
-    <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
+    <!-- <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
     <a mat-stroked-button  [routerLink]="['/teams']" >Teams</a>
     <button mat-stroked-button  [routerLink]="['/library']" >Library</button>
 
@@ -19,7 +19,9 @@
     <button mat-stroked-button class="push-right" (click)="onFileSave($event)">Save File</button>
     <button mat-stroked-button class="push-right" *ngIf="isDirty()" (click)="applyAutoSave($event)">AutoSave ({{autoSaveCountdown()}})</button>
     <button mat-stroked-button *ngIf="!currentUser" [routerLink]="['/login']">Login</button>
-    <button mat-stroked-button *ngIf="currentUser"  (click)="doLogout()">Logout</button>
+    <button mat-stroked-button *ngIf="currentUser"  (click)="doLogout()">Logout</button> -->
+    <span class="spacer">|</span>
+    <a style="color:antiquewhite; padding-left: 20px;" href="{{ swaggerLink }}" target="_blank">Link to Services Swagger</a>
   </div>
 
 </mat-toolbar>
@@ -43,7 +45,7 @@
 </mat-drawer-container> -->
 
 
-<a href="{{ swaggerLink }}" target="_blank">Link to Services Swagger</a>
+
 <router-outlet *ngIf="hasConfig"></router-outlet>
 
 
