@@ -18,7 +18,7 @@
             flex-direction: column;
             width: 33%;
             max-height: 100%;
-            font-size: 12px;
+            font-size: 16px;
 
             &.col-1 {
                 margin-right: 5px;
@@ -26,6 +26,8 @@
             }
 
             &.col-2 {
+                margin-right: 5px;
+                margin-bottom: 5px;
             }
 
             &.col-3 {
@@ -33,41 +35,15 @@
                 margin-bottom: 10px;
             }
 
-            > img {
-                height: 9rem !important;
-            }
-
-            > h1 {
-                margin: 10px 0;
-            }
-
-            > h3 {
-                margin: 15px 0 14px 0;
-                color: grey;
-            }
 
             .text-input {
                 justify-content: center;
-                margin: auto 0 !important;
                 width: 100%;
             }
 
-            .image-input {
-                width: 50%;
-                margin: 0 auto;
-                display: flex;
-                height: 100%;
-            }
-
-            .search-image {
-                height: 10rem;
-                justify-content: center;
-                margin: 3px auto;
-            }
 
             .search-button {
                 justify-content: center;
-                margin: 0 auto;
                 min-width: 200px;
             }
         }

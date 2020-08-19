@@ -18,4 +18,8 @@ export class CardViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addToNotebook() {
+    
+  }
+
 }
