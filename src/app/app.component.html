@@ -7,19 +7,19 @@
   <div class="button-row">
     <a mat-stroked-button  [routerLink]="['/search']" ><h4>Search</h4></a>
     <a mat-stroked-button  [routerLink]="['/drawing']" ><h4>Drawings</h4></a>
-    <!-- <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
-    <a mat-stroked-button  [routerLink]="['/teams']" >Teams</a>
-    <button mat-stroked-button  [routerLink]="['/library']" >Library</button>
+    <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
+    <a mat-stroked-button  [routerLink]="['/teams']" ><h4>Teams</h4></a>
+    <button mat-stroked-button  [routerLink]="['/library']" ><h4>Library</h4></button>
 
     <span class="spacer" style="width:250px" ><em>{{currentFileName}}</em></span>
     <span class="spacer">|</span>
 
     <input type="file" style="display: none" (change)="onFileOpen($event)" #hiddenfileinput />
     <button mat-stroked-button class="push-right" (click)="hiddenfileinput.click()"><h4>Open File</h4></button>
-    <button mat-stroked-button class="push-right" (click)="onFileSave($event)">Save File</button>
-    <button mat-stroked-button class="push-right" *ngIf="isDirty()" (click)="applyAutoSave($event)">AutoSave ({{autoSaveCountdown()}})</button>
-    <button mat-stroked-button *ngIf="!currentUser" [routerLink]="['/login']">Login</button>
-    <button mat-stroked-button *ngIf="currentUser"  (click)="doLogout()">Logout</button> -->
+    <button mat-stroked-button class="push-right" (click)="onFileSave($event)"><h4>Save File</h4></button>
+    <button mat-stroked-button class="push-right" *ngIf="isDirty()" (click)="applyAutoSave($event)"><h4>AutoSave ({{autoSaveCountdown()}})</h4></button>
+    <button mat-stroked-button *ngIf="!currentUser" [routerLink]="['/login']"><h4>Login</h4></button>
+    <button mat-stroked-button *ngIf="currentUser"  (click)="doLogout()"><h4>Logout</h4></button>
     <span class="spacer">|</span>
     <a style="color:antiquewhite; padding-left: 20px;" href="{{ swaggerLink }}" target="_blank">Link to Services Swagger</a>
   </div>
