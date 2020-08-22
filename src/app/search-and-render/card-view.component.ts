@@ -22,7 +22,8 @@ export class CardViewComponent implements OnInit {
   }
 
   addToNotebook() {
-    this.cService.add
+    const sentence = this.item.sentence;
+    this.cService.AddToNotebook(sentence);
   }
 
 }

@@ -77,12 +77,13 @@ export class LegalCaseService {
 
   }
 
-  public establishNotepad(): LaLegalCase {
+  public establishNoteBook(): LaLegalCase {
     return this.currentLegalCase;
   }
 
   public AddToNotebook(item: any) {
-
+    const noteBook = this.establishNoteBook();
+    
   }
 
   clearCountdown() {
