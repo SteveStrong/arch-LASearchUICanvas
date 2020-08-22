@@ -61,7 +61,7 @@ import { SelectionComponent } from './marker/selection.component';
 import { SplitterComponent } from './marker/splitter.component';
 import { SentencetypePipe } from './marker/sentencetype.pipe';
 import { JoinerComponent } from './marker/joiner.component';
-import { ReaderComponent } from './reader/reader.component';
+import { ReaderComponent } from './marker/reader.component';
 import { CaseTitleComponent } from './marker/case-title.component';
 import { SectionBadgeComponent } from './marker/section-badge.component';
 

@@ -13,4 +13,8 @@ export class NotebookComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public establishNoteBook() {
+    return this.lcService.establishNoteBook();
+  }
+
 }
