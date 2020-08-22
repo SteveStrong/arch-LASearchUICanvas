@@ -12,6 +12,9 @@
 
 <div class="container" *ngIf="legalCase">
   <app-case-title [caseInfo]="legalCase.caseInfo"></app-case-title>
+  
+  <app-sentence *ngFor="let item of getFilteredSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="false"> </app-sentence>
+
   <div *ngIf="filter == 'All'">
       <app-paragraph *ngFor="let item of getFilteredParagraphs()" [userCanEdit]="userCanEdit" [filter]="filter" [paragraph]="item"> </app-paragraph>
   </div>

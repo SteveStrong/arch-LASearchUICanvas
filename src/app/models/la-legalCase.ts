@@ -27,8 +27,9 @@ export class LaLegalCase extends LaAtom {
     super(properties);
   }
 
-  addSentence(item: LaSentence) {
+  addSentence(item: LaSentence): LaSentence {
     this.sentences.push(item);
+    return item;
   }
 
   findOrCreateParagraph(name: string) {
