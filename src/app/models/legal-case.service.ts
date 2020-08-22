@@ -77,6 +77,14 @@ export class LegalCaseService {
 
   }
 
+  public establishNotepad(): LaLegalCase {
+    return this.currentLegalCase;
+  }
+
+  public AddToNotebook(item: any) {
+
+  }
+
   clearCountdown() {
     if ( this.saveInterval) {
       clearInterval(this.saveInterval);
