@@ -1,4 +1,5 @@
 import { foModelBase, foBroadcastTopic } from '../shared';
+import { LaSentence } from '.';
 
 export const  TOPIC_TextSearch = 'TextSearch';
 
@@ -36,12 +37,12 @@ export class SearchResult extends foModelBase {
     _score: any;
 
     innerHTML: string;
-    sentence: LaShortSentence;
+    sentence: LaSentence;
 
     constructor(properties?: any) {
         super(properties);
 
-        this.sentence = new LaShortSentence(properties._source);
+        this.sentence = new LaSentence(properties._source);
         // tslint:disable-next-line: no-string-literal
         delete this['_source'];
     }

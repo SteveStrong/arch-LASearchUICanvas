@@ -44,6 +44,7 @@ export class CaseTitleComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    // tslint:disable-next-line: forin
     for (const propName in changes) {
         const change = changes[propName];
         this.resetCaseInfo(change.currentValue);

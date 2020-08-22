@@ -1,10 +1,10 @@
-import { LaAtom } from "./la-atom";
-import { LaParagraph } from "./la-paragraph";
-import { LaSentence } from "./la-sentence";
-import { LaUser } from "./la-user";
+import { LaAtom } from './la-atom';
+import { LaParagraph } from './la-paragraph';
+import { LaSentence } from './la-sentence';
+import { LaUser } from './la-user';
 
-import { LaDecisionNode, LaDecisionRoot } from "./la-decisionNode";
-import { LaUploadedCase, LaCaseCoreInfo } from "./la-caseDirectoryItem";
+import { LaDecisionNode, LaDecisionRoot } from './la-decisionNode';
+import { LaUploadedCase, LaCaseCoreInfo } from './la-caseDirectoryItem';
 import { getLocaleDateTimeFormat } from '@angular/common';
 
 import { Tools } from '../shared';
@@ -12,7 +12,7 @@ import { Tools } from '../shared';
 export class LaLegalCase extends LaAtom {
   caseInfo: LaCaseCoreInfo;
   caseNumber: string;
-  text: string = "";
+  text = '';
 
   private paragraphLookup = {};
   paragraphs: Array<LaParagraph> = new Array<LaParagraph>();
@@ -25,6 +25,10 @@ export class LaLegalCase extends LaAtom {
 
   constructor(properties?: any) {
     super(properties);
+  }
+
+  addSentence(item: LaSentence) {
+    this.sentences.push(item);
   }
 
   findOrCreateParagraph(name: string) {
@@ -44,8 +48,8 @@ export class LaLegalCase extends LaAtom {
     this.sentences = list;
 
     list.forEach(item => {
-      let paraNum = item.paragraphNumber;
-      let paragraph = this.findOrCreateParagraph(paraNum);
+      const paraNum = item.paragraphNumber;
+      const paragraph = this.findOrCreateParagraph(paraNum);
       paragraph.addSentence(item);
 
       this.sentenceLookup[item.sentID] = item;
@@ -61,28 +65,28 @@ export class LaLegalCase extends LaAtom {
   }
 
   findParagraph(previous: LaSentence): LaParagraph {
-    let paraNum = previous.paragraphNumber;
-    let next = this.findOrCreateParagraph(paraNum);
+    const paraNum = previous.paragraphNumber;
+    const next = this.findOrCreateParagraph(paraNum);
     return next;
   }
 
   getNextSentence(previous: LaSentence): LaSentence {
-    let key = previous.sentID;
-    let id = previous.id + 1;
-    let target = `${previous.caseNumber}P${previous.paragraphNumber}S${id}`;
-    let next = this.sentences.find(item => item.sentID == target);
+    const key = previous.sentID;
+    const id = previous.id + 1;
+    const target = `${previous.caseNumber}P${previous.paragraphNumber}S${id}`;
+    const next = this.sentences.find(item => item.sentID == target);
     return next;
   }
 
-  //maybe do a soft delete
+  // maybe do a soft delete
   deleteSentence(obj: LaSentence) {
     const index = this.sentences.indexOf(obj);
     if (index > -1) {
       this.sentences.splice(index, 1);
     }
 
-    let paraNum = obj.paragraphNumber;
-    let paragraph = this.findOrCreateParagraph(paraNum);
+    const paraNum = obj.paragraphNumber;
+    const paragraph = this.findOrCreateParagraph(paraNum);
     paragraph.deleteSentence(obj);
   }
 
@@ -97,41 +101,41 @@ export class LaLegalCase extends LaAtom {
       start = 0;
     }
 
-    let end = start + length;
+    const end = start + length;
 
-    let first = text.substring(0, start);
-    let last = text.substring(end);
+    const first = text.substring(0, start);
+    const last = text.substring(end);
 
     return { first, last };
   }
 
   splitSentence(sentence, subText: string, rhetClass: string): LaParagraph {
-    let name = sentence.paragraphNumber;
-    let paragraph = this.paragraphLookup[name] as LaParagraph;
-    let caseNumber = sentence.caseNumber;
+    const name = sentence.paragraphNumber;
+    const paragraph = this.paragraphLookup[name] as LaParagraph;
+    const caseNumber = sentence.caseNumber;
 
     sentence.clearPrediction();
 
-    if (sentence.text === subText || subText === "") {
+    if (sentence.text === subText || subText === '') {
       sentence.rhetClass = rhetClass;
       return paragraph;
     }
 
-    let ogText = sentence.text;
-    let ogRhetClass = sentence.rhetClass;
+    const ogText = sentence.text;
+    const ogRhetClass = sentence.rhetClass;
 
-    //we have the split
-    let { first, last } = this.splitText(ogText, subText);
+    // we have the split
+    const { first, last } = this.splitText(ogText, subText);
 
-    let id = sentence.id;
+    const id = sentence.id;
     if (first) {
       sentence.text = first;
 
-      let insert = new LaSentence({
+      const insert = new LaSentence({
         text: subText,
-        caseNumber: caseNumber,
+        caseNumber,
         paragraphNumber: name,
-        rhetClass: rhetClass,
+        rhetClass,
         id: id + 0.1
       });
       paragraph.addSentence(insert);
@@ -141,9 +145,9 @@ export class LaLegalCase extends LaAtom {
     }
 
     if (last) {
-      let tail = new LaSentence({
+      const tail = new LaSentence({
         text: last,
-        caseNumber: caseNumber,
+        caseNumber,
         paragraphNumber: name,
         rhetClass: ogRhetClass,
         id: id + 0.2
@@ -157,7 +161,7 @@ export class LaLegalCase extends LaAtom {
   }
 
   refreshSentences() {
-    let refresh = new Array<LaSentence>();
+    const refresh = new Array<LaSentence>();
     this.paragraphs.forEach(para => {
       para.sentences.forEach(sent => {
         refresh.push(sent);
@@ -171,10 +175,10 @@ export class LaLegalCase extends LaAtom {
   }
 
   resolveSentenceKeys(list): Array<LaSentence> {
-    let result = new Array<LaSentence>();
+    const result = new Array<LaSentence>();
     list &&
       list.forEach(item => {
-        let found = this.sentenceLookup[item];
+        const found = this.sentenceLookup[item];
         if (found) {
           result.push(found);
         }
@@ -183,10 +187,10 @@ export class LaLegalCase extends LaAtom {
   }
 
   resolveDecisionKeys(list): Array<LaDecisionNode> {
-    let result = new Array<LaDecisionNode>();
+    const result = new Array<LaDecisionNode>();
     list &&
       list.forEach(item => {
-        let found = this.decisionLookup[item];
+        const found = this.decisionLookup[item];
         if (found) {
           result.push(found);
         }
@@ -208,26 +212,26 @@ export class LaLegalCase extends LaAtom {
       });
   }
 
-  private getDateTime(){
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
-    dateTime = today.toISOString(); //.split('T')[0]
+  private getDateTime() {
+    const today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    let dateTime = date + ' ' + time;
+    dateTime = today.toISOString(); // .split('T')[0]
     return dateTime;
   }
 
-  setCaseInfo(props){
+  setCaseInfo(props) {
     this.caseInfo = new LaCaseCoreInfo(props);
   }
 
-  createCaseCoreInfo(props:any, pattern?:string){
+  createCaseCoreInfo(props: any, pattern?: string) {
     let info = new LaCaseCoreInfo({
       guidKey: Tools.generateUUID(),
       name: this.caseNumber,
       extension: '.json',
       version: '0000',
-      owner: 'vern.r.walker@hofstra.edu',
+      owner: 'yourname@email.com',
       keywords: '',
       lastChange: this.getDateTime()
     });
@@ -236,24 +240,24 @@ export class LaLegalCase extends LaAtom {
     return info;
   }
 
-  getCaseInfo(props:any, pattern:string=""){
+  getCaseInfo(props: any, pattern: string= '') {
     if ( !this.caseInfo ) {
-      this.caseInfo = this.createCaseCoreInfo(props,pattern);
+      this.caseInfo = this.createCaseCoreInfo(props, pattern);
     }
     return this.caseInfo;
   }
 
   asJson() {
     
-    //remove predictions from sentences
-    let hash = [];
+    // remove predictions from sentences
+    const hash = [];
     this.sentences.forEach(item => {
       hash.push({ s: item, p: item.predictions });
       delete item.predictions;
     });
 
 
-    let result = {
+    const result = {
       caseNumber: this.caseNumber,
       caseInfo: this.getCaseInfo({}),
       ruleTree: this.decisionRoot.asJson(),
@@ -261,7 +265,7 @@ export class LaLegalCase extends LaAtom {
       text: this.text
     };
 
-    //recover reference
+    // recover reference
     hash.forEach(item => {
       item.s.predictions = item.p;
     });
@@ -269,17 +273,17 @@ export class LaLegalCase extends LaAtom {
     return result;
   }
 
-  asUploadedCase(user:LaUser, workspace:string, pattern:string): LaUploadedCase {
+  asUploadedCase(user: LaUser, workspace: string, pattern: string): LaUploadedCase {
     
-    //push the author into the case body
+    // push the author into the case body
     this.caseInfo = Object.assign(this.caseInfo, {
       owner: user ? user.username : 'unknown',
       workspace: workspace ? workspace : 'development',
       lastChange: this.getDateTime()
     });
     
-    let model = this.asJson();
-    let uploadedCase = new LaUploadedCase(model.caseInfo);
+    const model = this.asJson();
+    const uploadedCase = new LaUploadedCase(model.caseInfo);
     uploadedCase.fileName = model.caseInfo.computeFileName(pattern);
     uploadedCase.data = JSON.stringify(model);
 

@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JwtInterceptor, ErrorInterceptor } from './login';
 import { LoginComponent } from './login';
@@ -25,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
@@ -109,13 +111,16 @@ import { SectionBadgeComponent } from './marker/section-badge.component';
     ThumbSetComponent
   ],
   imports: [
+    // FontAwesomeModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
     MatCardModule,
     MatGridListModule,
+    MatExpansionModule,
     MatTabsModule,
     MatStepperModule,
     InfiniteScrollModule,

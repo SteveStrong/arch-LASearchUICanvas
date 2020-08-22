@@ -15,6 +15,7 @@ export class LaSentence extends LaAtom {
   caseNumber: string;
   paragraphNumber: string;
   sentenceNumber: string;
+  sectionType: string;
 
   rhetClassPredict: string;
   predictions: any;
@@ -28,16 +29,6 @@ export class LaSentence extends LaAtom {
 
     super(properties);
 
-    // if (!this.rhetClass) {
-    //   let role = this.rhetRole;
-    //   if (!role || role.length === 0) {
-    //     role = ['Sentence'];
-    //   }
-    //   this.rhetClass = role[0];
-    // }
-    // delete this.rhetRole;
-    // delete this.ruleCondition;
-    // delete this.nlpOutput;
 
     this.sentID && this.decomposeID(this.sentID);
     if (this.sentenceNumber) {

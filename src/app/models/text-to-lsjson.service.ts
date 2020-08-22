@@ -140,13 +140,13 @@ export class TextToLSJsonService {
         s = 1;
         prag.sentences.forEach( sent => {
           s++;
-          const obj = {
+          const obj1 = {
             sentID: `${caseNumber}P${p}S${s}`,
             text: sent.asString(),
             rhetClass: 'Sentence',
             isSection: false,
           };
-          sentences.push(obj);
+          sentences.push(obj1);
         });
       });
     });
