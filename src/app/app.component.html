@@ -5,15 +5,15 @@
   <h4 class="spacer">|</h4>
 
   <div class="button-row">
-    <a mat-stroked-button  [routerLink]="['/search']" ><h4>Search</h4></a>
-    <a mat-stroked-button  [routerLink]="['/drawing']" ><h4>Drawings</h4></a>
-    <a mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></a>
-    <a mat-stroked-button  [routerLink]="['/teams']" ><h4>Teams</h4></a>
-    <a mat-stroked-button  [routerLink]="['/library']" ><h4>Library</h4></a>
+    <button mat-stroked-button  [routerLink]="['/search']" ><h4>Search</h4></button>
+    <button mat-stroked-button  [routerLink]="['/drawing']" ><h4>Drawings</h4></button >
+    <button mat-stroked-button  [routerLink]="['/scenes']" ><h4>Scenes</h4></button>
+    <button mat-stroked-button  [routerLink]="['/teams']" ><h4>Teams</h4></button>
+    <button mat-stroked-button  [routerLink]="['/library']" ><h4>Library</h4></button>
     <a style="color:antiquewhite; padding-left: 20px;" href="{{ swaggerLink }}" target="_blank">Swagger</a>
 
     <span class="spacer">|</span>
-    
+
     <span class="spacer" style="width:250px" ><em>{{currentFileName}}</em></span>
 
     <input type="file" style="display: none" (change)="onFileOpen($event)" #hiddenfileinput />

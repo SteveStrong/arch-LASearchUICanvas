@@ -66,11 +66,11 @@ export class LegalCaseService {
     private teamService: TeamsService,
     private http: HttpClient) {
 
-    EmitterService.registerCommand(this, 'FileOpen', this.onFileOpen);
-    EmitterService.registerCommand(this, 'FileSave', this.onFileSave);
-    EmitterService.registerCommand(this, 'AutoSave', this.onAutoSave);
+    EmitterService.registerCommand(this, 'FileOpen', (list) => this.onFileOpen(list[0]));
+    EmitterService.registerCommand(this, 'FileSave', (list) => this.onFileSave(list[0]));
+    EmitterService.registerCommand(this, 'AutoSave', (list) => this.onAutoSave(list[0]));
 
-    EmitterService.registerCommand(this, 'SetDirty', this.onSetDirty);
+    EmitterService.registerCommand(this, 'SetDirty', this.onSetDirty );
 
     EmitterService.processCommands(this);
 
@@ -431,12 +431,12 @@ export class LegalCaseService {
     if ( !user ) {
       saveAs(blob, name);
       this.markAsSaved();
-      EmitterService.broadcastCommand(this, 'Saved', name);
+      EmitterService.broadcastCommand(this, 'Saved', [name]);
     } else {
       this.onSaveCaseToServer(model, pattern, (name) => {
         saveAs(blob, name);
         this.markAsSaved();
-        // EmitterService.broadcastCommand(this, "Saved", name);
+        EmitterService.broadcastCommand(this, 'Saved', [name]);
       });
     }
   }
