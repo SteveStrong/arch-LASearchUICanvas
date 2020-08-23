@@ -13,14 +13,14 @@ import { TOPIC_TextSearch, TOPIC_FilterSearch } from '../models';
 export class SearchComponent implements OnInit {
     searchForm: FormGroup;
     submitted = false;
-    onlyFindings = true;
 
 
     constructor(private formBuilder: FormBuilder) {}
 
     ngOnInit(): void {
         this.searchForm = this.formBuilder.group({
-            textSearch: ['vietnam ']
+            textSearch: ['vietnam'],
+            onlyFindings: [false]
         });
 
         EmitterService.processCommands(this);
@@ -34,15 +34,17 @@ export class SearchComponent implements OnInit {
     doSearch() {
         this.submitted = true;
         const text = this.f.textSearch.value;
+        const onlyFindings = this.f.onlyFindings.value;
 
         // stop here if form is invalid
         if (this.searchForm.invalid) {
             return;
         } else if (text !== '') {
-            Toast.info('searching for', text);
-            if (this.onlyFindings) {
+            if (onlyFindings === true) {
+                Toast.info(`searching for ${text}`,  'Findings Only');
                 EmitterService.broadcastCommand(this, TOPIC_FilterSearch, [text]);
             } else {
+                Toast.info(`searching for ${text}`);
                 EmitterService.broadcastCommand(this, TOPIC_TextSearch, [text]);
             }
 

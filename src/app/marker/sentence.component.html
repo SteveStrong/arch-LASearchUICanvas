@@ -4,6 +4,8 @@
 </svg>
 
 
+<button  class="badge badge-pill" style="background-color: darkkhaki;" >Context: {{sentence.context}}</button>
+
 <div *ngIf="!renderSpans">
   <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
   <app-section-badge  [sentence]="sentence"></app-section-badge>
@@ -11,7 +13,7 @@
 </div>
 
   <br />
-    <br />
+  <br />
 <!-- <span *ngIf="!sentence.isSection">
   <app-prediction *ngIf="!renderSpans" [userCanEdit] = "userCanEdit" [sentence]="sentence"></app-prediction>
 </span > -->

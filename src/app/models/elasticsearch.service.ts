@@ -58,7 +58,6 @@ export class ElasticSearchService {
       text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
     });
     text = `&nbsp; &nbsp; ${text}`;
-    console.log(text);
     return text;
   }
 

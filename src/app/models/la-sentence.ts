@@ -16,6 +16,7 @@ export class LaSentence extends LaAtom {
   paragraphNumber: string;
   sentenceNumber: string;
   sectionType: string;
+  context: string;
 
   rhetClassPredict: string;
   predictions: any;
