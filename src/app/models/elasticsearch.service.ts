@@ -90,14 +90,14 @@ export class ElasticSearchService {
     );
   }
 
-  public searchFilter$(text: string): Observable<Array<SearchResult>> {
+  public searchFilter$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
     const rest = '/lasearch/api/v1/filter';
     const url = `${this.API_URL}${rest}`;
     const data = {
-      filter: '',
+      filter: findingsOnly ? 'findingSentence' : '',
       rule: '',
       text
     };
