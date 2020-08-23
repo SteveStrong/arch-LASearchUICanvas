@@ -261,7 +261,7 @@ export class LaLegalCase extends LaAtom {
     const result = {
       caseNumber: this.caseNumber,
       caseInfo: this.getCaseInfo({}),
-      ruleTree: this.decisionRoot.asJson(),
+      // ruleTree: this.decisionRoot.asJson(),
       sentences: this.sentences,
       text: this.text
     };

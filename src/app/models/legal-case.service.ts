@@ -429,9 +429,9 @@ export class LegalCaseService {
     const blob = new Blob([model.data], { type: 'text/plain;charset=utf-8' });
 
     if ( !user ) {
-      saveAs(blob, name);
+      saveAs(blob, fileName);
       this.markAsSaved();
-      EmitterService.broadcastCommand(this, 'Saved', [name]);
+      EmitterService.broadcastCommand(this, 'Saved', [fileName]);
     } else {
       this.onSaveCaseToServer(model, pattern, (name) => {
         saveAs(blob, name);
