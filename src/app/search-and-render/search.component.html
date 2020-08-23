@@ -1,21 +1,28 @@
 <div rowHeight="300px">
-  <form [formGroup]="searchForm" style="width: 99%;">
-    <div class="form-group row">
-      <label for="Search" class="offset-sm-2 col-sm-1 col-form-label" >Search:</label>
-      <div class="col-sm-5">
-        <input
-          type="text"
-          formControlName="textSearch"
-          class="form-control"
-          id="Search"
-          placeholder="Type your search phrase"
-        />
-      </div>
-      <div class="col-sm-1">
-        <button mat-flat-button color="primary" (click)="doSearch()">
-          Search
-        </button>
-      </div>
-    </div>
-  </form>
+    <form [formGroup]="searchForm" style="width: 99%;">
+        <div class="form-group row">
+            <label for="Search" class="offset-sm-2 col-sm-1 col-form-label" >Search:</label>
+            <div class="col-sm-4">
+                <input
+                type="text"
+                formControlName="textSearch"
+                class="form-control"
+                id="Search"
+                placeholder="Type your search phrase"
+                />
+            </div>
+
+            <div class="col-sm-1">
+                <button mat-flat-button color="primary" (click)="doSearch()">
+                Search
+                </button>
+            </div>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="findings">
+                <label for="findings" style="margin-left: 10px;" class="col-form-label">Only Findings</label>
+            </div>
+        </div>
+    </form>
 </div>
+

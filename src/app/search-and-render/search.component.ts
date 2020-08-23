@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmitterService, Toast } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TOPIC_TextSearch } from '../models/search-result';
+import { TOPIC_TextSearch } from '../models';
 
 
 
@@ -13,13 +13,14 @@ import { TOPIC_TextSearch } from '../models/search-result';
 export class SearchComponent implements OnInit {
     searchForm: FormGroup;
     submitted = false;
+    onlyFindings = true;
 
 
     constructor(private formBuilder: FormBuilder) {}
 
     ngOnInit(): void {
         this.searchForm = this.formBuilder.group({
-            textSearch: ['vietnam']
+            textSearch: ['vietnam ']
         });
 
         EmitterService.processCommands(this);

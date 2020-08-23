@@ -24,6 +24,7 @@ export class CardViewComponent implements OnInit {
   addToNotebook() {
     const sentence = this.item.sentence;
     this.cService.AddToNotebook(sentence);
+    this.item.isSelected = true;
   }
 
 }
