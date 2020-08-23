@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { LaSentence } from '../models';
-import { EmitterService } from '../shared/emitter.service';
+import { LaSentence, SearchResult } from '../models';
+import { EmitterService, Toast } from '../shared/emitter.service';
 
+import { ElasticSearchService } from '../models/elasticsearch.service';
+import { LegalCaseService } from '../models/legal-case.service';
 
 @Component({
   selector: 'app-sentence',
@@ -17,8 +19,10 @@ export class SentenceComponent implements OnInit {
   @Input() filter = 'All';
 
 
-  constructor() {
-  }
+  constructor(
+    private lcService: LegalCaseService,
+    private qService: ElasticSearchService
+    ) {}
 
   ngOnInit() {
     EmitterService.registerCommand(this, 'CloseAll', this.doClose);
@@ -61,6 +65,17 @@ export class SentenceComponent implements OnInit {
     return this.selected;
   }
 
+  queryContext() {
+    const context = this.sentence.context;
+    Toast.warning('queryContext', context);
+    this.qService.searchContext$(context).subscribe(list => {
+      const result: Array<SearchResult> = list;
+
+      result.forEach(item => {
+        this.lcService.AddToNotebook(item.sentence);
+      })
+    });
+  }
 
 
 }

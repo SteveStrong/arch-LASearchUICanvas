@@ -4,7 +4,8 @@
 </svg>
 
 
-<button  class="badge badge-pill" style="background-color: darkkhaki;" >Context: {{sentence.context}}</button>
+<button (click)="queryContext()" class="badge badge-pill" style="background-color: rgb(231, 230, 210);" >Context: {{sentence.context}}</button>
+<span>: {{sentence.sentenceNumber}}</span>
 
 <div *ngIf="!renderSpans">
   <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>

@@ -75,10 +75,35 @@ export class ElasticSearchService {
   
         results.map(item => {
           item.innerHTML = this.textMarkup(item.rawText, list);
-          console.log(item.innerHTML);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);
+        return results;
+      }),
+      catchError(error => {
+        const msg = JSON.stringify(error, undefined, 3);
+        Toast.error(msg, url);
+        return of<any>();
+      })
+    );
+  }
+
+  public searchContext$(context: string): Observable<Array<SearchResult>> {
+
+
+    const rest = '/lasearch/api/v1/context/';
+    const preEncode = `${this.API_URL}${rest}${context}`;
+    const url = encodeURI(preEncode);
+
+    return this.http.get<iPayloadWrapper>(url).pipe(
+      map(res => {
+        const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, []);
+        });
+
+        Toast.success(`${res.length} context loaded!`, rest);
         return results;
       }),
       catchError(error => {
@@ -106,7 +131,6 @@ export class ElasticSearchService {
 
         results.map(item => {
           item.innerHTML = this.textMarkup(item.rawText, list);
-          console.log(item.innerHTML);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);

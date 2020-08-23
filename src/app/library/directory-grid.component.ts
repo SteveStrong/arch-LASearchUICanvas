@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy, HostListener, Input } from "@angular/core";
-import { Toast, EmitterService } from "../shared/emitter.service";
+import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
+import { Toast, EmitterService } from '../shared/emitter.service';
 
 import { GridOptions, Grid, GridApi, ColumnApi, Module } from 'ag-grid-community';
 
-import { LegalCaseService } from "../models/legal-case.service";
-import { LaCaseDirectoryItem, LaTeam } from "../models";
+import { LegalCaseService } from '../models/legal-case.service';
+import { LaCaseDirectoryItem, LaTeam } from '../models';
 
 @Component({
   selector: 'app-directory-grid',
@@ -21,14 +21,14 @@ export class DirectoryGridComponent implements OnInit {
   ];
 
   gridOptions: GridOptions = {
-  }
+  };
 
-  rowSelection = "multiple";
+  rowSelection = 'multiple';
   defaultColumnDefs = {
     sortable: true,
     filter: true, 
     resizeable: true
-  }
+  };
   
   columnDefs = [
     { headerName: 'workspace', field: 'workspace' },
@@ -53,15 +53,15 @@ export class DirectoryGridComponent implements OnInit {
   }
 
   composeDataSet(files: Array<LaCaseDirectoryItem>) {
-    this.rowData = []
+    this.rowData = [];
     files.forEach(item => {
-        this.rowData.push(item)
-    })
+        this.rowData.push(item);
+    });
   }
   
 
   ngOnInit() {
-    this.composeDataSet(this.listFiles)
+    this.composeDataSet(this.listFiles);
     this.onRefreshDisplay();
   }
 
@@ -71,26 +71,26 @@ export class DirectoryGridComponent implements OnInit {
   onDownloadSelected() {
     const list = this.gridApi.getSelectedNodes();
     list.forEach(item => {
-      let node: LaCaseDirectoryItem = item.data as LaCaseDirectoryItem;
+      const node: LaCaseDirectoryItem = item.data as LaCaseDirectoryItem;
       this.lcService.onDownloadFromServer(node);
       item.setSelected(false);
-    })
+    });
 }
 
-  onSelectionChanged(e:Event) {
-    let selectedRows = this.gridApi.getSelectedRows();
-    let first = selectedRows[0]
+  onSelectionChanged(e: Event) {
+    const selectedRows = this.gridApi.getSelectedRows();
+    const first = selectedRows[0];
 
    }
 
    doExport() {
-    var params = {
+    let params = {
       skipHeader: false,
       allColumns: true,
       onlySelected: false,
       suppressQuotes: false,
       fileName: 'allfiles.csv',
-      columnSeparator: ","
+      columnSeparator: ','
     };
 
     this.gridApi.exportDataAsCsv(params);
