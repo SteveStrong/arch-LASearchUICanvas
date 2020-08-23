@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,AfterViewInit,ViewChild,HostListener,ElementRef} from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ViewChild, HostListener, ElementRef} from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { saveAs } from 'file-saver';
@@ -10,7 +10,7 @@ import { ForceDirectedGraph } from './force-directed-graph';
 import { Lifecycle } from '../foundry/models/foLifecycle';
 import { globalWorkspace } from '../foundry/models/foWorkspace.model';
 
-import { foShape2D,cPoint2D,shape2DNames,foWorkspace,foSelectionBuffer,foPage,foModel,foNode,foCollection} from '../foundry/public_api';
+import { foShape2D, cPoint2D, shape2DNames, foWorkspace, foSelectionBuffer, foPage, foModel, foNode, foCollection} from '../foundry/public_api';
 
 import { Toast, EmitterService } from '../shared/emitter.service';
 
@@ -58,7 +58,7 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
 
     if ( this.graph) {
      // this.graph.initSimulation(this.options);
-      //this.graph.restart();
+      // this.graph.restart();
     }
   }
 
@@ -67,7 +67,7 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    //this.color = 'gray';
+    // this.color = 'gray';
     globalWorkspace.setName('Domain Model');
     this.workspace.stencil.add(dpmStencil);
 
@@ -81,13 +81,13 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
     // });
 
     this.doPageEventSetup();
-    //this.initSelectionEvents();
+    // this.initSelectionEvents();
 
-//https://medium.com/netscape/visualizing-data-with-angular-and-d3-209dde784aeb
+// https://medium.com/netscape/visualizing-data-with-angular-and-d3-209dde784aeb
 
     this.defaultConnectType = dpmStencil.creationFunction('mmConnection');
 
-    //this.resizeRoot(window.innerWidth, window.innerHeight);
+    // this.resizeRoot(window.innerWidth, window.innerHeight);
 
     const oShape = new  foShape2D({
       x: 200,
@@ -95,8 +95,8 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
       width: 200,
       height: 100
     });
-    oShape.addAsSubcomponent(this)
-    //oShape.dropAt(500,400)
+    oShape.addAsSubcomponent(this);
+    // oShape.dropAt(500,400)
 
     const master1 = this.myStencil.define<dpmText2DCircle>('CircleShape', dpmText2DCircle, {
       fontSize: 12,
@@ -114,8 +114,8 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
       spec?: any,
       parent?: any
     ) {
-      let factory = this.myName;
-      let properties: any = Tools.union({ factory }, spec);
+      const factory = this.myName;
+      const properties: any = Tools.union({ factory }, spec);
     
       let know = spec && dpmStencil.find(spec.shape);
       know = know || dpmStencil.find('dpmCircleShape');
@@ -138,9 +138,9 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
         height:  0.5 * shape.height,
         width: 0.5 * shape.width,
         isHitable: false,
-        text: function() {
+        text() {
           if ( this.myParent() ) {
-            let context = this.myParent().context;
+            const context = this.myParent().context;
             return context ? `${context.subText[this.index]}` : '';
           }
           return '';
@@ -182,8 +182,8 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
       return shape;
     });
 
-    master2.makeComponent(this, null, _=> {
-      alert("then complete")
+    master2.makeComponent(this, null, _ => {
+      alert('then complete');
     }).dropAt(800, 200);
 
 
@@ -201,19 +201,19 @@ export class DrawingComponent extends dpmPage implements OnInit, AfterViewInit {
     };
   }
 
-  autoLayout({nodes, links}){
+  autoLayout({nodes, links}) {
     let count = 100;
     this.graph = new ForceDirectedGraph(nodes, links, this.options);
 
     this.graph.ticker.subscribe(d => {
       nodes.forEach(item => item.updateGlue());
       count--;
-      if ( count < 0){
+      if ( count < 0) {
         this.graph.stop();
       }
     });
 
-   this.graph.initSimulation(this.options);
+    this.graph.initSimulation(this.options);
   }
 
   doSaveWorkspace() {
