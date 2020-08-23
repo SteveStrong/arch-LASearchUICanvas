@@ -1,11 +1,11 @@
-<mat-card class="example-card">
+<mat-card class="search-card" >
   <mat-card-header>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+
     <mat-card-title>{{item.IDLabel}}</mat-card-title>
     <mat-card-subtitle>{{item.sentence.sectionType}}: {{item.sentence.rhetClass}}</mat-card-subtitle>
     <mat-card-subtitle>{{item.CaseAndScore}}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
   <mat-card-content>
     <p class="body-text" [ngClass]="item.sentence.rhetClass" [innerHTML]="item.innerHTML" >
      

@@ -66,15 +66,31 @@ export class LegalCaseService {
     private teamService: TeamsService,
     private http: HttpClient) {
 
-    EmitterService.registerCommand(this, 'FileOpen', this.onFileOpen);
-    EmitterService.registerCommand(this, 'FileSave', this.onFileSave);
-    EmitterService.registerCommand(this, 'AutoSave', this.onAutoSave);
+    EmitterService.registerCommand(this, 'FileOpen', (list) => this.onFileOpen(list[0]));
+    EmitterService.registerCommand(this, 'FileSave', (list) => this.onFileSave(list[0]));
+    EmitterService.registerCommand(this, 'AutoSave', (list) => this.onAutoSave(list[0]));
 
-    EmitterService.registerCommand(this, 'SetDirty', this.onSetDirty);
+    EmitterService.registerCommand(this, 'SetDirty', this.onSetDirty );
 
     EmitterService.processCommands(this);
 
 
+  }
+
+  public establishNoteBook(): LaLegalCase {
+    if (!this.currentLegalCase) {
+      const data = {
+        caseNumber: 'New Notebook'
+      };
+      this.currentLegalCase = this.createLegalCase(data);
+      this.getCurrentCase$().next(this.currentLegalCase);
+    }
+    return this.currentLegalCase;
+  }
+
+  public AddToNotebook(item: LaSentence) {
+    const noteBook = this.establishNoteBook();
+    noteBook.addSentence(item);
   }
 
   clearCountdown() {
@@ -151,10 +167,7 @@ export class LegalCaseService {
     return this.currentFile;
   }
 
-  // get currentUserEmail() {
-  //   const user = this.authService.currentUserValue;
-  //   return user ? user.email : "unknown";
-  // }
+
 
   get currentUsername() {
     const user = this.authService.currentUserValue;
@@ -207,11 +220,6 @@ export class LegalCaseService {
     return this.http.get(url).pipe(
       map(res => {
 
-        this.getDecisionRoot().subscribe(root => {
-          const model = this.createLegalCase(res, root);
-          this.getCurrentCase$().next(model);
-        });
-
         Toast.success('loading!', filename);
 
         this.setCurrentFile(new File([], filename));
@@ -261,7 +269,7 @@ export class LegalCaseService {
 
 
 
-  onFileSave(name) {
+  onFileSave(name: string) {
     Toast.info('saving...', name);
     const rename = name.replace('.txt', '.json');
     this.saveCaseAs(rename);
@@ -271,7 +279,7 @@ export class LegalCaseService {
     this.markAsDirty();
   }
 
-  onAutoSave(name) {
+  onAutoSave(name: string) {
     if (this.isDirty() && this.currentFile) {
       const filename = name ? name : this.currentFile.name;
       Toast.success('auto saving...', filename);
@@ -287,10 +295,10 @@ export class LegalCaseService {
     reader.onload = () => {
       const data = JSON.parse(reader.result as string);
 
-      this.getDecisionRoot(data.ruleTree).subscribe(root => {
-        const model = this.createLegalCase(data, root);
-        this.getCurrentCase$().next(model);
-      });
+      // this.getDecisionRoot(data.ruleTree).subscribe(root => {
+      //   const model = this.createLegalCase(data, root);
+      //   this.getCurrentCase$().next(model);
+      // });
 
       Toast.success('loading!', file.name);
     };
@@ -324,7 +332,7 @@ export class LegalCaseService {
     return child;
   }
 
-  createLegalCase(data: any, root?: LaDecisionRoot): LaLegalCase {
+  createLegalCase(data: any): LaLegalCase {
     // process into LaSentence Objects
     const list: Array<LaSentence> = new Array<LaSentence>();
 
@@ -346,9 +354,6 @@ export class LegalCaseService {
 
     this.currentLegalCase.createParagraphs(list);
     this.currentLegalCase.text = data.text;
-    if ( root ) {
-      this.currentLegalCase.attachDecisionRoot(root);
-    }
 
     this.markAsSaved();
 
@@ -424,14 +429,14 @@ export class LegalCaseService {
     const blob = new Blob([model.data], { type: 'text/plain;charset=utf-8' });
 
     if ( !user ) {
-      saveAs(blob, name);
+      saveAs(blob, fileName);
       this.markAsSaved();
-      EmitterService.broadcastCommand(this, 'Saved', name);
+      EmitterService.broadcastCommand(this, 'Saved', [fileName]);
     } else {
       this.onSaveCaseToServer(model, pattern, (name) => {
         saveAs(blob, name);
         this.markAsSaved();
-        // EmitterService.broadcastCommand(this, "Saved", name);
+        EmitterService.broadcastCommand(this, 'Saved', [name]);
       });
     }
   }
@@ -474,10 +479,10 @@ export class LegalCaseService {
       this.setCurrentFile(new File([], detail.fileName));
       Toast.success('opened', detail.fileName);
 
-      this.getDecisionRoot(json.ruleTree).subscribe(root => {
-        const model = this.createLegalCase(json, root);
-        this.getCurrentCase$().next(model);
-      });
+      // this.getDecisionRoot(json.ruleTree).subscribe(root => {
+      //   const model = this.createLegalCase(json, root);
+      //   this.getCurrentCase$().next(model);
+      // });
 
     });
   }

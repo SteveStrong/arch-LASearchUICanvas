@@ -11,3 +11,5 @@ export * from './la-caseDirectoryItem';
 
 export * from './search-result';
 
+export const TOPIC_TextSearch = 'TextSearch';
+

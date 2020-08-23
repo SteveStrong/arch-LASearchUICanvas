@@ -66,25 +66,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   applyAutoSave(e: Event) {
     let name = this.lService.getCurrentFile().name;
-    name = name.replace('.txt', '.json');
-    // EmitterService.broadcastCommand(this, 'AutoSave', name);
+    name = name ? name.replace('.txt', '.json') : 'notebook.json';
+    EmitterService.broadcastCommand(this, 'AutoSave', [name]);
   }
 
   onFileSave(e: any) {
-    const name = this.currentFileName;
-    // EmitterService.broadcastCommand(this, 'FileSave', name);
-
+    const name = this.currentFileName || 'notebook.json';
+    EmitterService.broadcastCommand(this, 'FileSave', [name]);
   }
 
   onOpenOrImport(file: File) {
     const name = file.name.toLowerCase();
     if (name.includes('.json')) {
       this.lService.setCurrentFile(file);
-      // EmitterService.broadcastCommand(this, 'FileOpen', file);
+      EmitterService.broadcastCommand(this, 'FileOpen', [file]);
     }
     if (name.includes('.txt')) {
       this.parser.setCurrentFile(file);
-      // EmitterService.broadcastCommand(this, 'ImportCase', file);
+      EmitterService.broadcastCommand(this, 'ImportCase', [file]);
     }
   }
 

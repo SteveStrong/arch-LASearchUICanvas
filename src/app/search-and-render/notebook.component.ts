@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LegalCaseService } from '../models/legal-case.service';
 
 @Component({
   selector: 'app-notebook',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotebookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private lcService: LegalCaseService) { }
 
   ngOnInit(): void {
+  }
+
+  public establishNoteBook() {
+    return this.lcService.establishNoteBook();
   }
 
 }

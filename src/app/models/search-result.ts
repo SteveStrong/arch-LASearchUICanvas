@@ -1,33 +1,7 @@
 import { foModelBase, foBroadcastTopic } from '../shared';
-
-export const  TOPIC_TextSearch = 'TextSearch';
-
+import { LaSentence } from './la-sentence';
 
 
-export class LaShortSentence extends foModelBase {
-    sentID: string;
-    text: string;
-    rhetClass: string;
-
-    id: number;
-    caseNumber: string;
-    paragraphNumber: string;
-    sentenceNumber: string;
-    sectionType: string;
-
-    constructor(properties?: any) {
-        super(properties);
-        this.override(properties);
-    }
-
-    get rhetLabel(): string {
-        let value = this.rhetClass || '';
-        if (value === 'Sentence') { return 'Other'; }
-        value = value.replace('Sentence', '');
-        return value;
-    }
-
-}
 
 export class SearchResult extends foModelBase {
     _index: any;
@@ -35,13 +9,14 @@ export class SearchResult extends foModelBase {
     _id: any;
     _score: any;
 
+    isSelected: boolean = false;
     innerHTML: string;
-    sentence: LaShortSentence;
+    sentence: LaSentence;
 
     constructor(properties?: any) {
         super(properties);
 
-        this.sentence = new LaShortSentence(properties._source);
+        this.sentence = new LaSentence(properties._source);
         // tslint:disable-next-line: no-string-literal
         delete this['_source'];
     }

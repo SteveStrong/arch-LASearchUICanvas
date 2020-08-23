@@ -13,7 +13,7 @@ import { QueryResultService } from './query-result.service';
 export class SearchResultsComponent implements OnInit {
     @Input() searchResults: Array<SearchResult> = [];
 
-
+    activeTab = 0;
 
 
     constructor() {}

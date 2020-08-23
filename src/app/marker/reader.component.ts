@@ -12,12 +12,12 @@ import { LaStats, LaLegalCase } from '../models';
 })
 export class ReaderComponent implements OnInit, OnDestroy {
   @Input() userCanEdit = false;
+  @Input() legalCase: LaLegalCase;
 
 
   // do not show attribute count in read only mode
 
   sub: any;
-  legalCase: LaLegalCase;
   sentenceStats: Array<LaStats> = new Array<LaStats>();
   filter = 'All';
 

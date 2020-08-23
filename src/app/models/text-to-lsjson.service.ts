@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { Toast, EmitterService } from "../shared/emitter.service";
+import { Injectable } from '@angular/core';
+import { Toast, EmitterService } from '../shared/emitter.service';
 import { HttpClient } from '@angular/common/http';
 
-import { LegalCaseService } from "./legal-case.service";
-import { PredictionService } from "./prediction.service";
+import { LegalCaseService } from './legal-case.service';
+import { PredictionService } from './prediction.service';
 
-import { spParser, spSentence, spParagraph } from "../parser/public_api";
-import { LaSentence } from ".";
+import { spParser, spSentence, spParagraph } from '../parser/public_api';
+import { LaSentence } from '.';
 
-import { Observable,  of } from "rxjs";
+import { Observable,  of } from 'rxjs';
 import {
   map,
   catchError
-} from "rxjs/operators";
+} from 'rxjs/operators';
 
 
 // For purposes of predicting FindingSentences, every sentence in the
@@ -42,7 +42,7 @@ export class TextToLSJsonService {
     private lService: LegalCaseService,
     private predict: PredictionService,
     private http: HttpClient) {
-    EmitterService.registerCommand(this, "ImportCase", this.onImportCase);
+    EmitterService.registerCommand(this, 'ImportCase', this.onImportCase);
     EmitterService.processCommands(this);
   }
 
@@ -56,31 +56,31 @@ export class TextToLSJsonService {
 
   onImportCase(file: File) {
     this.currentFile = file;
-    Toast.info("importing...", this.currentFile.name);
+    Toast.info('importing...', this.currentFile.name);
     this.readAndParseFile(this.currentFile);
   }
 
 
   readAndParseFile(file: File) {
-    var reader = new FileReader();
+    const reader = new FileReader();
     reader.onerror = event => {
-      Toast.error("fail...", JSON.stringify(event.target));
+      Toast.error('fail...', JSON.stringify(event.target));
     };
     reader.onload = () => {
-      let data = reader.result as string;
-      let json = this.parseRawText(data, file.name);
+      const data = reader.result as string;
+      const json = this.parseRawText(data, file.name);
 
       this.lService.getDecisionRoot(undefined).subscribe(root => {
 
-        let model = this.lService.createLegalCase(json, root);
+        const model = this.lService.createLegalCase(json);
 
-        //create a less chatty prediction
+        // create a less chatty prediction
         model.sentences.filter( item => !item.isSection).forEach( item => {
           this.predict.predictSentenceDetails(item.text, false).subscribe( result => {
             item.capturePredictionData(result);
-            item.applyPredictionIfUnclassified(this.predict.defaultThreshold, this.lService.currentUsername)
-          })
-        })
+            item.applyPredictionIfUnclassified(this.predict.defaultThreshold, this.lService.currentUsername);
+          });
+        });
 
         setTimeout(() => {
           this.lService.getCurrentCase$().next(model);
@@ -90,49 +90,49 @@ export class TextToLSJsonService {
 
 
 
-      Toast.success("loaded!", file.name);
+      Toast.success('loaded!', file.name);
     };
 
-    let encoding = "UTF-8"
-    encoding = 'ISO-8859-4'//this is needed to pick up §§
+    let encoding = 'UTF-8';
+    encoding = 'ISO-8859-4'; // this is needed to pick up §§
     reader.readAsText(file, encoding);
   }
 
-  extractNumbers(text:string){
-    if ( !text ) return undefined;
+  extractNumbers(text: string) {
+    if ( !text ) { return undefined; }
 
     let result = '';
-    for(let ch of text){
-      if ( ch >= '0' && ch <= '9'){
+    for (const ch of text) {
+      if ( ch >= '0' && ch <= '9') {
         result += ch;
       }
     }
     return result;
   }
 
-  parseRawText(text: string, fileName?:string) {
-    let sentences = [];
-    let parse = new spParser();
-    let document = parse.readDocument(text);
-    let justNumbers = this.extractNumbers(fileName);
-    let caseNumber = document.caseNumber || justNumbers || '__NOCASE__';
+  parseRawText(text: string, fileName?: string) {
+    const sentences = [];
+    const parse = new spParser();
+    const document = parse.readDocument(text);
+    const justNumbers = this.extractNumbers(fileName);
+    const caseNumber = document.caseNumber || justNumbers || '__NOCASE__';
 
 
 
     let p = 0;
     let s = 0;
     document.sections.forEach(sect => {
-      let title = sect.title;
+      const title = sect.title;
 
       p++;
       s = 1;
-      let obj = {
+      const obj = {
         sentID: `${caseNumber}P${p}S${s}`,
         text: title.asString(),
-        rhetClass: "Sentence",
+        rhetClass: 'Sentence',
         isSection: true,
-      }
-      sentences.push(obj)
+      };
+      sentences.push(obj);
 
       sect.paragraphs.forEach( prag => {
 
@@ -140,23 +140,23 @@ export class TextToLSJsonService {
         s = 1;
         prag.sentences.forEach( sent => {
           s++;
-          let obj = {
+          const obj1 = {
             sentID: `${caseNumber}P${p}S${s}`,
             text: sent.asString(),
-            rhetClass: "Sentence",
+            rhetClass: 'Sentence',
             isSection: false,
-          }
-          sentences.push(obj)
-        })
-      })
-    })
+          };
+          sentences.push(obj1);
+        });
+      });
+    });
 
     return {
       fileName,
-      caseNumber: caseNumber,
-      sentences: sentences,
+      caseNumber,
+      sentences,
       text
-    }
+    };
 
   }
 
