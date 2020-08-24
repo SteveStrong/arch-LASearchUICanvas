@@ -88,9 +88,10 @@ export class LegalCaseService {
     return this.currentLegalCase;
   }
 
-  public AddToNotebook(item: LaSentence) {
+  public AddToNotebook(item: LaSentence): LaLegalCase {
     const noteBook = this.establishNoteBook();
     noteBook.addSentence(item);
+    return noteBook;
   }
 
   clearCountdown() {

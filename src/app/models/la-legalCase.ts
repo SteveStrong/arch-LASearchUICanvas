@@ -32,6 +32,10 @@ export class LaLegalCase extends LaAtom {
     return item;
   }
 
+  regroupContext() {
+    this.createParagraphs(this.sentences);
+  }
+
   findOrCreateParagraph(name: string) {
     let result = this.paragraphLookup[name];
     if (!result) {

@@ -70,10 +70,13 @@ export class SentenceComponent implements OnInit {
     Toast.warning('queryContext', context);
     this.qService.searchContext$(context).subscribe(list => {
       const result: Array<SearchResult> = list;
-
+      const noteBook = this.lcService.establishNoteBook();
       result.forEach(item => {
-        this.lcService.AddToNotebook(item.sentence);
-      })
+        if (item.sentence.sentID !== this.sentence.sentID) {
+          this.lcService.AddToNotebook(item.sentence);
+        }
+      });
+      noteBook.regroupContext();
     });
   }
 
