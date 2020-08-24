@@ -72,6 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onFileSave(e: any) {
     const name = this.currentFileName || 'notebook.json';
+    Toast.info('ready to save', name);
     EmitterService.broadcastCommand(this, 'FileSave', [name]);
   }
 
