@@ -56,6 +56,10 @@ export class ListViewComponent implements OnInit, OnChanges {
             {
                 headerName: 'Text', field: 'sentence.text', hide: false,
             },
+            // {
+            //     headerName: 'add', width: 10, field: 'isSelected',
+            //     checkboxSelection: true,
+            // },
             {
                 headerName: 'Class', width: 10, field: 'sentence.rhetLabel', cellStyle: { 'text-align': 'right' }, hide: false,
                 headerComponentParams: {

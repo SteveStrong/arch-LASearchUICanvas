@@ -88,9 +88,10 @@ export class LegalCaseService {
     return this.currentLegalCase;
   }
 
-  public AddToNotebook(item: LaSentence) {
+  public AddToNotebook(item: LaSentence): LaLegalCase {
     const noteBook = this.establishNoteBook();
     noteBook.addSentence(item);
+    return noteBook;
   }
 
   clearCountdown() {
@@ -344,7 +345,7 @@ export class LegalCaseService {
     const pattern = this.teamService.currentPattern;
     this.currentLegalCase.caseInfo = this.currentLegalCase.createCaseCoreInfo(data.caseInfo, pattern);
 
-    data.sentences.forEach(item => {
+    data.sentences?.forEach(item => {
       const laSent = new LaSentence(item);
       if (laSent.cleanAttributions()) {
         this.markAsDirty();
@@ -429,6 +430,7 @@ export class LegalCaseService {
     const blob = new Blob([model.data], { type: 'text/plain;charset=utf-8' });
 
     if ( !user ) {
+      Toast.success('saving...', fileName);
       saveAs(blob, fileName);
       this.markAsSaved();
       EmitterService.broadcastCommand(this, 'Saved', [fileName]);

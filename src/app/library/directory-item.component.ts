@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Toast, EmitterService } from "../shared/emitter.service";
+import { Toast, EmitterService } from '../shared/emitter.service';
 import { RouterOutlet, Router } from '@angular/router';
 
-import { LegalCaseService } from "../models/legal-case.service";
-import { LaCaseDirectoryItem } from "../models";
+import { LegalCaseService } from '../models/legal-case.service';
+import { LaCaseDirectoryItem } from '../models';
 
 @Component({
   selector: 'app-directory-item',
@@ -12,7 +12,7 @@ import { LaCaseDirectoryItem } from "../models";
 })
 export class DirectoryItemComponent implements OnInit {
   @Input() item: LaCaseDirectoryItem;
-  @Input() showWorkspace: boolean = false;
+  @Input() showWorkspace = false;
 
   constructor(
     private lcService: LegalCaseService, 
@@ -21,8 +21,8 @@ export class DirectoryItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  doLoadItem(obj:LaCaseDirectoryItem) {
+  doLoadItem(obj: LaCaseDirectoryItem) {
     this.lcService.onOpenCaseFromServer(obj);
-    this.router.navigate(['/reader'])
+    this.router.navigate(['/reader']);
   }
 }

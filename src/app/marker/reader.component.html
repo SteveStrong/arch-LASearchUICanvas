@@ -4,21 +4,11 @@
     READONLY: you must be registered and logged-in to edit this document
   </strong>
 </p>
-<div class="navbar navbar-expand-md navbar-light bg-light">
-  <div class="container">
-    <button (click)="applyFilter($event)" [id]="item.name" [class]="item.name" *ngFor="let item of sentenceStats"> {{item.readerLabel()}}&nbsp; &nbsp;</button>
-  </div>
-</div>
+
 
 <div class="container" *ngIf="legalCase">
   <app-case-title [caseInfo]="legalCase.caseInfo"></app-case-title>
-  
-  <app-sentence *ngFor="let item of getFilteredSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="false"> </app-sentence>
 
-  <div *ngIf="filter == 'All'">
-      <app-paragraph *ngFor="let item of getFilteredParagraphs()" [userCanEdit]="userCanEdit" [filter]="filter" [paragraph]="item"> </app-paragraph>
-  </div>
-  <div *ngIf="filter != 'All'">
-      <app-sentence *ngFor="let item of getFilteredSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="false"> </app-sentence>
-  </div>
+  <app-paragraph *ngFor="let item of getFilteredParagraphs()" [paragraph]="item"> </app-paragraph>
+
 </div>

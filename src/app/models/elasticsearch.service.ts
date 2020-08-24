@@ -58,7 +58,6 @@ export class ElasticSearchService {
       text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
     });
     text = `&nbsp; &nbsp; ${text}`;
-    console.log(text);
     return text;
   }
 
@@ -76,7 +75,6 @@ export class ElasticSearchService {
   
         results.map(item => {
           item.innerHTML = this.textMarkup(item.rawText, list);
-          console.log(item.innerHTML);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);
@@ -90,14 +88,40 @@ export class ElasticSearchService {
     );
   }
 
-  public searchFilter$(text: string): Observable<Array<SearchResult>> {
+  public searchContext$(context: string): Observable<Array<SearchResult>> {
+
+
+    const rest = '/lasearch/api/v1/context/';
+    const preEncode = `${this.API_URL}${rest}${context}`;
+    const url = encodeURI(preEncode);
+
+    return this.http.get<iPayloadWrapper>(url).pipe(
+      map(res => {
+        const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, []);
+        });
+
+        Toast.success(`${res.length} context loaded!`, rest);
+        return results;
+      }),
+      catchError(error => {
+        const msg = JSON.stringify(error, undefined, 3);
+        Toast.error(msg, url);
+        return of<any>();
+      })
+    );
+  }
+
+  public searchFilter$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
     const rest = '/lasearch/api/v1/filter';
     const url = `${this.API_URL}${rest}`;
     const data = {
-      filter: '',
+      filter: findingsOnly ? 'findingSentence' : '',
       rule: '',
       text
     };
@@ -107,7 +131,6 @@ export class ElasticSearchService {
 
         results.map(item => {
           item.innerHTML = this.textMarkup(item.rawText, list);
-          console.log(item.innerHTML);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);

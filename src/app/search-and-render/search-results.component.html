@@ -1,10 +1,10 @@
-<mat-tab-group mat-align-tabs="center" [selectedIndex]="activeTab">
-  <mat-tab label="List View">
+<mat-tab-group mat-align-tabs="left" [selectedIndex]="activeTab">
+  <mat-tab label="{{listViewLabel}}">
     <div class="search-results">
       <app-list-view [searchResults]="searchResults"></app-list-view>
     </div>
   </mat-tab>
-  <mat-tab label="Card View">
+  <mat-tab label="{{cardViewLabel}}">
     <div class="search-results">
       <app-card-set [searchResults]="searchResults"></app-card-set>
     </div>

@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { LaParagraph } from '../models';
-import { EmitterService } from '../shared/emitter.service';
+import { LaParagraph, SearchResult } from '../models';
+import { EmitterService, Toast } from '../shared/emitter.service';
+
+import { ElasticSearchService } from '../models/elasticsearch.service';
+import { LegalCaseService } from '../models/legal-case.service';
 
 
 @Component({
@@ -10,12 +13,33 @@ import { EmitterService } from '../shared/emitter.service';
 })
 export class ParagraphComponent implements OnInit {
   selected = false;
-  @Input() userCanEdit = true;
 
   @Input() paragraph: LaParagraph;
-  @Input() filter = '';
 
-  constructor() { }
+  constructor(
+    private lcService: LegalCaseService,
+    private qService: ElasticSearchService
+  ) { }
+
+  public get context() {
+    if (this.paragraph) {
+      return this.paragraph.context;
+    }
+    return '';
+  }
+
+  public queryContext() {
+    const context = this.context;
+    Toast.info('Collecting Context', context);
+    this.qService.searchContext$(context).subscribe(list => {
+      const result: Array<SearchResult> = list;
+      const noteBook = this.lcService.establishNoteBook();
+      result.forEach(item => {
+          this.lcService.AddToNotebook(item.sentence);
+      });
+      noteBook.regroupContext();
+    });
+  }
 
   ngOnInit() {
     EmitterService.registerCommand(this, 'CloseAll', this.doClose);

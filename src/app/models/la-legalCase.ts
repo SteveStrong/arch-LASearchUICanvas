@@ -28,8 +28,15 @@ export class LaLegalCase extends LaAtom {
   }
 
   addSentence(item: LaSentence): LaSentence {
-    this.sentences.push(item);
+    const found = this.sentences.find(obj => obj.sentID === item.sentID);
+    if (!found) {
+      this.sentences.push(item);
+    }
     return item;
+  }
+
+  regroupContext() {
+    this.createParagraphs(this.sentences);
   }
 
   findOrCreateParagraph(name: string) {
@@ -75,7 +82,7 @@ export class LaLegalCase extends LaAtom {
     const key = previous.sentID;
     const id = previous.id + 1;
     const target = `${previous.caseNumber}P${previous.paragraphNumber}S${id}`;
-    const next = this.sentences.find(item => item.sentID == target);
+    const next = this.sentences.find(item => item.sentID === target);
     return next;
   }
 
