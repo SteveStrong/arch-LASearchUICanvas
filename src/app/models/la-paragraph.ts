@@ -125,7 +125,7 @@ export class LaParagraph extends LaAtom {
   }
 
   sentenceHistogram(): { [key: string]: number; } {
-    if ( this.histogram != undefined) {
+    if ( this.histogram !== undefined) {
       return this.histogram;
     }
     this.histogram = {};
@@ -162,7 +162,7 @@ export class LaParagraph extends LaAtom {
     return this.sentences[this.sentences.length - 1];
   }
 
-  isSection(): Boolean {
+  isSection(): boolean {
     if (this.hasSentences()) {
       return this.firstSentence().isSection;
     }
@@ -176,7 +176,10 @@ export class LaParagraph extends LaAtom {
   addSentence(obj: LaSentence) {
     const num = obj.sentenceNumber;
     this.lookup[num] = obj;
-    this.sentences.push(obj);
+    const found = this.sentences.find(sent => sent.sentID === obj.sentID);
+    if (!found) {
+      this.sentences.push(obj);
+    }
     this.histogram = undefined;
     return obj;
   }
