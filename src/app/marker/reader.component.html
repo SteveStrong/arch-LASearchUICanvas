@@ -9,6 +9,6 @@
 <div class="container" *ngIf="legalCase">
   <app-case-title [caseInfo]="legalCase.caseInfo"></app-case-title>
 
-  <app-paragraph *ngFor="let item of getFilteredParagraphs()" [userCanEdit]="userCanEdit" [filter]="filter" [paragraph]="item"> </app-paragraph>
+  <app-paragraph *ngFor="let item of getFilteredParagraphs()" [paragraph]="item"> </app-paragraph>
 
 </div>

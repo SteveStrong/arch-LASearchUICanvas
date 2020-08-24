@@ -13,34 +13,29 @@ import { LegalCaseService } from '../models/legal-case.service';
 })
 export class ParagraphComponent implements OnInit {
   selected = false;
-  @Input() userCanEdit = true;
 
   @Input() paragraph: LaParagraph;
-  @Input() filter = '';
 
   constructor(
     private lcService: LegalCaseService,
     private qService: ElasticSearchService
   ) { }
 
-  get context()
-  {
+  public get context() {
     if (this.paragraph) {
       return this.paragraph.context;
     }
     return '';
   }
 
-  queryContext() {
+  public queryContext() {
     const context = this.context;
     Toast.info('Collecting Context', context);
     this.qService.searchContext$(context).subscribe(list => {
       const result: Array<SearchResult> = list;
       const noteBook = this.lcService.establishNoteBook();
       result.forEach(item => {
-        if (item.sentence.sentID !== this.sentence.sentID) {
           this.lcService.AddToNotebook(item.sentence);
-        }
       });
       noteBook.regroupContext();
     });

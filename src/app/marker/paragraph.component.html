@@ -1,5 +1,5 @@
 <p>
     <button (click)="queryContext()" class="badge badge-pill" style="background-color: rgb(231, 230, 210);" >Context: {{context}}</button>
     <br/>
-    <app-sentence *ngFor="let item of getFilteredSentences()" [userCanEdit]="userCanEdit" [filter]="filter" [sentence]="item" [renderSpans]="true"> </app-sentence>
+    <app-sentence *ngFor="let item of getFilteredSentences()"  [sentence]="item" > </app-sentence>
 </p>

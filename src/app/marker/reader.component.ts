@@ -11,42 +11,19 @@ import { LaStats, LaLegalCase } from '../models';
   styleUrls: ['./reader.component.scss']
 })
 export class ReaderComponent implements OnInit, OnDestroy {
-  @Input() userCanEdit = false;
   @Input() legalCase: LaLegalCase;
-
 
   // do not show attribute count in read only mode
 
   sub: any;
-  sentenceStats: Array<LaStats> = new Array<LaStats>();
-  filter = 'All';
 
   constructor(private service: LegalCaseService) { }
 
-
-  applyFilter(e: Event) {
-    const target: any = e.target;
-    this.filter = target.id;
-  }
-
-
-  getFilteredSentences() {
-    const filter = this.filter;
-
-    if ( filter === 'All' ) {
-      return this.legalCase.sentences;
-    }
-
-    return this.service.getFilteredList(filter);
-  }
 
   getFilteredParagraphs() {
     return this.legalCase.paragraphs;
   }
 
-  isSentenceFilter() {
-    return this.filter === 'Sentence';
-  }
 
   ngOnInit() {
     this.sub = this.service.getCurrentCase$().subscribe(model => {
@@ -59,7 +36,6 @@ export class ReaderComponent implements OnInit, OnDestroy {
   }
 
   onRefreshDisplay() {
-    this.sentenceStats = this.service.computeStats();
   }
 
   ngOnDestroy() {

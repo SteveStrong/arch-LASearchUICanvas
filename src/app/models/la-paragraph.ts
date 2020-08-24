@@ -33,6 +33,7 @@ export class LaParagraph extends LaAtom {
     return this.sentences;
   }
 
+
   get context() {
     if (this.sentences?.length > 0) {
       return this.sentences[0].context;
