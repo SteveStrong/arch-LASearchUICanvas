@@ -23,7 +23,7 @@ export class CardViewComponent implements OnInit {
 
   addToNotebook() {
     const sentence = this.item.sentence;
-    this.cService.AddToNotebook(sentence);
+    this.cService.AddToNotebook(sentence).regroupContext();
     this.item.isSelected = true;
   }
 

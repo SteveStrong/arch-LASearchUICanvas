@@ -4,29 +4,7 @@
 </svg>
 
 
-<button (click)="queryContext()" class="badge badge-pill" style="background-color: rgb(231, 230, 210);" >Context: {{sentence.context}}</button>
-<span>: {{sentence.sentenceNumber}}</span>
-
-<div *ngIf="!renderSpans">
-  <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
-  <app-section-badge  [sentence]="sentence"></app-section-badge>
-  <!-- <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge> -->
-</div>
-
-  <br />
-  <br />
-<!-- <span *ngIf="!sentence.isSection">
-  <app-prediction *ngIf="!renderSpans" [userCanEdit] = "userCanEdit" [sentence]="sentence"></app-prediction>
-</span > -->
-
-<ng-container *ngIf="renderSpans">
-  <span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
-  <app-section-badge [sentence]="sentence"></app-section-badge>
-  <!-- <app-decision-badge *ngIf="userCanEdit" [sentence]="sentence"></app-decision-badge> -->
-</ng-container>
 
 
-<!-- <ng-container  *ngIf="isSelected() && userCanEdit" >
-  <app-selection *ngIf="isSentenceOrAllFilter()" [sentence]="sentence"></app-selection>
-  <app-attributeEditor *ngIf="isNotSentenceOrAllFilter()" [sentence]="sentence"></app-attributeEditor>
-</ng-container > -->
+<span (click)="doOpen()" [class]="sentence.getRhetClass()" [innerHTML]="sentence.textMarkup()"></span>
+

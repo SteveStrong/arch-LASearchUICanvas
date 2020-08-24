@@ -67,7 +67,7 @@ export class SentenceComponent implements OnInit {
 
   queryContext() {
     const context = this.sentence.context;
-    Toast.warning('queryContext', context);
+    Toast.info('Collecting Context', context);
     this.qService.searchContext$(context).subscribe(list => {
       const result: Array<SearchResult> = list;
       const noteBook = this.lcService.establishNoteBook();
