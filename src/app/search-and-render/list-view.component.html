@@ -5,6 +5,7 @@
     style="width: 100%; height: 800px;"
     [rowData]="searchResults"
     [columnDefs]="columnDefs"
+    [getRowHeight]="getRowHeight"
     [rowSelection]="rowSelection"
     [defaultColDef]="defaultColumnDefs"
     (gridReady)="onGridReady($event)"
