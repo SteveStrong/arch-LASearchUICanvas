@@ -16,8 +16,13 @@ export class ListViewComponent implements OnInit, OnChanges {
 
 
     private gridApi: GridApi;
-    gridOptions: GridOptions = {};
+
+    gridOptions: GridOptions = {
+
+    };
     rowSelection = 'single';
+
+
 
     defaultColumnDefs = {
         sortable: true,
@@ -39,6 +44,15 @@ export class ListViewComponent implements OnInit, OnChanges {
         });
     }
 
+    getRowHeight(params) {
+        const factor = Math.floor(params.data.sentence.text.length / 100);
+        return factor * 40;
+        // return (
+        //     1.2 * params.api.getSizesForCurrentTheme().rowHeight *
+        //     Math.floor(params.data.sentence.text.length / 100)
+        // );
+    }
+
     ngOnChanges(changes: SimpleChanges) {
         // tslint:disable-next-line: forin
         // for (const propName in changes) {
@@ -55,13 +69,10 @@ export class ListViewComponent implements OnInit, OnChanges {
         return [
             {
                 headerName: 'Text', field: 'sentence.text', hide: false,
+                cellStyle: { 'white-space': 'normal' },
             },
-            // {
-            //     headerName: 'add', width: 10, field: 'isSelected',
-            //     checkboxSelection: true,
-            // },
             {
-                headerName: 'Class', width: 10, field: 'sentence.rhetLabel', cellStyle: { 'text-align': 'right' }, hide: false,
+                headerName: 'Sentence Type', width: 10, field: 'sentence.rhetLabel', cellStyle: { 'text-align': 'right' }, hide: false,
                 headerComponentParams: {
                     template:
                         '<div class="ag-cell-label-container" role="presentation">' +
@@ -69,17 +80,9 @@ export class ListViewComponent implements OnInit, OnChanges {
                         '</div>'
                 }
             },
+
             {
-                headerName: 'Sentence Id', width: 30, field: 'sentence.sentID', cellStyle: { 'text-align': 'right' }, hide: false,
-                headerComponentParams: {
-                    template:
-                        '<div class="ag-cell-label-container" role="presentation">' +
-                        '<span ref="eText" class="ag-header-cell-text" role="columnheader"></span>' +
-                        '</div>'
-                }
-            },
-            {
-                headerName: 'Score', width: 10, field: 'formatedScore',
+                headerName: 'Search Score', width: 10, field: 'formatedScore',
                 cellStyle: { 'text-align': 'right' },  hide: false,
                 headerComponentParams: {
                     template:
@@ -90,7 +93,7 @@ export class ListViewComponent implements OnInit, OnChanges {
 
             },
             {
-                headerName: '', width: 30, field: 'sentence.caseNumber', cellStyle: { 'text-align': 'center' }, hide: false,
+                headerName: 'Decision No.', width: 30, field: 'sentence.caseNumber', cellStyle: { 'text-align': 'right' }, hide: false,
                 headerComponentParams: {
                     template:
                         '<div class="ag-cell-label-container" role="presentation">' +
