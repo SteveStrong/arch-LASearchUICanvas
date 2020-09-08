@@ -55,7 +55,8 @@ export class ElasticSearchService {
   private textMarkup(rawText: string, listOfWords: Array<string>): string {
     let text = rawText;
     listOfWords.forEach(word => {
-      text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
+      // text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
+      text = this.replaceBold(text, word);
     });
     text = `&nbsp; &nbsp; ${text}`;
     return text;
