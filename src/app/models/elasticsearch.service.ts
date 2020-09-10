@@ -145,23 +145,21 @@ export class ElasticSearchService {
     );
   }
 
-  public advancedQuery$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
-    const list = text.split(' ').filter(item => item.length > 0);
-    this.searchTextList = list;
+  public advancedQuery$(data: any): Observable<Array<SearchResult>> {
+    const includeany = data.includeAny.split(' ').filter(item => item.length > 0);
+    const includeall = data.includeAll.split(' ').filter(item => item.length > 0);
+    const exactPhrase = data.exactPhrase.split(' ').filter(item => item.length > 0);
+    this.searchTextList = [...includeany, ...includeall, ...exactPhrase];
 
     const rest = '/lasearch/api/v1/query';
     const url = `${this.API_URL}${rest}`;
-    const data = {
-      rhetclass: findingsOnly ? 'findingSentence' : '',
-      queryrule: '',
-      text
-    };
+
     return this.http.post<iPayloadWrapper>(url, data).pipe(
       map(res => {
         const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
 
         results.map(item => {
-          item.innerHTML = this.textMarkup(item.rawText, list);
+          item.innerHTML = this.textMarkup(item.rawText, this.searchTextList);
         });
 
         Toast.success(`${res.length} items loaded!`, rest);
