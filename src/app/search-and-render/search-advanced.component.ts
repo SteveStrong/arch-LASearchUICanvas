@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmitterService, Toast } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TOPIC_TextSearch, TOPIC_FilterSearch } from '../models';
+import { TOPIC_AdvancedQuery } from '../models';
 
 
 @Component({
@@ -16,10 +16,18 @@ export class SearchAdvancedComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
+
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({
-      textSearch: [''],
-      onlyFindings: [false]
+      includeany: [''],
+      includeall: [''],
+      exactphrase: [''],
+      excludeany: [''],
+      findingSentence: [false],
+      evidenceSentence: [false],
+      legalRuleSentence: [false],
+      reasoningSentence: [false],
+      citationSentence: [false]
     });
 
     EmitterService.processCommands(this);
@@ -36,17 +44,14 @@ export class SearchAdvancedComponent implements OnInit {
     const onlyFindings = this.f.onlyFindings.value;
 
     // stop here if form is invalid
-    if (this.searchForm.invalid) {
-      return;
-    } else if (text !== '') {
-      if (onlyFindings === true) {
-        Toast.info(`searching for ${text}`, 'Findings Only');
-        EmitterService.broadcastCommand(this, TOPIC_FilterSearch, [text]);
-      } else {
-        Toast.info(`searching for ${text}`);
-        EmitterService.broadcastCommand(this, TOPIC_TextSearch, [text]);
-      }
+    if (!this.searchForm.invalid) {
 
+      query = {
+
+      }
+      
+      Toast.info(`advanced searching for ${text}`);
+      EmitterService.broadcastCommand(this, TOPIC_AdvancedQuery, [query]);
     }
   }
 }

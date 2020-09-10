@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmitterService, Toast } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TOPIC_TextSearch, TOPIC_FilterSearch } from '../models';
+import { TOPIC_TextSearch, TOPIC_FindingsOnlySearch } from '../models';
 
 
 
@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
         } else if (text !== '') {
             if (onlyFindings === true) {
                 Toast.info(`searching for ${text}`,  'Findings Only');
-                EmitterService.broadcastCommand(this, TOPIC_FilterSearch, [text]);
+                EmitterService.broadcastCommand(this, TOPIC_FindingsOnlySearch, [text]);
             } else {
                 Toast.info(`searching for ${text}`);
                 EmitterService.broadcastCommand(this, TOPIC_TextSearch, [text]);

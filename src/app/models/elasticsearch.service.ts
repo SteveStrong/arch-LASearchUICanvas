@@ -115,7 +115,7 @@ export class ElasticSearchService {
     );
   }
 
-  public searchFilter$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
+  public simpleSearch$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
@@ -145,4 +145,33 @@ export class ElasticSearchService {
     );
   }
 
+  public advancedQuery$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
+    const list = text.split(' ').filter(item => item.length > 0);
+    this.searchTextList = list;
+
+    const rest = '/lasearch/api/v1/query';
+    const url = `${this.API_URL}${rest}`;
+    const data = {
+      rhetclass: findingsOnly ? 'findingSentence' : '',
+      queryrule: '',
+      text
+    };
+    return this.http.post<iPayloadWrapper>(url, data).pipe(
+      map(res => {
+        const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, list);
+        });
+
+        Toast.success(`${res.length} items loaded!`, rest);
+        return results;
+      }),
+      catchError(error => {
+        const msg = JSON.stringify(error, undefined, 3);
+        Toast.error(msg, url);
+        return of<any>();
+      })
+    );
+  }
 }

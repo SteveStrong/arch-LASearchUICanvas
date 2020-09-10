@@ -12,5 +12,5 @@ export * from './la-caseDirectoryItem';
 export * from './search-result';
 
 export const TOPIC_TextSearch = 'TextSearch';
-export const TOPIC_FilterSearch = 'FilterSearch';
-
+export const TOPIC_FindingsOnlySearch = 'FindingsOnlySearch';
+export const TOPIC_AdvancedQuery = 'AdvancedQuery';
