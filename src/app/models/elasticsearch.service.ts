@@ -146,10 +146,10 @@ export class ElasticSearchService {
   }
 
   public advancedQuery$(data: any): Observable<Array<SearchResult>> {
-    const includeany = data.includeAny.split(' ').filter(item => item.length > 0);
-    const includeall = data.includeAll.split(' ').filter(item => item.length > 0);
-    const exactPhrase = data.exactPhrase.split(' ').filter(item => item.length > 0);
-    this.searchTextList = [...includeany, ...includeall, ...exactPhrase];
+    // const includeany = data.includeAny.split(' ').filter(item => item.length > 0);
+    // const includeall = data.includeAll.split(' ').filter(item => item.length > 0);
+    // const exactPhrase = data.exactPhrase.split(' ').filter(item => item.length > 0);
+    this.searchTextList = [] //[...includeany, ...includeall, ...exactPhrase];
 
     const rest = '/lasearch/api/v1/query';
     const url = `${this.API_URL}${rest}`;
