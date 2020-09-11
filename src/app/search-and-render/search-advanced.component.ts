@@ -22,7 +22,7 @@ export class SearchAdvancedComponent implements OnInit {
       includeany: [''],
       includeall: [''],
       exactphrase: [''],
-      excludeall: [''],
+      excludeany: [''],
       findingSentence: [false],
       evidenceSentence: [false],
       legalRuleSentence: [false],
@@ -43,7 +43,7 @@ export class SearchAdvancedComponent implements OnInit {
     const includeall = this.f.includeall.value;
     const includeany = this.f.includeany.value;
     const exactphrase = this.f.exactphrase.value;
-    const excludeall = this.f.excludeall.value;
+    const excludeany = this.f.excludeany.value;
     const findingSentence = this.f.findingSentence.value;
     const evidenceSentence = this.f.evidenceSentence.value;
     const legalRuleSentence = this.f.legalRuleSentence.value;
@@ -74,9 +74,9 @@ export class SearchAdvancedComponent implements OnInit {
         includeall,
         includeany,
         exactphrase,
-        excludeall,
+        excludeany,
       };
-      
+
       Toast.info(`advanced search`);
       EmitterService.broadcastCommand(this, TOPIC_AdvancedQuery, [query]);
     }
