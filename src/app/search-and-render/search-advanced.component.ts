@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmitterService, Toast } from '../shared';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TOPIC_AdvancedQuery } from '../models';
+import { TOPIC_AdvancedQuery, iQuery } from '../models';
 
 
 @Component({
@@ -69,7 +69,8 @@ export class SearchAdvancedComponent implements OnInit {
       if (citationSentence) {
         rhetRule.push('CitationSentence');
       }
-      const query = {
+      
+      const query: iQuery = {
         rhetRule,
         includeall,
         includeany,

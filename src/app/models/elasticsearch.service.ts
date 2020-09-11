@@ -4,7 +4,8 @@ import { Constructable, FuncAny, foModelBase } from '../shared';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthenticationService } from '../login/authentication.service';
-import { SearchResult } from './search-result';
+import { SearchResult, iQuery } from '../models';
+
 
 import { environment } from '../../environments/environment';
 
@@ -145,11 +146,11 @@ export class ElasticSearchService {
     );
   }
 
-  public advancedQuery$(data: any): Observable<Array<SearchResult>> {
-    // const includeany = data.includeAny.split(' ').filter(item => item.length > 0);
-    // const includeall = data.includeAll.split(' ').filter(item => item.length > 0);
-    // const exactPhrase = data.exactPhrase.split(' ').filter(item => item.length > 0);
-    this.searchTextList = [] //[...includeany, ...includeall, ...exactPhrase];
+  public advancedQuery$(data: iQuery): Observable<Array<SearchResult>> {
+    const includeany = data.includeany?.split(' ').filter(item => item.length > 0);
+    const includeall = data.includeall?.split(' ').filter(item => item.length > 0);
+    const exactphrase = data.exactphrase?.split(' ').filter(item => item.length > 0);
+    this.searchTextList = [...includeany, ...includeall, ...exactphrase];
 
     const rest = '/lasearch/api/v1/query';
     const url = `${this.API_URL}${rest}`;

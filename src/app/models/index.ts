@@ -14,3 +14,11 @@ export * from './search-result';
 export const TOPIC_TextSearch = 'TextSearch';
 export const TOPIC_FindingsOnlySearch = 'FindingsOnlySearch';
 export const TOPIC_AdvancedQuery = 'AdvancedQuery';
+
+export interface iQuery {
+    rhetRule: string[];
+    includeall: string;
+    includeany: string;
+    exactphrase: string;
+    excludeany: string;
+}

@@ -3,7 +3,7 @@ import { MatStepper } from '@angular/material/stepper';
 
 // import { QueryResultService } from './query-result.service';
 import { ElasticSearchService } from '../models/elasticsearch.service';
-import { SearchResult, TOPIC_TextSearch, TOPIC_FindingsOnlySearch, TOPIC_AdvancedQuery } from '../models';
+import { SearchResult, TOPIC_TextSearch, TOPIC_FindingsOnlySearch, TOPIC_AdvancedQuery, iQuery } from '../models';
 import { Toast, EmitterService } from '../shared';
 
 @Component({
@@ -38,7 +38,7 @@ export class SearchAndRenderComponent implements OnInit {
     EmitterService.registerCommand(this, TOPIC_AdvancedQuery, (data) => {
       this.stepper.selectedIndex = 0;
 
-      const query = data[0];
+      const query: iQuery = data[0] as iQuery;
       this.doAdvancedSearch(query);
     });
     
@@ -67,7 +67,7 @@ export class SearchAndRenderComponent implements OnInit {
     });
   }
 
-  doAdvancedSearch(query: any) {
+  doAdvancedSearch(query: iQuery) {
     this.qService.advancedQuery$(query).subscribe(data => {
       Toast.success('advanced searching for', JSON.stringify(query, undefined, 3));
       this.searchResults = data;
