@@ -12,5 +12,13 @@ export * from './la-caseDirectoryItem';
 export * from './search-result';
 
 export const TOPIC_TextSearch = 'TextSearch';
-export const TOPIC_FilterSearch = 'FilterSearch';
+export const TOPIC_FindingsOnlySearch = 'FindingsOnlySearch';
+export const TOPIC_AdvancedQuery = 'AdvancedQuery';
 
+export interface iQuery {
+    rhetclass: string;
+    includeall: string;
+    includeany: string;
+    exactphrase: string;
+    excludeany: string;
+}

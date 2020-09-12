@@ -4,7 +4,8 @@ import { Constructable, FuncAny, foModelBase } from '../shared';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthenticationService } from '../login/authentication.service';
-import { SearchResult } from './search-result';
+import { SearchResult, iQuery } from '../models';
+
 
 import { environment } from '../../environments/environment';
 
@@ -55,7 +56,8 @@ export class ElasticSearchService {
   private textMarkup(rawText: string, listOfWords: Array<string>): string {
     let text = rawText;
     listOfWords.forEach(word => {
-      text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
+      // text = this.replaceBold(text.toLowerCase(), word.toLowerCase());
+      text = this.replaceBold(text, word);
     });
     text = `&nbsp; &nbsp; ${text}`;
     return text;
@@ -114,15 +116,15 @@ export class ElasticSearchService {
     );
   }
 
-  public searchFilter$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
+  public simpleSearch$(text: string, findingsOnly: boolean): Observable<Array<SearchResult>> {
     const list = text.split(' ').filter(item => item.length > 0);
     this.searchTextList = list;
 
-    const rest = '/lasearch/api/v1/filter';
+    const rest = '/lasearch/api/v1/search';
     const url = `${this.API_URL}${rest}`;
     const data = {
-      filter: findingsOnly ? 'findingSentence' : '',
-      rule: '',
+      rhetclass: findingsOnly ? 'findingSentence' : '',
+      queryrule: '',
       text
     };
     return this.http.post<iPayloadWrapper>(url, data).pipe(
@@ -144,4 +146,31 @@ export class ElasticSearchService {
     );
   }
 
+  public advancedQuery$(data: iQuery): Observable<Array<SearchResult>> {
+    const includeany = data.includeany?.split(' ').filter(item => item.length > 0);
+    const includeall = data.includeall?.split(' ').filter(item => item.length > 0);
+    const exactphrase = data.exactphrase?.split(' ').filter(item => item.length > 0);
+    this.searchTextList = [...includeany, ...includeall, ...exactphrase];
+
+    const rest = '/lasearch/api/v1/query';
+    const url = `${this.API_URL}${rest}`;
+
+    return this.http.post<iPayloadWrapper>(url, data).pipe(
+      map(res => {
+        const results = this.mapToModel<SearchResult>(SearchResult, res.payload);
+
+        results.map(item => {
+          item.innerHTML = this.textMarkup(item.rawText, this.searchTextList);
+        });
+
+        Toast.success(`${res.length} items loaded!`, rest);
+        return results;
+      }),
+      catchError(error => {
+        const msg = JSON.stringify(error, undefined, 3);
+        Toast.error(msg, url);
+        return of<any>();
+      })
+    );
+  }
 }
