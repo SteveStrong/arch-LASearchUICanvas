@@ -71,7 +71,7 @@ export class SearchAdvancedComponent implements OnInit {
       }
       
       const query: iQuery = {
-        rhetRule,
+        rhetclass: rhetRule.join(' '),
         includeall,
         includeany,
         exactphrase,

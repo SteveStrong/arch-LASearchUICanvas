@@ -16,7 +16,7 @@ export const TOPIC_FindingsOnlySearch = 'FindingsOnlySearch';
 export const TOPIC_AdvancedQuery = 'AdvancedQuery';
 
 export interface iQuery {
-    rhetRule: string[];
+    rhetclass: string;
     includeall: string;
     includeany: string;
     exactphrase: string;
