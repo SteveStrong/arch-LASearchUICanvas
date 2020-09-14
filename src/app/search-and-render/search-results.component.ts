@@ -33,6 +33,15 @@ export class SearchResultsComponent implements OnInit {
         }
     }
 
+    get documentViewLabel() {
+        const total = this.searchResults ? this.searchResults.length : 0;
+        if (total > 0) {
+            return `Document View (${total})`;
+        } else {
+            return 'Document View';
+        }
+    }
+
     constructor() {}
 
     ngOnInit(): void {

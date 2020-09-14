@@ -3,7 +3,7 @@ import { MatStepper } from '@angular/material/stepper';
 
 // import { QueryResultService } from './query-result.service';
 import { ElasticSearchService } from '../models/elasticsearch.service';
-import { SearchResult, TOPIC_TextSearch, TOPIC_FilterSearch } from '../models';
+import { SearchResult, TOPIC_TextSearch, TOPIC_FindingsOnlySearch, TOPIC_AdvancedQuery, iQuery } from '../models';
 import { Toast, EmitterService } from '../shared';
 
 @Component({
@@ -28,11 +28,18 @@ export class SearchAndRenderComponent implements OnInit {
       this.doFilterSearch(text, false);
     });
 
-    EmitterService.registerCommand(this, TOPIC_FilterSearch, (data) => {
+    EmitterService.registerCommand(this, TOPIC_FindingsOnlySearch, (data) => {
       this.stepper.selectedIndex = 0;
 
       const text = data[0];
       this.doFilterSearch(text, true);
+    });
+
+    EmitterService.registerCommand(this, TOPIC_AdvancedQuery, (data) => {
+      this.stepper.selectedIndex = 0;
+
+      const query: iQuery = data[0] as iQuery;
+      this.doAdvancedSearch(query);
     });
     
     EmitterService.processCommands(this);
@@ -54,8 +61,15 @@ export class SearchAndRenderComponent implements OnInit {
   }
 
   doFilterSearch(text: string, findingsOnly: boolean) {
-    this.qService.searchFilter$(text, findingsOnly).subscribe(data => {
+    this.qService.simpleSearch$(text, findingsOnly).subscribe(data => {
       Toast.success('captured searching for', text);
+      this.searchResults = data;
+    });
+  }
+
+  doAdvancedSearch(query: iQuery) {
+    this.qService.advancedQuery$(query).subscribe(data => {
+      Toast.success('advanced searching for', JSON.stringify(query, undefined, 3));
       this.searchResults = data;
     });
   }

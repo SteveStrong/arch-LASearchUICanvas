@@ -66,6 +66,9 @@ import { JoinerComponent } from './marker/joiner.component';
 import { ReaderComponent } from './marker/reader.component';
 import { CaseTitleComponent } from './marker/case-title.component';
 import { SectionBadgeComponent } from './marker/section-badge.component';
+import { SearchAdvancedComponent } from './search-and-render/search-advanced.component';
+import { DocumentViewComponent } from './search-and-render/document-view.component';
+import { DocumentSetComponent } from './search-and-render/document-set.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,10 @@ import { SectionBadgeComponent } from './marker/section-badge.component';
     CardViewComponent,
     CardSetComponent,
     NotebookComponent,
-    ThumbSetComponent
+    ThumbSetComponent,
+    SearchAdvancedComponent,
+    DocumentViewComponent,
+    DocumentSetComponent
   ],
   imports: [
     // FontAwesomeModule,

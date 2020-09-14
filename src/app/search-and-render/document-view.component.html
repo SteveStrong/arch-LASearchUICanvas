@@ -1,0 +1,17 @@
+
+<mat-card class="search-card" >
+  <mat-card-header>
+
+    <mat-card-title>{{item.IDLabel}}</mat-card-title>
+    <mat-card-subtitle>{{item.sentence.sectionType}}: {{item.sentence.rhetClass}}</mat-card-subtitle>
+    <mat-card-subtitle>{{item.CaseAndScore}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+        <pre>{{item | json}}</pre>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="addToNotebook()" mat-button>Add to Notebook</button>
+
+  </mat-card-actions>
+</mat-card>

@@ -1,16 +1,25 @@
-<app-search></app-search>
+
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Search">
+    <app-search></app-search>
+  </mat-tab>
+  <mat-tab label="Advanced Search">
+    <app-search-advanced></app-search-advanced>
+  </mat-tab>
+</mat-tab-group>
 
 
 <mat-horizontal-stepper #stepper >
   <mat-step>
-    <ng-template matStepLabel><h3>Search for relevent arguments</h3></ng-template>
+    <ng-template matStepLabel><h3>Search Results</h3></ng-template>
     <app-search-results [searchResults]="unselectedSearchResults()"></app-search-results>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel><h3>Capture details in a notebook</h3></ng-template>
+    <ng-template matStepLabel><h3>Capture Details in a Notebook</h3></ng-template>
     <app-notebook></app-notebook>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel><h3>Publish and share research</h3></ng-template>
+    <ng-template matStepLabel><h3>Share Notebook</h3></ng-template>
   </mat-step>
 </mat-horizontal-stepper>
