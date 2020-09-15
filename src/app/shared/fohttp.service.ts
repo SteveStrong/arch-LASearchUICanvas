@@ -5,7 +5,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Subject, Observable, of } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 
-import { foModelBase, iPayloadWrapper } from '.';
+import { foModelBase } from './foModelBase';
+
+import { iPayloadWrapper } from './iPayloadWrapper';
 import { environment } from '../../environments/environment';
 import { Constructable, FuncAny } from '.';
 import { ServiceLocator, ServiceOptions } from './foServiceLocator';
