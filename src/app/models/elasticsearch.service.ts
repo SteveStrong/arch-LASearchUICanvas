@@ -124,7 +124,7 @@ export class ElasticSearchService {
     const url = `${this.API_URL}${rest}`;
     const data = {
       rhetclass: findingsOnly ? 'findingSentence' : '',
-      queryrule: '',
+      queryrule: 'or',
       text
     };
     return this.http.post<iPayloadWrapper>(url, data).pipe(
